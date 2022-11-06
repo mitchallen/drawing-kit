@@ -29,6 +29,12 @@ module.exports.create = function( spec = {} ) {
         turn: function(a) {
             angle += a;
             return this;
+        },
+        left: function(a) {
+            return this.turn(-a)
+        },
+        right: function(a) {
+            return this.turn(a)
         }
     };
 }

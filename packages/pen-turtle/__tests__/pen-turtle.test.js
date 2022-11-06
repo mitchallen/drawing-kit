@@ -41,25 +41,73 @@ describe('pen-turtle', function () {
       assert.equal(angle, TEST_DEFAULT_ANGLE, 'default getAngle method return not what expected');
       done();
     });
-    it('should have turn method', function (done) {
-      let TEST_ANGLE = 30;
-      let pen = factory.create();
-      pen.turn(TEST_ANGLE)
-      let angle = pen.getAngle();
-      assert.equal(angle, TEST_ANGLE, 'turn angle not what expected');
-      done();
+    context('turn method', function () {
+      it('should have turn method', function (done) {
+        let TEST_ANGLE = 30;
+        let pen = factory.create();
+        pen.turn(TEST_ANGLE)
+        let angle = pen.getAngle();
+        assert.equal(angle, TEST_ANGLE, 'turn angle not what expected');
+        done();
+      });
+      it('turn method should increment angle', function (done) {
+        let TEST_ANGLE_1 = 30;
+        let TEST_ANGLE_2 = 15;
+        let pen = factory.create();
+        pen
+          .turn(TEST_ANGLE_1)
+          .turn(TEST_ANGLE_2);
+        let angle = pen.getAngle();
+        let total = TEST_ANGLE_1 + TEST_ANGLE_2;
+        assert.equal(angle, total, 'turn angle not what expected');
+        done();
+      });
     });
-    it('turn method should increment angle', function (done) {
-      let TEST_ANGLE_1 = 30;
-      let TEST_ANGLE_2 = 15;
-      let pen = factory.create();
-      pen
-        .turn(TEST_ANGLE_1)
-        .turn(TEST_ANGLE_2);
-      let angle = pen.getAngle();
-      let total = TEST_ANGLE_1 + TEST_ANGLE_2;
-      assert.equal(angle, total, 'turn angle not what expected');
-      done();
+    context('left method', function () {
+      it('should have left method', function (done) {
+        let TEST_ANGLE = 30;
+        let pen = factory.create();
+        pen.left(TEST_ANGLE)
+        let angle = pen.getAngle();
+        let expected = 0 - TEST_ANGLE;
+        assert.equal(angle, expected, 'left angle not what expected');
+        done();
+      });
+      it('left method should decrement angle', function (done) {
+        let TEST_ANGLE_1 = 30;
+        let TEST_ANGLE_2 = 15;
+        let pen = factory.create();
+        pen
+          .left(TEST_ANGLE_1)
+          .left(TEST_ANGLE_2);
+        let angle = pen.getAngle();
+        let total = 0 - (TEST_ANGLE_1 + TEST_ANGLE_2);
+        assert.equal(angle, total, 'left angle not what expected');
+        done();
+      });
+    });
+    context('right method', function () {
+      it('should have right method', function (done) {
+        let TEST_ANGLE = 30;
+        let pen = factory.create();
+        pen.right(TEST_ANGLE)
+        let angle = pen.getAngle();
+        let expected = TEST_ANGLE;
+        assert.equal(angle, expected, 'right angle not what expected');
+        done();
+      });
+      it('right method should decrement angle', function (done) {
+        let TEST_ANGLE_1 = 30;
+        let TEST_ANGLE_2 = 15;
+        let pen = factory.create();
+        pen
+          .right(TEST_ANGLE_1)
+          .right(TEST_ANGLE_2);
+        let angle = pen.getAngle();
+        let total =(TEST_ANGLE_1 + TEST_ANGLE_2);
+        assert.equal(angle, total, 'right angle not what expected');
+        done();
+      });
     });
     it('should have isDown method', function (done) {
       let TEST_DEFAULT_IS_DOWN = false;
