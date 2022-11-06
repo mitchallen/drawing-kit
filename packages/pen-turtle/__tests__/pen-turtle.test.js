@@ -18,6 +18,15 @@ describe('pen-turtle', function () {
       assert.equal(color, TEST_DEFAULT_COLOR, 'default getColor method return not what expected');
       done();
     });
+    it('getColor method should return color', function (done) {
+      let TEST_COLOR = 0xFF0000;
+      let pen = factory.create({
+        color: TEST_COLOR,
+      });
+      let color = pen.getColor();
+      assert.equal(color, TEST_COLOR, 'getColor method did not returne expected');
+      done();
+    });
     it('should have getPath method', function (done) {
       let TEST_DEFAULT_PATH = [];
       let pen = factory.create();
