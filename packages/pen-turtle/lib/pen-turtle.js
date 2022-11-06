@@ -18,11 +18,11 @@ module.exports.create = function( spec = {} ) {
         getPath: () => _path,
         getAngle: () => angle,
         isDown: () => _down,
-        down: () => { 
+        down: function() { 
             _down = true;
             return this;
         },
-        up: () => { 
+        up: function () { 
             _down = false;
             return this;
         },
@@ -35,6 +35,22 @@ module.exports.create = function( spec = {} ) {
         },
         right: function(a) {
             return this.turn(a)
+        },
+        forward: function(n) {
+
+            x += n * Math.sin( Math.PI / 180 * angle );
+            y += n * Math.cos( Math.PI / 180 * angle );
+
+            let op = _down ? "L" : "M";
+
+            if(_path.length === 0 && op != "M" ) {
+                // Insert starting point
+                _path.push( { op: "M", x: 0, y: 0 } );
+            }
+
+            _path.push( { op, x, y } );
+            
+            return this;
         }
     };
 }

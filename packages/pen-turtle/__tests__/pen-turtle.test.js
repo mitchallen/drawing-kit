@@ -104,7 +104,7 @@ describe('pen-turtle', function () {
           .right(TEST_ANGLE_1)
           .right(TEST_ANGLE_2);
         let angle = pen.getAngle();
-        let total =(TEST_ANGLE_1 + TEST_ANGLE_2);
+        let total = (TEST_ANGLE_1 + TEST_ANGLE_2);
         assert.equal(angle, total, 'right angle not what expected');
         done();
       });
@@ -129,6 +129,48 @@ describe('pen-turtle', function () {
       let flag = pen.isDown();
       assert.equal(flag, false, 'up method should cause isDown to be false');
       done();
+    });
+    context('forward method', function () {
+      it('should have forward method', function (done) {
+        let TEST_DISTANCE = 50;
+        let EXPECTED_PATH = [{ op: 'M', x: 0, y: TEST_DISTANCE }]
+        let pen = factory.create();
+        pen.forward(TEST_DISTANCE);
+        let path = pen.getPath();
+        assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
+        done();
+      });
+      it('forward method should increment distance when pen up', function (done) {
+        let TEST_DISTANCE_1 = 50;
+        let TEST_DISTANCE_2 = 25;
+        let EXPECTED_PATH = [
+          { op: 'M', x: 0, y: TEST_DISTANCE_1 },
+          { op: 'M', x: 0, y: TEST_DISTANCE_1 + TEST_DISTANCE_2 },
+        ]
+        let pen = factory.create();
+        pen
+          .forward(TEST_DISTANCE_1)
+          .forward(TEST_DISTANCE_2);
+        let path = pen.getPath();
+        assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
+        done();
+      });
+      it('forward method should increment distance when pen down', function (done) {
+        let TEST_DISTANCE_1 = 50;
+        let TEST_DISTANCE_2 = 25;
+        let EXPECTED_PATH = [
+          { op: 'M', x: 0, y: TEST_DISTANCE_1 },
+          { op: 'L', x: 0, y: TEST_DISTANCE_1 + TEST_DISTANCE_2 },
+        ]
+        let pen = factory.create();
+        pen
+          .forward(TEST_DISTANCE_1)
+          .down()
+          .forward(TEST_DISTANCE_2);
+        let path = pen.getPath();
+        assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
+        done();
+      });
     });
   });
 });
