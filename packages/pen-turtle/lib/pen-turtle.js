@@ -4,6 +4,9 @@ module.exports.create = function( spec = {} ) {
 
     let {
         color = 0x000000,
+        x = 0,
+        y = 0,
+        angle = 0,
     } = spec;
 
     let _down = false,
@@ -13,6 +16,7 @@ module.exports.create = function( spec = {} ) {
 
         getColor: () => color,
         getPath: () => _path,
+        getAngle: () => angle,
         isDown: () => _down,
         down: () => { 
             _down = true;
@@ -22,5 +26,9 @@ module.exports.create = function( spec = {} ) {
             _down = false;
             return this;
         },
+        turn: function(a) {
+            angle += a;
+            return this;
+        }
     };
 }

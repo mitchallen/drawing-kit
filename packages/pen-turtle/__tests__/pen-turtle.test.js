@@ -34,6 +34,33 @@ describe('pen-turtle', function () {
       assert.deepEqual(path, TEST_DEFAULT_PATH, 'default getPath method return not what expected');
       done();
     });
+    it('should have getAngle method', function (done) {
+      let TEST_DEFAULT_ANGLE = 0;
+      let pen = factory.create();
+      let angle = pen.getAngle();
+      assert.equal(angle, TEST_DEFAULT_ANGLE, 'default getAngle method return not what expected');
+      done();
+    });
+    it('should have turn method', function (done) {
+      let TEST_ANGLE = 30;
+      let pen = factory.create();
+      pen.turn(TEST_ANGLE)
+      let angle = pen.getAngle();
+      assert.equal(angle, TEST_ANGLE, 'turn angle not what expected');
+      done();
+    });
+    it('turn method should increment angle', function (done) {
+      let TEST_ANGLE_1 = 30;
+      let TEST_ANGLE_2 = 15;
+      let pen = factory.create();
+      pen
+        .turn(TEST_ANGLE_1)
+        .turn(TEST_ANGLE_2);
+      let angle = pen.getAngle();
+      let total = TEST_ANGLE_1 + TEST_ANGLE_2;
+      assert.equal(angle, total, 'turn angle not what expected');
+      done();
+    });
     it('should have isDown method', function (done) {
       let TEST_DEFAULT_IS_DOWN = false;
       let pen = factory.create();
