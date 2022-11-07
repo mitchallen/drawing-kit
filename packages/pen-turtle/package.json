@@ -32,5 +32,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@mitchallen/pen-svg": "^0.2.5"
   }
 }

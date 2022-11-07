@@ -3,6 +3,7 @@
 var assert = require('assert');
 
 const factory = require('..');
+const svgFactory = require("@mitchallen/pen-svg")
 
 describe('pen-turtle', function () {
   context('smoke test', function () {
@@ -172,5 +173,45 @@ describe('pen-turtle', function () {
         done();
       });
     });
+    it('writeSVG should write svg for a multiple pens', done => {
+      let writer = svgFactory.create({});
+      assert.ok(writer);
+
+      let pen1 = factory.create({
+          color: 0xFF0000,    // red pen
+          width: 1,           // pen width 
+          alpha: 0.8          // pen alpha value
+      });
+
+      let pen2 = factory.create({
+          color: 0x0000FF,    // blue pen
+          width: 1,           // pen width 
+          alpha: 0.8          // pen alpha value
+      });
+
+      pen1.down();
+      for(let i = 0; i < 12; i++ ) {
+        pen1
+          .forward(25)
+          .turn(165)
+      }
+
+      pen2
+        .forward(50)
+        .down()
+      for(let i = 0; i < 5; i++ ) {
+        pen2
+          .forward(10)
+          .turn(145)
+      }
+
+      writer
+        .addPen(pen1)
+        .addPen(pen2);
+
+      let svg = writer.writeSVG({ filename: "__tests__/output/write-test.svg" });
+      // console.log("SVG: \n", svg);
+      done();
+  });
   });
 });

@@ -8,7 +8,7 @@ module.exports.create = function( spec = {} ) {
         angle = 0,
         color = 0x000000,
         fill = 0xFFFFFF,
-        width = 2,
+        width = 1,
     } = spec;
 
     let _down = false,
@@ -18,6 +18,7 @@ module.exports.create = function( spec = {} ) {
 
         color: () => color,
         fill: () => fill,
+        width: () => width,
         path: () => _path,
         angle: () => angle,
         isDown: () => _down,
