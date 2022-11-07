@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports.create = function( spec = {} ) {
+module.exports.create = function (spec = {}) {
 
     let {
         x = 0,
@@ -13,7 +13,7 @@ module.exports.create = function( spec = {} ) {
 
     let _down = false,
         _path = [];
-        
+
     return {
 
         color: () => color,
@@ -22,33 +22,34 @@ module.exports.create = function( spec = {} ) {
         path: () => _path,
         angle: () => angle,
         isDown: () => _down,
-        down: function() { 
+        down: function () {
             _down = true;
             return this;
         },
-        up: function () { 
+        up: function () {
             _down = false;
             return this;
         },
-        turn: function(a) {
-            angle += a;
+        turn: function (a) {
+            angle -= a;
             return this;
         },
-        left: function(a) {
+        left: function (a) {
             return this.turn(-a)
         },
-        right: function(a) {
+        right: function (a) {
             return this.turn(a)
         },
-        forward: function(n) {
-            x += n * Math.sin( Math.PI / 180 * angle );
-            y += n * Math.cos( Math.PI / 180 * angle );
+        forward: function (n) {
             let op = _down ? "L" : "M";
-            if(_path.length === 0 && op != "M" ) {
+            if (_path.length === 0 && op != "M") {
                 // Insert starting point
-                _path.push( { op: "M", x: 0, y: 0 } );
+                _path.push({ op: "M", x, y });
             }
-            _path.push( { op, x, y } );
+            let precision = 2;
+            x += +(n * Math.sin(Math.PI / 180 * (angle + 180))).toFixed(precision);
+            y += +(n * Math.cos(Math.PI / 180 * (angle + 180))).toFixed(precision);
+            _path.push({ op, x, y });
             return this;
         }
     };

@@ -48,7 +48,8 @@ describe('pen-turtle', function () {
         let pen = factory.create();
         pen.turn(TEST_ANGLE)
         let angle = pen.angle();
-        assert.equal(angle, TEST_ANGLE, 'turn angle not what expected');
+        let expected = 0 - TEST_ANGLE;
+        assert.equal(angle, expected, 'turn angle not what expected');
         done();
       });
       it('turn method should increment angle', function (done) {
@@ -59,8 +60,8 @@ describe('pen-turtle', function () {
           .turn(TEST_ANGLE_1)
           .turn(TEST_ANGLE_2);
         let angle = pen.angle();
-        let total = TEST_ANGLE_1 + TEST_ANGLE_2;
-        assert.equal(angle, total, 'turn angle not what expected');
+        let expected = (0 - (TEST_ANGLE_1 + TEST_ANGLE_2));
+        assert.equal(angle, expected, 'turn angle not what expected');
         done();
       });
     });
@@ -70,7 +71,7 @@ describe('pen-turtle', function () {
         let pen = factory.create();
         pen.left(TEST_ANGLE)
         let angle = pen.angle();
-        let expected = 0 - TEST_ANGLE;
+        let expected = TEST_ANGLE;
         assert.equal(angle, expected, 'left angle not what expected');
         done();
       });
@@ -82,8 +83,8 @@ describe('pen-turtle', function () {
           .left(TEST_ANGLE_1)
           .left(TEST_ANGLE_2);
         let angle = pen.angle();
-        let total = 0 - (TEST_ANGLE_1 + TEST_ANGLE_2);
-        assert.equal(angle, total, 'left angle not what expected');
+        let expected = TEST_ANGLE_1 + TEST_ANGLE_2;
+        assert.equal(angle, expected, 'left angle not what expected');
         done();
       });
     });
@@ -93,7 +94,7 @@ describe('pen-turtle', function () {
         let pen = factory.create();
         pen.right(TEST_ANGLE)
         let angle = pen.angle();
-        let expected = TEST_ANGLE;
+        let expected = (0-TEST_ANGLE);
         assert.equal(angle, expected, 'right angle not what expected');
         done();
       });
@@ -105,8 +106,8 @@ describe('pen-turtle', function () {
           .right(TEST_ANGLE_1)
           .right(TEST_ANGLE_2);
         let angle = pen.angle();
-        let total = (TEST_ANGLE_1 + TEST_ANGLE_2);
-        assert.equal(angle, total, 'right angle not what expected');
+        let expected = 0 - (TEST_ANGLE_1 + TEST_ANGLE_2);
+        assert.equal(angle, expected, 'right angle not what expected');
         done();
       });
     });
@@ -134,7 +135,7 @@ describe('pen-turtle', function () {
     context('forward method', function () {
       it('should have forward method', function (done) {
         let TEST_DISTANCE = 50;
-        let EXPECTED_PATH = [{ op: 'M', x: 0, y: TEST_DISTANCE }]
+        let EXPECTED_PATH = [{ op: 'M', x: 0, y: (0-TEST_DISTANCE) }]
         let pen = factory.create();
         pen.forward(TEST_DISTANCE);
         let path = pen.path();
@@ -145,8 +146,8 @@ describe('pen-turtle', function () {
         let TEST_DISTANCE_1 = 50;
         let TEST_DISTANCE_2 = 25;
         let EXPECTED_PATH = [
-          { op: 'M', x: 0, y: TEST_DISTANCE_1 },
-          { op: 'M', x: 0, y: TEST_DISTANCE_1 + TEST_DISTANCE_2 },
+          { op: 'M', x: 0, y: (0-TEST_DISTANCE_1) },
+          { op: 'M', x: 0, y: (0-(TEST_DISTANCE_1 + TEST_DISTANCE_2)) },
         ]
         let pen = factory.create();
         pen
@@ -160,8 +161,8 @@ describe('pen-turtle', function () {
         let TEST_DISTANCE_1 = 50;
         let TEST_DISTANCE_2 = 25;
         let EXPECTED_PATH = [
-          { op: 'M', x: 0, y: TEST_DISTANCE_1 },
-          { op: 'L', x: 0, y: TEST_DISTANCE_1 + TEST_DISTANCE_2 },
+          { op: 'M', x: 0, y: (0-TEST_DISTANCE_1) },
+          { op: 'L', x: 0, y: (0-(TEST_DISTANCE_1 + TEST_DISTANCE_2)) },
         ]
         let pen = factory.create();
         pen
@@ -174,42 +175,76 @@ describe('pen-turtle', function () {
       });
     });
     it('writeSVG should write svg for a multiple pens', done => {
+      let width = 1024,
+          height = 1024;
+      let cx = 1024 / 2,
+          cy = 1024 / 2;
       let writer = svgFactory.create({});
       assert.ok(writer);
 
       let pen1 = factory.create({
+          x: cx * 1.5,
+          y: cy * 1.5,
           color: 0xFF0000,    // red pen
-          width: 1,           // pen width 
+          width: 4,           // pen width 
           alpha: 0.8          // pen alpha value
       });
 
       let pen2 = factory.create({
+          x: cx * 0.5,
+          y: cy * 0.5,
           color: 0x0000FF,    // blue pen
-          width: 1,           // pen width 
+          width: 4,           // pen width 
           alpha: 0.8          // pen alpha value
       });
+
+      let pen3 = factory.create({
+        x: cx,
+        y: cy,
+        color: 0x000000,    // pen color
+        width: 4,           // pen width 
+        alpha: 0.8          // pen alpha value
+    });
+
+      let d1 = width / 4;
 
       pen1.down();
       for(let i = 0; i < 12; i++ ) {
         pen1
-          .forward(25)
+          .forward(d1)
           .turn(165)
       }
 
+      let d2 = width / 5;
+
       pen2
-        .forward(50)
         .down()
       for(let i = 0; i < 5; i++ ) {
         pen2
-          .forward(10)
+          .forward(d2)
           .turn(145)
       }
 
+      // to show heading at start
+      pen3 
+        .down()
+        .forward( height / 4 )
+        .right(45)
+        .forward( height / 8 )
+        .left(45)
+        .forward( height / 16 );
+
+
       writer
         .addPen(pen1)
-        .addPen(pen2);
+        .addPen(pen2)
+        .addPen(pen3);
 
-      let svg = writer.writeSVG({ filename: "__tests__/output/write-test.svg" });
+      let svg = writer.writeSVG({ 
+        width,
+        height,
+        filename: "__tests__/output/write-test.svg" 
+      });
       // console.log("SVG: \n", svg);
       done();
   });
