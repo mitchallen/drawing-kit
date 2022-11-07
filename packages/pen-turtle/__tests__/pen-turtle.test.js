@@ -11,10 +11,10 @@ describe('pen-turtle', function () {
       assert.ok(pen, 'pen should not be null');
       done();
     });
-    it('should have getColor method', function (done) {
+    it('should have color method', function (done) {
       let TEST_DEFAULT_COLOR = 0x000000;
       let pen = factory.create();
-      let color = pen.getColor();
+      let color = pen.color();
       assert.equal(color, TEST_DEFAULT_COLOR, 'default getColor method return not what expected');
       done();
     });
@@ -23,22 +23,22 @@ describe('pen-turtle', function () {
       let pen = factory.create({
         color: TEST_COLOR,
       });
-      let color = pen.getColor();
-      assert.equal(color, TEST_COLOR, 'getColor method did not returne expected');
+      let color = pen.color();
+      assert.equal(color, TEST_COLOR, 'color method did not returne expected');
       done();
     });
-    it('should have getPath method', function (done) {
+    it('should have path method', function (done) {
       let TEST_DEFAULT_PATH = [];
       let pen = factory.create();
-      let path = pen.getPath();
-      assert.deepEqual(path, TEST_DEFAULT_PATH, 'default getPath method return not what expected');
+      let path = pen.path();
+      assert.deepEqual(path, TEST_DEFAULT_PATH, 'default path method return not what expected');
       done();
     });
-    it('should have getAngle method', function (done) {
+    it('should have angle method', function (done) {
       let TEST_DEFAULT_ANGLE = 0;
       let pen = factory.create();
-      let angle = pen.getAngle();
-      assert.equal(angle, TEST_DEFAULT_ANGLE, 'default getAngle method return not what expected');
+      let angle = pen.angle();
+      assert.equal(angle, TEST_DEFAULT_ANGLE, 'default angle method return not what expected');
       done();
     });
     context('turn method', function () {
@@ -46,7 +46,7 @@ describe('pen-turtle', function () {
         let TEST_ANGLE = 30;
         let pen = factory.create();
         pen.turn(TEST_ANGLE)
-        let angle = pen.getAngle();
+        let angle = pen.angle();
         assert.equal(angle, TEST_ANGLE, 'turn angle not what expected');
         done();
       });
@@ -57,7 +57,7 @@ describe('pen-turtle', function () {
         pen
           .turn(TEST_ANGLE_1)
           .turn(TEST_ANGLE_2);
-        let angle = pen.getAngle();
+        let angle = pen.angle();
         let total = TEST_ANGLE_1 + TEST_ANGLE_2;
         assert.equal(angle, total, 'turn angle not what expected');
         done();
@@ -68,7 +68,7 @@ describe('pen-turtle', function () {
         let TEST_ANGLE = 30;
         let pen = factory.create();
         pen.left(TEST_ANGLE)
-        let angle = pen.getAngle();
+        let angle = pen.angle();
         let expected = 0 - TEST_ANGLE;
         assert.equal(angle, expected, 'left angle not what expected');
         done();
@@ -80,7 +80,7 @@ describe('pen-turtle', function () {
         pen
           .left(TEST_ANGLE_1)
           .left(TEST_ANGLE_2);
-        let angle = pen.getAngle();
+        let angle = pen.angle();
         let total = 0 - (TEST_ANGLE_1 + TEST_ANGLE_2);
         assert.equal(angle, total, 'left angle not what expected');
         done();
@@ -91,7 +91,7 @@ describe('pen-turtle', function () {
         let TEST_ANGLE = 30;
         let pen = factory.create();
         pen.right(TEST_ANGLE)
-        let angle = pen.getAngle();
+        let angle = pen.angle();
         let expected = TEST_ANGLE;
         assert.equal(angle, expected, 'right angle not what expected');
         done();
@@ -103,7 +103,7 @@ describe('pen-turtle', function () {
         pen
           .right(TEST_ANGLE_1)
           .right(TEST_ANGLE_2);
-        let angle = pen.getAngle();
+        let angle = pen.angle();
         let total = (TEST_ANGLE_1 + TEST_ANGLE_2);
         assert.equal(angle, total, 'right angle not what expected');
         done();
@@ -136,7 +136,7 @@ describe('pen-turtle', function () {
         let EXPECTED_PATH = [{ op: 'M', x: 0, y: TEST_DISTANCE }]
         let pen = factory.create();
         pen.forward(TEST_DISTANCE);
-        let path = pen.getPath();
+        let path = pen.path();
         assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
         done();
       });
@@ -151,7 +151,7 @@ describe('pen-turtle', function () {
         pen
           .forward(TEST_DISTANCE_1)
           .forward(TEST_DISTANCE_2);
-        let path = pen.getPath();
+        let path = pen.path();
         assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
         done();
       });
@@ -167,7 +167,7 @@ describe('pen-turtle', function () {
           .forward(TEST_DISTANCE_1)
           .down()
           .forward(TEST_DISTANCE_2);
-        let path = pen.getPath();
+        let path = pen.path();
         assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
         done();
       });

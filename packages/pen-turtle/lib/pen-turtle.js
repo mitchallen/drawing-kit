@@ -3,10 +3,12 @@
 module.exports.create = function( spec = {} ) {
 
     let {
-        color = 0x000000,
         x = 0,
         y = 0,
         angle = 0,
+        color = 0x000000,
+        fill = 0xFFFFFF,
+        width = 2,
     } = spec;
 
     let _down = false,
@@ -14,9 +16,10 @@ module.exports.create = function( spec = {} ) {
         
     return {
 
-        getColor: () => color,
-        getPath: () => _path,
-        getAngle: () => angle,
+        color: () => color,
+        fill: () => fill,
+        path: () => _path,
+        angle: () => angle,
         isDown: () => _down,
         down: function() { 
             _down = true;
@@ -37,19 +40,14 @@ module.exports.create = function( spec = {} ) {
             return this.turn(a)
         },
         forward: function(n) {
-
             x += n * Math.sin( Math.PI / 180 * angle );
             y += n * Math.cos( Math.PI / 180 * angle );
-
             let op = _down ? "L" : "M";
-
             if(_path.length === 0 && op != "M" ) {
                 // Insert starting point
                 _path.push( { op: "M", x: 0, y: 0 } );
             }
-
             _path.push( { op, x, y } );
-            
             return this;
         }
     };
