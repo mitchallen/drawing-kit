@@ -9,9 +9,13 @@ module.exports.create = function (spec = {}) {
         color = 0x000000,
         fill = 0xFFFFFF,
         width = 1,
+        precision = 2,
     } = spec;
 
-    let _down = false,
+    let _homeX = x,
+        _homeY = y,
+        _homeHeading = heading,
+        _down = false,
         _path = [];
 
     let normalizeDegrees = function(h) { 
@@ -31,6 +35,8 @@ module.exports.create = function (spec = {}) {
         fill: () => fill,
         width: () => width,
         path: () => _path,
+        x: () => x,
+        y: () => y,
         heading: () => heading,
         isDown: () => _down,
         down: function () {
@@ -57,9 +63,16 @@ module.exports.create = function (spec = {}) {
                 // Insert starting point
                 _path.push({ op: "M", x, y });
             }
-            let precision = 2;
             x += +(n * Math.sin(Math.PI / 180 * (heading + 180))).toFixed(precision);
             y += +(n * Math.cos(Math.PI / 180 * (heading + 180))).toFixed(precision);
+            _path.push({ op, x, y });
+            return this;
+        },
+        home: function () {
+            x = _homeX;
+            y = _homeY;
+            heading = _homeHeading;
+            let op = _down ? "L" : "M";
             _path.push({ op, x, y });
             return this;
         }
