@@ -3,7 +3,8 @@
 var assert = require('assert');
 
 const factory = require('..');
-const svgFactory = require("@mitchallen/pen-svg")
+const svgFactory = require("@mitchallen/pen-svg");
+const { copyFile } = require('fs');
 
 describe('pen-turtle', function () {
   context('smoke test', function () {
@@ -343,6 +344,55 @@ describe('pen-turtle', function () {
         done();
       });
     });
+    context('export method', function () {
+      it('should have export method', function (done) {
+        let TEST_SETTINGS = {
+          x: 20,
+          y: 30,
+          heading: 45,
+          color: 0xFF0000,
+          fill: 0x00FFFF,
+          width: 2,
+          precision: 3,
+          homeX: 25,
+          homeY: 35,
+          homeHeading: 60,
+          down: true,
+          path: [],
+        };
+        let pen = factory.create(TEST_SETTINGS);
+        let obj = pen.export();
+        assert.deepEqual(obj, TEST_SETTINGS, 'export method return not what expected');
+        done();
+      });
+      it('export values should reflect move', function (done) {
+        let TEST_EXPECTED = {
+          x: 0,
+          y: -10,
+          heading: 60,
+          color: 0x000000,
+          fill: 0xFFFFFF,
+          width: 1,
+          precision: 2,
+          homeX: 0,
+          homeY: 0,
+          homeHeading: 0,
+          down: true,
+          path: [
+            { op: "M", x: 0, y: 0 },
+            { op: "L", x: 0, y: -10 }, 
+          ],
+        };
+        let pen = factory.create();
+        pen
+          .down()
+          .forward(10)
+          .turn(60);
+        let obj = pen.export();
+        assert.deepEqual(obj, TEST_EXPECTED, 'export method return not what expected');
+        done();
+      });
+    });
     it('writeSVG should write svg for a multiple pens', done => {
       let width = 1024,
         height = 1024,
@@ -425,12 +475,14 @@ describe('pen-turtle', function () {
         .forward(height / 16)
         .home();
 
+      let pen5 = factory.create({ ...pen4.export(), color: 0xFF0000 });
 
       writer
         .addPen(pen1)
         .addPen(pen2)
         .addPen(pen3)
-        .addPen(pen4)
+        // .addPen(pen4)
+        .addPen(pen5);
 
       let svg = writer.writeSVG({
         width,

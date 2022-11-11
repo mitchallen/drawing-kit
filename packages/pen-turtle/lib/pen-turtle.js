@@ -10,17 +10,16 @@ module.exports.create = function (spec = {}) {
         fill = 0xFFFFFF,
         width = 1,
         precision = 2,
+        homeX = x,
+        homeY = y,
+        homeHeading = heading,
+        down = false,
+        path = [],
     } = spec;
 
-    let _homeX = x,
-        _homeY = y,
-        _homeHeading = heading,
-        _down = false,
-        _path = [];
-
-    let normalizeDegrees = function(h) { 
+    let normalizeDegrees = function (h) {
         let n = h % 360;
-        if( n < 0 ) {
+        if (n < 0) {
             n += 360;
         }
         // console.log(`normalized: ${n}`)
@@ -31,20 +30,37 @@ module.exports.create = function (spec = {}) {
 
     return {
 
+        export: function () {
+            return {
+                x,
+                y,
+                heading,
+                color,
+                fill,
+                width,
+                precision,
+                homeX,
+                homeY,
+                homeHeading,
+                down,
+                path,
+            }
+        },
+
         color: () => color,
         fill: () => fill,
         width: () => width,
-        path: () => _path,
+        path: () => path,
         x: () => x,
         y: () => y,
         heading: () => heading,
-        isDown: () => _down,
+        isDown: () => down,
         down: function () {
-            _down = true;
+            down = true;
             return this;
         },
         up: function () {
-            _down = false;
+            down = false;
             return this;
         },
         turn: function (a) {
@@ -58,22 +74,22 @@ module.exports.create = function (spec = {}) {
             return this.turn(-a)
         },
         forward: function (n) {
-            let op = _down ? "L" : "M";
-            if (_path.length === 0 && op != "M") {
+            let op = down ? "L" : "M";
+            if (path.length === 0 && op != "M") {
                 // Insert starting point
-                _path.push({ op: "M", x, y });
+                path.push({ op: "M", x, y });
             }
             x += +(n * Math.sin(Math.PI / 180 * (heading + 180))).toFixed(precision);
             y += +(n * Math.cos(Math.PI / 180 * (heading + 180))).toFixed(precision);
-            _path.push({ op, x, y });
+            path.push({ op, x, y });
             return this;
         },
         home: function () {
-            x = _homeX;
-            y = _homeY;
-            heading = _homeHeading;
-            let op = _down ? "L" : "M";
-            _path.push({ op, x, y });
+            x = homeX;
+            y = homeY;
+            heading = homeHeading;
+            let op = down ? "L" : "M";
+            path.push({ op, x, y });
             return this;
         }
     };
