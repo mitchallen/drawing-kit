@@ -5,7 +5,7 @@
   "keywords": [
     "turtle",
     "pen",
-    "log",
+    "logo",
     "svg",
     "canvas"
   ],
@@ -34,6 +34,6 @@
     "access": "public"
   },
   "devDependencies": {
-    "@mitchallen/pen-svg": "^0.2.5"
+    "@mitchallen/pen-svg": "^0.2.6"
   }
 }

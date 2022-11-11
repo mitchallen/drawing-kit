@@ -481,8 +481,18 @@ describe('pen-turtle', function () {
         .addPen(pen1)
         .addPen(pen2)
         .addPen(pen3)
-        // .addPen(pen4)
-        .addPen(pen5);
+        .addPen(pen4)
+        .addPen(pen5,
+          {
+            color: 0x000000,
+            fill: 0x00FFFF,
+            width: 10,
+            transform: {
+              translate: { x: 50, y: 300 },
+              scale: { x: 0.5, y: 0.5 }
+            }
+          }
+        );
 
       let svg = writer.writeSVG({
         width,
