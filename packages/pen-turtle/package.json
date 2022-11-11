@@ -33,7 +33,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
-    "@mitchallen/pen-svg": "^0.2.6"
+  "dependencies": {
+    "@mitchallen/pen-svg": "^0.2.7"
   }
 }

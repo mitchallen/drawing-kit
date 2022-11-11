@@ -380,7 +380,7 @@ describe('pen-turtle', function () {
           down: true,
           path: [
             { op: "M", x: 0, y: 0 },
-            { op: "L", x: 0, y: -10 }, 
+            { op: "L", x: 0, y: -10 },
           ],
         };
         let pen = factory.create();
@@ -484,12 +484,36 @@ describe('pen-turtle', function () {
         .addPen(pen4)
         .addPen(pen5,
           {
-            color: 0x000000,
+            color: 0xFF00FF,
             fill: 0x00FFFF,
             width: 10,
             transform: {
-              translate: { x: 50, y: 300 },
+              translate: { x: 200, y: 400 },
               scale: { x: 0.5, y: 0.5 }
+            }
+          }
+        )
+        .addPen(pen5,
+          {
+            color: 0xFF0000,
+            fill: 0x00FFFF,
+            width: 10,
+            transform: {
+              rotate: { angle: 15 },
+              translate: { x: 200, y: 400 },
+              scale: { x: 0.5, y: 0.5 },
+            }
+          }
+        )
+        .addPen(pen5,
+          {
+            color: 0x0000FF,
+            fill: 0x00FFFF,
+            width: 10,
+            transform: {
+              translate: { x: 200, y: 400 },
+              scale: { x: 0.5, y: 0.5 },
+              rotate: { angle: 15 },
             }
           }
         );
