@@ -1,0 +1,34 @@
+{
+  "name": "@mitchallen/lsystem",
+  "version": "0.1.0",
+  "description": "L-System package ",
+  "keywords": [
+    "lsystem",
+    "turtle",
+    "logo"
+  ],
+  "author": "Mitch Allen <github@mitchallen.com>",
+  "homepage": "https://github.com/mitchallen/drawing-kit#readme",
+  "license": "MIT",
+  "main": "lib/lsystem.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mitchallen/drawing-kit.git"
+  },
+  "scripts": {
+    "test": "mocha __tests__/*.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/mitchallen/drawing-kit/issues"
+  },
+  "dependencies": {
+    "@mitchallen/pen-turtle": "^0.1.0"
+  }
+}
