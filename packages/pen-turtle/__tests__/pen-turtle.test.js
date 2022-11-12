@@ -4,7 +4,6 @@ var assert = require('assert');
 
 const factory = require('..');
 const svgFactory = require("@mitchallen/pen-svg");
-const { copyFile } = require('fs');
 
 describe('pen-turtle', function () {
   context('smoke test', function () {
