@@ -90,15 +90,11 @@ describe('lsystem', function () {
         it('should create koch.island', function (done) {
             let width = 1024,
                 height = 1024;
-            let cx = width / 2;
-            let cy = height / 2;
             let writer = svgFactory.create({});
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({
-                // x: cx,
-                // y: cy,
                 color: 0x000000,
                 width: 1,
             });
@@ -124,6 +120,49 @@ describe('lsystem', function () {
                         }
                     });
             let file = 'kock-island'
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
+        it('should create sierpinski.gasket', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            let lsys = factory.create();
+            assert.ok(lsys, 'lsys should not be null');
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // turtle.home();
+            // setup lsystem
+            lsys.turtle = turtle;
+            lsys.distance = 12;
+            lsys.depth = 5;
+            lsys.angle = 60;
+            lsys
+                .addRule("F", "F--F--F--GG")
+                .addRule("G", "GG")
+                .axiom = "F--F--F";
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0x000000,
+                        fill: 0xFF0000,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.0, y: 2.0 },
+                            translate: { x: 400, y: 400 },
+                        }
+                    });
+            let file = 'sierpinski.gasket'
             let svg = writer.writeSVG({
                 width,
                 height,
