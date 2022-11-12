@@ -171,5 +171,47 @@ describe('lsystem', function () {
             assert.ok(svg);
             done();
         });
+        it('should create penrose.snowflake', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            let lsys = factory.create();
+            assert.ok(lsys, 'lsys should not be null');
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // turtle.home();
+            // setup lsystem
+            lsys.turtle = turtle;
+            lsys.distance = 5;
+            lsys.depth = 4;
+            lsys.angle = 18;
+            lsys
+                .addRule("F", "F4-F4-F10-F++F4-F")
+                .axiom = "F4-F4-F4-F4-F";
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0x000000,
+                        fill: 0xFF0000,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.0, y: 2.0 },
+                            translate: { x: 400, y: 400 },
+                        }
+                    });
+            let file = 'penrose.snowflake'
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
     });
 });
