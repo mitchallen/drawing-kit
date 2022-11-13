@@ -74,10 +74,10 @@ module.exports.create = function (spec = {}) {
                         this.turtle.pop();
                         break;
                     default:
-                        if( this.rule[ ch ] == null || currDepth == 0 ) {
+                        if( rule[ ch ] == null || currDepth == 0 ) {
                             break;
                         } else {
-                            this.lsys( currDepth - 1, this.rule[ ch ] );
+                            this.lsys( currDepth - 1, rule[ ch ] );
                         }
                         break;
                 }

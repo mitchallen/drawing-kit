@@ -520,5 +520,55 @@ describe('lsystem', function () {
             assert.ok(svg);
             done();
         });
+        it('should create penrose.tile', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            let lsys = factory.create();
+            assert.ok(lsys, 'lsys should not be null');
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // turtle.home();
+            // setup lsystem
+            lsys.turtle = turtle;
+            lsys.turtle.up();   // start with penup
+            lsys.distance = 25;
+            lsys.depth = 4;
+            lsys.depthRatio = 0.5; // depth ratio
+            lsys.angle = 36;
+
+            lsys
+                .addRule( "W", "YF++ZF4-XF[-YF4-WF]++" )
+                .addRule( "X", "+YF--ZF[3-WF--XF]+" )
+                .addRule( "Y", "-WF++XF[+++YF++ZF]-" )
+                .addRule( "Z", "--YF++++WF[+ZF++++XF]--XF" )
+                .addRule( "F", "" ) // Important!  Or get diff results.
+                .axiom = "[X]++[X]++[X]++[X]++[X]";
+
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0x013220,
+                        fill: 0xFFFFFF,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.5, y: 2.5 },
+                            translate: { x: 200, y: 200 },
+                        }
+                    });
+            let file = 'penrose-tile';
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
     });
 });
