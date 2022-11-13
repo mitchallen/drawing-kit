@@ -240,7 +240,7 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0xFF0000,
-                        fill: 0xFF0000,
+                        fill: 0x000000,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -284,7 +284,7 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0xFF0000,
-                        fill: 0xFF0000,
+                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -292,6 +292,50 @@ describe('lsystem', function () {
                         }
                     });
             let file = 'two-ys'
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
+        it('should create big.h', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            let lsys = factory.create();
+            assert.ok(lsys, 'lsys should not be null');
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // turtle.home();
+            // setup lsystem
+            lsys.turtle = turtle;
+            lsys.turtle.up();   // start with penup
+            lsys.distance = 2;
+            lsys.depth = 10;
+            lsys.depthRatio = 0.65; // depth ratio
+            lsys.angle = 90;
+            lsys
+                .addRule("F", "|[+F][-F]")
+                .axiom = "[F]--F";
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0xFF0000,
+                        fill: 0xFFFFFF,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.5, y: 2.5 },
+                            translate: { x: 150, y: 200 },
+                        }
+                    });
+            let file = 'big-h'
             let svg = writer.writeSVG({
                 width,
                 height,
