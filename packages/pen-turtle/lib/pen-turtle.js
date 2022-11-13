@@ -75,6 +75,8 @@ module.exports.create = function (spec = {}) {
                 heading = el.heading;
                 down = el.down;
             }
+            // move to the new position
+            path.push({ op: "M", x, y });
             return this;
         },
         down: function () {
