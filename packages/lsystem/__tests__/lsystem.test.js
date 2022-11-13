@@ -256,5 +256,49 @@ describe('lsystem', function () {
             assert.ok(svg);
             done();
         });
+        it('should create two.ys', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            let lsys = factory.create();
+            assert.ok(lsys, 'lsys should not be null');
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // turtle.home();
+            // setup lsystem
+            lsys.turtle = turtle;
+            lsys.turtle.up();   // start with penup
+            lsys.distance = 2;
+            lsys.depth = 9;
+            lsys.depthRatio = 0.65; // depth ratio
+            lsys.angle = 45;
+            lsys
+                .addRule("F", "|[+F][-F]")
+                .axiom = "[F]4-F";
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0xFF0000,
+                        fill: 0xFF0000,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.5, y: 2.5 },
+                            translate: { x: 150, y: 200 },
+                        }
+                    });
+            let file = 'two-ys'
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
     });
 });

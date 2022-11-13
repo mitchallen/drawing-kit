@@ -43,7 +43,7 @@ module.exports.create = function (spec = {}) {
 
                 switch (ch) {
                     case '|':
-                        this.turtle.penDown();
+                        this.turtle.down();
                         iFactor = 1 / Math.pow(this.depthRatio, currDepth);
                         this.turtle.forward(this.distance * iFactor);
                         break;
