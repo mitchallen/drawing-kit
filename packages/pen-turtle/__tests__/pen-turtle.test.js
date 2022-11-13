@@ -137,6 +137,112 @@ describe('pen-turtle', function () {
         done();
       });
     });
+
+    context('stack', function () {
+      context('push', function () {
+        it('should have push method', function (done) {
+          let pen = factory.create();
+          assert.ok(pen.push, 'push method not found');
+          pen.push();
+          done();
+        });
+      });
+      context('pop', function () {
+        it('should have pop method', function (done) {
+          let pen = factory.create();
+          assert.ok(pen.pop, 'pop method not found');
+          pen.push();
+          pen.pop()
+          done();
+        });
+        it('should do nothing if no push first', function (done) {
+          let pen = factory.create();
+          assert.ok(pen.pop, 'pop method not found');
+          pen.pop()
+          done();
+        });
+        it('should restore position if not moved', function (done) {
+          let TEST_X = 30,
+              TEST_Y = 45,
+              TEST_HEADING = 60,
+              TEST_DOWN = false;
+          let pen = factory.create({
+            x: TEST_X,
+            y: TEST_Y,
+            heading: TEST_HEADING,
+            down: TEST_DOWN,
+          });
+          assert.ok(pen.pop, 'pop method not found');
+          pen
+            .push()
+            .pop();
+          assert.equal(pen.x(), TEST_X, 'x not what expected after pop');
+          assert.equal(pen.y(), TEST_Y, 'y not what expected after pop');
+          assert.equal(pen.heading(), TEST_HEADING, 'heading not what expected after pop');
+          assert.equal(pen.isDown(), TEST_DOWN, 'isDown not what expected after pop');
+          done();
+        });
+        it('should restore position if moved', function (done) {
+          let TEST_X = 30,
+              TEST_Y = 45,
+              TEST_HEADING = 60,
+              TEST_DOWN = false;
+          let pen = factory.create({
+            x: TEST_X,
+            y: TEST_Y,
+            heading: TEST_HEADING,
+            down: TEST_DOWN,
+          });
+          assert.ok(pen.pop, 'pop method not found');
+          pen
+            .push()
+            .turn(60)
+            .forward(20)
+            .pop();
+          assert.equal(pen.x(), TEST_X, 'x not what expected after pop');
+          assert.equal(pen.y(), TEST_Y, 'y not what expected after pop');
+          assert.equal(pen.heading(), TEST_HEADING, 'heading not what expected after pop');
+          assert.equal(pen.isDown(), TEST_DOWN, 'isDown not what expected after pop');
+          done();
+        });
+      })
+      context('isStackEmtpty', function () {
+        it('should have isStackEmtpty method', function (done) {
+          let TEST_DEFAULT = true;
+          let pen = factory.create();
+          assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
+          assert.equal(pen.isStackEmpty(), TEST_DEFAULT,'default isStackEmpty not what expected' );
+          done();
+        });
+        it('should be false after push', function (done) {
+          let TEST_EXPECTED = false;
+          let pen = factory.create();
+          assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
+          pen.push();
+          assert.equal(pen.isStackEmpty(), TEST_EXPECTED,'isStackEmpty should be false after push' );
+          done();
+        });
+        it('should be true after push pop balance', function (done) {
+          let TEST_EXPECTED = true;
+          let pen = factory.create();
+          assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
+          pen.push();
+          pen.pop();
+          assert.equal(pen.isStackEmpty(), TEST_EXPECTED,'isStackEmpty should be true after push pop' );
+          done();
+        });
+        it('should be true after unbalanced pop', function (done) {
+          let TEST_EXPECTED = true;
+          let pen = factory.create();
+          assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
+          pen.pop();
+          assert.equal(pen.isStackEmpty(), TEST_EXPECTED,'isStackEmpty should be true after push pop' );
+          done();
+        });
+      });
+
+    });
+
     context('home method', function () {
       it('should have home method', function (done) {
         let TEST_DEFAULT_X = 0,

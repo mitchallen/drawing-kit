@@ -162,7 +162,7 @@ describe('lsystem', function () {
                             translate: { x: 400, y: 400 },
                         }
                     });
-            let file = 'sierpinski.gasket'
+            let file = 'sierpinski-gasket'
             let svg = writer.writeSVG({
                 width,
                 height,
@@ -204,7 +204,50 @@ describe('lsystem', function () {
                             translate: { x: 400, y: 400 },
                         }
                     });
-            let file = 'penrose.snowflake'
+            let file = 'penrose-snowflake'
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
+        it('should create dragon.curve', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            let lsys = factory.create();
+            assert.ok(lsys, 'lsys should not be null');
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // turtle.home();
+            // setup lsystem
+            lsys.turtle = turtle;
+            lsys.distance = 7;
+            lsys.depth = 10;
+            lsys.angle = 45;
+            lsys
+                .addRule("F", "[+F][+G--G4-F]")
+                .addRule("G", "-G++G-")
+                .axiom = "F";
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0xFF0000,
+                        fill: 0xFF0000,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.5, y: 2.5 },
+                            translate: { x: 150, y: 300 },
+                        }
+                    });
+            let file = 'dragon-curve'
             let svg = writer.writeSVG({
                 width,
                 height,

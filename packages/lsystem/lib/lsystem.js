@@ -64,12 +64,14 @@ module.exports.create = function (spec = {}) {
                         this.turtle.turn(this.angle * iTurn);
                         break;
                     case '[':
-                        throw new Error("brackets not supported yet");
+                        // throw new Error("brackets not supported yet");
                         // pushTurtle(this.turtle);
+                        this.turtle.push();
                         break;
                     case ']':
-                        throw new Error("brackets not supported yet");
+                        // throw new Error("brackets not supported yet");
                         // this.turtle.copyTurtle(popTurtle());
+                        this.turtle.pop();
                         break;
                     default:
                         if( this.rule[ ch ] == null || currDepth == 0 ) {

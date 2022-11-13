@@ -17,6 +17,8 @@ module.exports.create = function (spec = {}) {
         path = [],
     } = spec;
 
+    let stack = [];
+
     let normalizeDegrees = function (h) {
         let n = h % 360;
         if (n < 0) {
@@ -55,6 +57,26 @@ module.exports.create = function (spec = {}) {
         y: () => y,
         heading: () => heading,
         isDown: () => down,
+        push: function() {
+            stack.push({
+                x,
+                y,
+                heading,
+                down,
+            });
+            return this;
+        },
+        isStackEmpty: () => !stack.length, 
+        pop: function() {
+            if( stack.length ) {
+                let el = stack.pop();
+                x = el.x;
+                y = el.y;
+                heading = el.heading;
+                down = el.down;
+            }
+            return this;
+        },
         down: function () {
             down = true;
             return this;
