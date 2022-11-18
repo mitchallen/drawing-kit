@@ -28,8 +28,7 @@ jobs:
     - name: Install dependencies
       run: | 
         npm ci
-        lerna bootstrap
-        npm install mocha --save-dev
+        npx lerna bootstrap --no-ci 
 
     - name: Run tests 
-      run: lerna run test
+      run: npx lerna run test
