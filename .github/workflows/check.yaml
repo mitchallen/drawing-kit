@@ -29,6 +29,7 @@ jobs:
       run: | 
         npm ci
         npx lerna bootstrap --no-ci 
+        npm install -g mocha
 
     - name: Run tests 
-      run: npx lerna run test
+      run: npx lerna run test 
