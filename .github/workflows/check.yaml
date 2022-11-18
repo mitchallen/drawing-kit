@@ -29,8 +29,8 @@ jobs:
       run: | 
         npm ci
         npx lerna bootstrap --no-ci 
-        npx lerna exec npm install
         npm install -g mocha
+      # run: npx lerna exec npm install   # tries to install locals too
 
     - name: Run tests 
       run: npx lerna run test 
