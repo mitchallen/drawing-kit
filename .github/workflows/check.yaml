@@ -30,6 +30,7 @@ jobs:
         npm ci
         npx lerna bootstrap --no-ci 
         npm install -g mocha
+        npx lerna exec npm install --only=dev
       # run: npx lerna exec npm install   # tries to install locals too
 
     - name: Run tests 
