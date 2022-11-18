@@ -32,5 +32,5 @@ jobs:
         npm install -g mocha
 
     - name: Run tests 
-      run: npx lerna run test --no-ci
+      run: npx lerna exec npm run test
 
