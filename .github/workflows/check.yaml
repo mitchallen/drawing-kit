@@ -32,4 +32,4 @@ jobs:
         npm install mocha --save-dev
 
     - name: Run tests 
-      run: npx lerna run test
+      run: lerna run test
