@@ -1,30 +1,31 @@
-name: Checks # Workflow name
+name: Checks 
+run-name: Checks by ${{ github.actor }}
 
 on:
   pull_request:
-    types: [opened, synchronize] # Workflow triggering events
+    types: [opened, synchronize] 
 
-jobs: # A workflow can have multiple jobs
-  checks: # Name of the job
-    runs-on: ubuntu-latest # Instance type where job will run
+jobs:
+  checks: 
+    runs-on: ubuntu-latest
 
     steps:
-    - name: "Checkout" # Download code from the repository
-      uses: actions/checkout@v2 # Public action
+    - name: "Checkout" 
+      uses: actions/checkout@v2 
       with:
-        fetch-depth: 0 # Checkout all branches and tags
+        fetch-depth: 0 
 
-    - name: "Use NodeJS 14" # Setup node using version 14
-      uses: actions/setup-node@v2 # Public action
+    - name: "Use NodeJS 14" 
+      uses: actions/setup-node@v2 
       with: 
         node-version: '14'
 
-   - name: "Setup npm" # Add our registry to npm config
-      run: | # Custom action
+    - name: "Setup npm" 
+      run: | 
         npm set @mitchallen:registry=https://npm.pkg.github.com/mitchallen
         npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
 
-   - name: Install dependencies
-      run: | # Install and link dependencies
+    - name: Install dependencies
+      run: | 
         npm ci
         npx lerna bootstrap
