@@ -1,10 +1,11 @@
 name: Checks 
+run-name: Checks by ${{ github.actor }}
 
 on:
   pull_request:
     types: [opened, synchronize] 
 
-jobs: 
+jobs:
   checks: 
     runs-on: ubuntu-latest
 
@@ -19,12 +20,12 @@ jobs:
       with: 
         node-version: '14'
 
-   - name: "Setup npm" 
+    - name: "Setup npm" 
       run: | 
         npm set @mitchallen:registry=https://npm.pkg.github.com/mitchallen
         npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
 
-   - name: Install dependencies
+    - name: Install dependencies
       run: | 
         npm ci
         npx lerna bootstrap
