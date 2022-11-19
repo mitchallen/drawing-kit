@@ -32,4 +32,5 @@ jobs:
 
     - name: Run tests
       run: | 
+        npx lerna add @mitchallen/pen-svg --dev
         npx lerna run test --no-ci
