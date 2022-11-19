@@ -32,4 +32,4 @@ jobs:
 
     - name: Run tests
       run: | 
-        npx lerna run test --no-bail --no-ci
+        npx lerna run test  --force-local --no-bail --no-ci
