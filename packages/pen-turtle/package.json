@@ -34,9 +34,10 @@
     "access": "public"
   },
   "dependencies": {
+    "@mitchallen/pen-svg": "^0.2.7"
   },
   "devDependencies": {
-    "mocha": "^10.1.0",
-    "@mitchallen/pen-svg": "^0.2.7"
+    "@mitchallen/pen-svg": "^0.2.7",
+    "mocha": "^10.1.0"
   }
 }
