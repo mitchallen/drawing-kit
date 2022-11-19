@@ -25,7 +25,7 @@
     "url": "git+https://github.com/mitchallen/drawing-kit.git"
   },
   "scripts": {
-    "test": "mocha __tests__/*.test.js"
+    "test": "npx mocha __tests__/*.test.js"
   },
   "bugs": {
     "url": "https://github.com/mitchallen/drawing-kit/issues"
