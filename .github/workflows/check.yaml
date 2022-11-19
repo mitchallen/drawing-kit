@@ -28,9 +28,8 @@ jobs:
     - name: Install dependencies
       run: | 
         npm install
-        npx lerna bootstrap 
+        npx lerna bootstrap --force-local
 
     - name: Run tests
       run: | 
-        npx lerna add @mitchallen/pen-svg 
         npx lerna run test --no-bail --no-ci
