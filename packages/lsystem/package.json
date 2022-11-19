@@ -29,7 +29,6 @@
     "url": "https://github.com/mitchallen/drawing-kit/issues"
   },
   "dependencies": {
-    "@mitchallen/pen-svg": "^0.2.7",
     "@mitchallen/pen-turtle": "^0.1.0"
   },
   "devDependencies": {
