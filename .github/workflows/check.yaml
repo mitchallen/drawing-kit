@@ -32,4 +32,4 @@ jobs:
 
     - name: Run tests
       run: | 
-        npx lerna run test
+        npx lerna run test --no-ci
