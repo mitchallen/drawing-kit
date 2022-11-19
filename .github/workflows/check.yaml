@@ -20,10 +20,10 @@ jobs:
       with: 
         node-version: '14'
 
-    - name: "Setup npm" 
-      run: | 
-        npm set @mitchallen:registry=https://npm.pkg.github.com/mitchallen
-        npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
+    # - name: "Setup npm" 
+    #   run: | 
+    #     npm set @mitchallen:registry=https://npm.pkg.github.com/mitchallen
+    #     npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
 
     - name: Install dependencies
       run: | 
