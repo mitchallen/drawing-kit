@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/pen-turtle@0.3.0...@mitchallen/pen-turtle@0.4.0) (2023-03-27)
+
+
+### Features
+
+* **pen-turtle:** added license file ([adfe1a7](https://github.com/mitchallen/drawing-kit/commit/adfe1a7451291986361951a162b41b7221fdb232))
+
+
+
+
+
 # [0.3.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/pen-turtle@0.2.0...@mitchallen/pen-turtle@0.3.0) (2023-03-27)
 
 

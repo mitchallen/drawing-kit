@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.3.0...@mitchallen/lsystem@0.4.0) (2023-03-27)
+
+
+### Features
+
+* **lsystem:** added license file ([0a0935d](https://github.com/mitchallen/drawing-kit/commit/0a0935da271f2f3f87610c525721ccd7cdfa3bb6))
+
+
+
+
+
 # [0.3.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.2.0...@mitchallen/lsystem@0.3.0) (2023-03-27)
 
 

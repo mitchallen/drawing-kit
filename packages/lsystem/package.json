@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/lsystem",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "L-System package ",
   "keywords": [
     "lsystem",
@@ -29,7 +29,7 @@
     "url": "https://github.com/mitchallen/drawing-kit/issues"
   },
   "dependencies": {
-    "@mitchallen/pen-turtle": "^0.3.0"
+    "@mitchallen/pen-turtle": "^0.4.0"
   },
   "devDependencies": {
     "mocha": "^10.1.0"
