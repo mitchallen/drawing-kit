@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.6.0...@mitchallen/lsystem@0.7.0) (2023-03-27)
+
+
+### Features
+
+* gave package public access ([c98a980](https://github.com/mitchallen/drawing-kit/commit/c98a9800b668e312b21a9e6b1be331bb76a3ad79))
+
+
+
+
+
 # [0.6.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.5.0...@mitchallen/lsystem@0.6.0) (2023-03-27)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/pen-turtle",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Turtle based vector path generator",
   "keywords": [
     "turtle",
@@ -32,9 +32,6 @@
   },
   "bugs": {
     "url": "https://github.com/mitchallen/drawing-kit/issues"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "devDependencies": {
     "@mitchallen/pen-svg": "^0.2.7",
