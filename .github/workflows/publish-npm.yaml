@@ -26,12 +26,14 @@ jobs:
       env:
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: | 
-        npm set @${{ github.actor }}:registry=https://registry.npmjs.org/${{ github.actor }}
+        npm set @${{ github.actor }}:registry=https://registry.npmjs.org
         npm set "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}"
 
     - name: "Version and publish" 
       env:
-        GH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
