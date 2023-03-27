@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.5.0...@mitchallen/lsystem@0.6.0) (2023-03-27)
+
+
+### Features
+
+* **lsystem:** kicking lsystem ([f44e84f](https://github.com/mitchallen/drawing-kit/commit/f44e84fee6a372872c2e9e9ae1103e803067c125))
+
+
+
+
+
 # [0.5.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.4.0...@mitchallen/lsystem@0.5.0) (2023-03-27)
 
 
