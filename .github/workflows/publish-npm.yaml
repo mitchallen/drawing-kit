@@ -1,4 +1,4 @@
-name: Publish
+name: Publish to NPMJS
 on:
   pull_request:
     types: [closed]
@@ -23,13 +23,15 @@ jobs:
         node-version: '16'
 
     - name: "Setup npm" 
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: | 
-        npm set @${{ github.actor }}:registry=https://npm.pkg.github.com/${{ github.actor }}
-        npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
+        npm set @${{ github.actor }}:registry=https://registry.npmjs.org/${{ github.actor }}
+        npm set "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}"
 
     - name: "Version and publish" 
       env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GH_TOKEN: ${{ secrets.NPM_TOKEN }}
       run: |
         git config user.name "${{ github.actor }}"
         git config user.email "${{ github.actor}}@users.noreply.github.com"
