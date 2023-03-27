@@ -13,4 +13,3 @@ const lsystem = require('lsystem');
 ## References
 
 * https://dev.to/xcanchal/automatic-versioning-in-a-lerna-monorepo-using-github-actions-4hij
-
