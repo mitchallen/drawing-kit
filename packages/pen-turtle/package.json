@@ -11,6 +11,9 @@
   ],
   "author": "Mitch Allen <github@mitchallen.com>",
   "homepage": "https://github.com/mitchallen/drawing-kit#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "license": "MIT",
   "main": "lib/pen-turtle.js",
   "directories": {
