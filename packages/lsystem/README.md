@@ -1,16 +1,35 @@
-# `lsystem`
+@mitchallen/lsystem
+==
+L-System Generator
+--
+<p>
 
-> TODO: description
+  <a href="https://npmjs.org/package/@mitchallen/lsystem">
+    <img src="http://img.shields.io/npm/v/@mitchallen/lsystem.svg?style=flat-square" alt="Version">
+  </a>
+  
+  <a href="https://npmjs.org/package/@mitchallen/lsystem">
+    <img src="https://img.shields.io/github/license/mitchallen/lsystem.svg">
+  </a>
+  
+</p>
+
+* * *
+
+## Installation
+
+```sh
+$ npm init
+$ npm install @mitchallen/lsystem --save
+```
+
+* * *
 
 ## Usage
 
-```
-const lsystem = require('lsystem');
-
-// TODO: DEMONSTRATE API
+```js
+const lsystem = require('@mitchallen/lsystem');
 ```
 
-## References
 
-* https://dev.to/xcanchal/automatic-versioning-in-a-lerna-monorepo-using-github-actions-4hi
 
