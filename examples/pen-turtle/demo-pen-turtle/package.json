@@ -1,0 +1,17 @@
+{
+  "name": "demo-pen-turtle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mitch Allen",
+  "license": "MIT",
+  "dependencies": {
+    "@mitchallen/pen-svg": "^0.2.7",
+    "@mitchallen/pen-turtle": "^0.8.0"
+  }
+}
