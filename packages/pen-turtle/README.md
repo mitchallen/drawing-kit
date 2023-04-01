@@ -101,7 +101,7 @@ filename = "demo-pen-turtle.svg";
 let svg = writer.writeSVG({
     width,
     height,
-    filename: "demo-pen-turtle.svg"
+    filename,
 });
 
 // print the SVG markup to the screen
