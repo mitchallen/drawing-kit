@@ -1,3 +1,30 @@
+## Modules
+
+<dl>
+<dt><a href="#module_factory">factory</a></dt>
+<dd><p>A factory for creating pen-turtles</p>
+</dd>
+<dt><a href="#module_pen-turtle">pen-turtle</a></dt>
+<dd><p>A module for turtle graphics-like pen tool</p>
+</dd>
+</dl>
+
+<a name="module_factory"></a>
+
+## factory
+A factory for creating pen-turtles
+
+<a name="module_factory..create"></a>
+
+### factory~create(options) ⇒ <code>object</code>
+Create and return new pen-turtle
+
+**Kind**: inner method of [<code>factory</code>](#module_factory)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>object</code> | options |
+
 <a name="module_pen-turtle"></a>
 
 ## pen-turtle
@@ -5,7 +32,6 @@ A module for turtle graphics-like pen tool
 
 
 * [pen-turtle](#module_pen-turtle)
-    * [~create(options)](#module_pen-turtle..create) ⇒ <code>object</code>
     * [~export()](#module_pen-turtle..export) ⇒ <code>object</code>
     * [~color()](#module_pen-turtle..color) ⇒ <code>number</code>
     * [~fill()](#module_pen-turtle..fill) ⇒ <code>number</code>
@@ -25,17 +51,6 @@ A module for turtle graphics-like pen tool
     * [~right(degrees)](#module_pen-turtle..right) ⇒ <code>object</code>
     * [~forward(distance)](#module_pen-turtle..forward) ⇒ <code>object</code>
     * [~home()](#module_pen-turtle..home) ⇒ <code>object</code>
-
-<a name="module_pen-turtle..create"></a>
-
-### pen-turtle~create(options) ⇒ <code>object</code>
-Create and return new pen-turtle
-
-**Kind**: inner method of [<code>pen-turtle</code>](#module_pen-turtle)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| options | <code>object</code> | options |
 
 <a name="module_pen-turtle..export"></a>
 

@@ -1,3 +1,30 @@
+## Modules
+
+<dl>
+<dt><a href="#module_factory">factory</a></dt>
+<dd><p>A factory for creating lsystem generators</p>
+</dd>
+<dt><a href="#module_lsystem">lsystem</a></dt>
+<dd><p>A module for generating lsystems</p>
+</dd>
+</dl>
+
+<a name="module_factory"></a>
+
+## factory
+A factory for creating lsystem generators
+
+<a name="module_factory..create"></a>
+
+### factory~create(options) ⇒ <code>object</code>
+Create and return new lsystem generator
+
+**Kind**: inner method of [<code>factory</code>](#module_factory)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>object</code> | options |
+
 <a name="module_lsystem"></a>
 
 ## lsystem
@@ -5,20 +32,8 @@ A module for generating lsystems
 
 
 * [lsystem](#module_lsystem)
-    * [~create(options)](#module_lsystem..create) ⇒ <code>object</code>
     * [~addRule(name, r)](#module_lsystem..addRule) ⇒ <code>object</code>
     * [~run()](#module_lsystem..run) ⇒ <code>object</code>
-
-<a name="module_lsystem..create"></a>
-
-### lsystem~create(options) ⇒ <code>object</code>
-Create and return new lsystem generator
-
-**Kind**: inner method of [<code>lsystem</code>](#module_lsystem)  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| options | <code>object</code> | options |
 
 <a name="module_lsystem..addRule"></a>
 

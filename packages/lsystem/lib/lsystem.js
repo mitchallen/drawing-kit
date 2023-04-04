@@ -3,13 +3,14 @@
 const penTurtleFactory = require("@mitchallen/pen-turtle");
 
 /**
- * A module for generating lsystems
- * @module lsystem
+ * A factory for creating lsystem generators
+ * @module factory
  */
+
 
 /**
  * Create and return new lsystem generator
- * @module lsystem
+ * @module factory
  * @kind function
  * @name create
  * @param options {object} options 
@@ -27,7 +28,10 @@ let create = function (spec = {}) {
         axiom = "",
     } = spec;
 
-
+    /**
+     * A module for generating lsystems
+     * @module lsystem
+     */
     return Object.seal({
         turtle,
         distance,

@@ -1,13 +1,13 @@
 'use strict';
 
 /**
- * A module for turtle graphics-like pen tool
- * @module pen-turtle
+ * A factory for creating pen-turtles
+ * @module factory
  */
 
 /**
  * Create and return new pen-turtle 
- * @module pen-turtle
+ * @module factory
  * @kind function
  * @name create
  * @param options {object} options 
@@ -42,6 +42,11 @@ let create = function (spec = {}) {
     };
 
     heading = normalizeDegrees(heading);
+
+    /**
+     * A module for turtle graphics-like pen tool
+     * @module pen-turtle
+     */
 
     return {
 
