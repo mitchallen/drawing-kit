@@ -4,14 +4,12 @@ const penTurtleFactory = require("@mitchallen/pen-turtle");
 
 /**
  * A factory for creating lsystem generators
- * @module factory
+ * @namespace factory
  */
 
 /**
  * Create and return new lsystem generator
- * @module factory
- * @kind function
- * @name create
+ * @memberof factory
  * @param options {object} options 
  * @return {object} 
  * @example
@@ -32,21 +30,53 @@ let create = function (spec = {}) {
 
     /**
      * Lsystem generator
-     * @module lsystem
+     * @namespace lsystem
      */
     return Object.seal({
+        /**
+         * pen-turtle to use for drawing
+         * @memberof lsystem
+         */
         turtle,
+
+        /**
+         * distance
+         * @memberof lsystem
+         * @type {number}
+         */
         distance,
+
+        /**
+         * depth
+         * @memberof lsystem
+         * @type {number}
+         */
         depth,
+
+        /**
+         * depth ratio
+         * @memberof lsystem
+         * @type {number}
+         */
         depthRatio,
+
+        /**
+         * angle
+         * @memberof lsystem
+         * @type {number}
+         */
         angle,
+
+        /**
+         * axiom
+         * @memberof lsystem
+         * @type {string}
+         */
         axiom,
 
         /**
          * Add rule
-         * @module lsystem
-         * @kind function
-         * @name addRule
+         * @memberof lsystem
          * @param name {string} the name of the rule
          * @param r {string} the rule
          * @return {object} return this for chaining
@@ -113,9 +143,7 @@ let create = function (spec = {}) {
 
         /**
          * Run and build the lsystem
-         * @module lsystem
-         * @kind function
-         * @name run
+         * @memberof lsystem
          * @return {object} return this for chaining
          */
         run: function () {

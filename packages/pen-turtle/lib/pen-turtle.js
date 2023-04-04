@@ -2,14 +2,12 @@
 
 /**
  * A factory for creating pen-turtles
- * @module factory
+ * @namespace factory
  */
 
 /**
  * Create and return new pen-turtle 
- * @module factory
- * @kind function
- * @name create
+ * @memberof factory
  * @param options {object} options 
  * @return {object} 
  */
@@ -45,16 +43,14 @@ let create = function (spec = {}) {
 
     /**
      * Turtle graphics-like pen tool
-     * @module pen-turtle
+     * @namespace pen-turtle
      */
 
     return {
 
         /**
          * Export
-         * @module pen-turtle
-         * @kind function
-         * @name export
+         * @memberof pen-turtle
          * @returns {object}
          */
         export: function () {
@@ -76,81 +72,63 @@ let create = function (spec = {}) {
 
         /**
          * Returns the pen color as a hex value
-         * @module pen-turtle
-         * @kind function
-         * @name color
+         * @memberof pen-turtle
          * @returns {number} 
          */
         color: () => color,
 
         /**
          * Returns the fill color as a hex value
-         * @module pen-turtle
-         * @kind function
-         * @name fill
+         * @memberof pen-turtle
          * @returns {number} 
          */
         fill: () => fill,
 
         /**
          * Returns the width of the pen
-         * @module pen-turtle
-         * @kind function
-         * @name width
+         * @memberof pen-turtle
          * @returns {number} 
          */
         width: () => width,
 
         /**
          * Returns the drawing path as an array of commands
-         * @module pen-turtle
-         * @kind function
-         * @name path
+         * @memberof pen-turtle
          * @returns {array} 
          */
         path: () => path,
 
         /**
          * Returns the x-coordinate of the pen
-         * @module pen-turtle
-         * @kind function
-         * @name x
+         * @memberof pen-turtle
          * @returns {number} 
          */
         x: () => x,
 
         /**
          * Returns the y-coordinate of the pen
-         * @module pen-turtle
-         * @kind function
-         * @name y
+         * @memberof pen-turtle
          * @returns {number} 
          */
         y: () => y,
 
         /**
          * Returns the heading of the pen-turtle
-         * @module pen-turtle
-         * @kind function
-         * @name heading
+         * @memberof pen-turtle
          * @returns {number} 
          */
         heading: () => heading,
 
         /**
          * Returns true if the pen is down
-         * @module pen-turtle
-         * @kind function
-         * @name isDown
+         * @memberof pen-turtle
          * @returns {boolean} 
          */
         isDown: () => down,
 
         /**
          * Push x, y, head and down state to stack
-         * @module pen-turtle
-         * @kind function
-         * @name push
+         * @memberof pen-turtle
          * @returns {object} return this for chaining
          */
         push: function() {
@@ -165,18 +143,14 @@ let create = function (spec = {}) {
 
         /**
          * Returns true if stack empty
-         * @module pen-turtle
-         * @kind function
-         * @name isStackEmpty
+         * @memberof pen-turtle
          * @returns {boolean} 
          */
         isStackEmpty: () => !stack.length, 
 
         /**
          * Pops x, y, head and down off stack and moves to x, y
-         * @module pen-turtle
-         * @kind function
-         * @name pop
+         * @memberof pen-turtle
          * @returns {object} return this for chaining
          */
         pop: function() {
@@ -194,9 +168,7 @@ let create = function (spec = {}) {
 
         /**
          * Put the pen down (enables drawing)
-          * @module pen-turtle
-         * @kind function
-         * @name down
+         * @memberof pen-turtle
          * @returns {object} return this for chaining
          */
         down: function () {
@@ -206,9 +178,7 @@ let create = function (spec = {}) {
 
         /**
          * Put the pen up (disables drawing)
-         * @module pen-turtle
-         * @kind function
-         * @name up
+         * @memberof pen-turtle
          * @returns {object} return this for chaining
          */
         up: function () {
@@ -218,9 +188,7 @@ let create = function (spec = {}) {
 
         /**
          * Turn the turtle 
-         * @module pen-turtle
-         * @kind function
-         * @name turn
+         * @memberof pen-turtle
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -231,9 +199,7 @@ let create = function (spec = {}) {
 
         /**
          * Turn the turtle to the left
-         * @module pen-turtle
-         * @kind function
-         * @name left
+         * @memberof pen-turtle
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -243,9 +209,7 @@ let create = function (spec = {}) {
 
         /**
          * Turn the turtle to the right 
-         * @module pen-turtle
-         * @kind function
-         * @name right
+         * @memberof pen-turtle
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -255,9 +219,7 @@ let create = function (spec = {}) {
 
         /**
          * Move the turtle forward 
-         * @module pen-turtle
-         * @kind function
-         * @name forward
+         * @memberof pen-turtle
          * @param {number} distance to move
          * @returns {object} return this for chaining
          */
@@ -275,9 +237,7 @@ let create = function (spec = {}) {
 
         /**
          * Move the turtle to the home position 
-         * @module pen-turtle
-         * @kind function
-         * @name home
+         * @memberof pen-turtle
          * @returns {object} return this for chaining
          */
         home: function () {
