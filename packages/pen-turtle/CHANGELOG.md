@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/pen-turtle@0.11.0...@mitchallen/pen-turtle@0.12.0) (2023-04-04)
+
+
+### Features
+
+* updated doc, still wip ([9c26839](https://github.com/mitchallen/drawing-kit/commit/9c2683952141a9e930bb46980162e1679396fbb9))
+
+
+
+
+
 # [0.11.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/pen-turtle@0.10.0...@mitchallen/pen-turtle@0.11.0) (2023-04-04)
 
 
