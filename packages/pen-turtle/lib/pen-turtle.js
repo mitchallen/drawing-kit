@@ -44,7 +44,7 @@ let create = function (spec = {}) {
     heading = normalizeDegrees(heading);
 
     /**
-     * A module for turtle graphics-like pen tool
+     * Turtle graphics-like pen tool
      * @module pen-turtle
      */
 

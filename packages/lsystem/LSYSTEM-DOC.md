@@ -5,7 +5,7 @@
 <dd><p>A factory for creating lsystem generators</p>
 </dd>
 <dt><a href="#module_lsystem">lsystem</a></dt>
-<dd><p>A module for generating lsystems</p>
+<dd><p>Lsystem generator</p>
 </dd>
 </dl>
 
@@ -25,10 +25,15 @@ Create and return new lsystem generator
 | --- | --- | --- |
 | options | <code>object</code> | options |
 
+**Example**  
+```js
+const factory = require('@mitchallen/lsystem');
+let lsys = factory.create();
+```
 <a name="module_lsystem"></a>
 
 ## lsystem
-A module for generating lsystems
+Lsystem generator
 
 
 * [lsystem](#module_lsystem)
