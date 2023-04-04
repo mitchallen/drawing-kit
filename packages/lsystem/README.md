@@ -90,5 +90,9 @@ kochIsland()
 
 ```
 
+## Documentation
+
+* [LSYSTEM-DOC.md](LSYSTEM-DOC.md)
+
 
 

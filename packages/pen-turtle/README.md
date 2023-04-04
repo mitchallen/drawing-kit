@@ -111,3 +111,7 @@ console.log(svg)
 console.log(`\n\nOpen ${filename} in your favorite drawing program or browser.\n\n`)
 
 ```
+
+## Documentation
+
+* [PEN-TURTLE-DOC.md](PEN-TURTLE-DOC.md)

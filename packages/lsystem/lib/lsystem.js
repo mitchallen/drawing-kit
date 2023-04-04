@@ -2,6 +2,11 @@
 
 const penTurtleFactory = require("@mitchallen/pen-turtle");
 
+/**
+ * A module for generating lsystems
+ * @module lsystem
+ */
+
 module.exports.create = function (spec = {}) {
 
     let {
@@ -21,6 +26,13 @@ module.exports.create = function (spec = {}) {
         depthRatio,
         angle,
         axiom,
+
+        /**
+         * Add rule
+         * @alias module:lsystem
+         * @param name {string} the name of the rule
+         * @param r {string} the rule
+         */
         addRule: function (name, r) {
             rule[name] = r;
             return this;
@@ -84,6 +96,11 @@ module.exports.create = function (spec = {}) {
 
             }
         },
+
+        /**
+         * Run and build the lsystem
+         * @alias module:lsystem
+         */
         run: function () {
             this.lsys(this.depth, this.axiom);
             return this;
