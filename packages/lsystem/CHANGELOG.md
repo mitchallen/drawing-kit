@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.15.0...@mitchallen/lsystem@0.16.0) (2023-04-04)
+
+
+### Features
+
+* refactored doc ([a8e8f4c](https://github.com/mitchallen/drawing-kit/commit/a8e8f4c5909801562f285ce43da6e302cf1a7446))
+
+
+
+
+
 # [0.15.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/lsystem@0.14.0...@mitchallen/lsystem@0.15.0) (2023-04-04)
 
 
