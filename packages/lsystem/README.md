@@ -32,6 +32,10 @@ $ npm install @mitchallen/lsystem --save
 
 * * *
 
+<img src="https://raw.githubusercontent.com/mitchallen/drawing-kit/main/packages/lsystem/__tests__/output/kock-island.svg" />
+
+* * *
+
 ## Usage
 
 ```js
@@ -92,7 +96,7 @@ kochIsland()
 
 ## Documentation
 
-* [LSYSTEM-DOC.md](LSYSTEM-DOC.md)
+* [LSYSTEM-DOC.md](https://github.com/mitchallen/drawing-kit/blob/main/packages/lsystem/LSYSTEM-DOC.md)
 
 
 

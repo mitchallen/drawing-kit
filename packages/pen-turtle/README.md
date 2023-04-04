@@ -114,4 +114,4 @@ console.log(`\n\nOpen ${filename} in your favorite drawing program or browser.\n
 
 ## Documentation
 
-* [PEN-TURTLE-DOC.md](PEN-TURTLE-DOC.md)
+* [PEN-TURTLE-DOC.md](https://github.com/mitchallen/drawing-kit/blob/main/packages/pen-turtle/PEN-TURTLE-DOC.md)
