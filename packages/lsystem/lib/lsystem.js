@@ -29,7 +29,7 @@ let create = function (spec = {}) {
     } = spec;
 
     /**
-     * A module for generating lsystems
+     * Lsystem generator
      * @module lsystem
      */
     return Object.seal({

@@ -5,7 +5,7 @@
 <dd><p>A factory for creating pen-turtles</p>
 </dd>
 <dt><a href="#module_pen-turtle">pen-turtle</a></dt>
-<dd><p>A module for turtle graphics-like pen tool</p>
+<dd><p>Turtle graphics-like pen tool</p>
 </dd>
 </dl>
 
@@ -28,7 +28,7 @@ Create and return new pen-turtle
 <a name="module_pen-turtle"></a>
 
 ## pen-turtle
-A module for turtle graphics-like pen tool
+Turtle graphics-like pen tool
 
 
 * [pen-turtle](#module_pen-turtle)
