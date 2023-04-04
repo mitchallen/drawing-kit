@@ -7,7 +7,6 @@ const penTurtleFactory = require("@mitchallen/pen-turtle");
  * @module factory
  */
 
-
 /**
  * Create and return new lsystem generator
  * @module factory
@@ -15,6 +14,9 @@ const penTurtleFactory = require("@mitchallen/pen-turtle");
  * @name create
  * @param options {object} options 
  * @return {object} 
+ * @example
+ * const factory = require('@mitchallen/lsystem');
+ * let lsys = factory.create();
  */
 let create = function (spec = {}) {
 

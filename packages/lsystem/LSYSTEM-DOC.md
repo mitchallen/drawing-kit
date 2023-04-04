@@ -25,6 +25,11 @@ Create and return new lsystem generator
 | --- | --- | --- |
 | options | <code>object</code> | options |
 
+**Example**  
+```js
+const factory = require('@mitchallen/lsystem');
+let lsys = factory.create();
+```
 <a name="module_lsystem"></a>
 
 ## lsystem
