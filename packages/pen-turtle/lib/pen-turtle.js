@@ -5,7 +5,15 @@
  * @module pen-turtle
  */
 
-module.exports.create = function (spec = {}) {
+/**
+ * Create and return new pen-turtle 
+ * @module pen-turtle
+ * @kind function
+ * @name create
+ * @param options {object} options 
+ * @return {object} 
+ */
+let create = function (spec = {}) {
 
     let {
         x = 0,
@@ -39,7 +47,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Export
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name export
          * @returns {object}
          */
         export: function () {
@@ -61,63 +71,81 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Returns the pen color as a hex value
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name color
          * @returns {number} 
          */
         color: () => color,
 
         /**
          * Returns the fill color as a hex value
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name fill
          * @returns {number} 
          */
         fill: () => fill,
 
         /**
          * Returns the width of the pen
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name width
          * @returns {number} 
          */
         width: () => width,
 
         /**
          * Returns the drawing path as an array of commands
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name path
          * @returns {array} 
          */
         path: () => path,
 
         /**
          * Returns the x-coordinate of the pen
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name x
          * @returns {number} 
          */
         x: () => x,
 
         /**
          * Returns the y-coordinate of the pen
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name y
          * @returns {number} 
          */
         y: () => y,
 
         /**
          * Returns the heading of the pen-turtle
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name heading
          * @returns {number} 
          */
         heading: () => heading,
 
         /**
          * Returns true if the pen is down
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name isDown
          * @returns {boolean} 
          */
         isDown: () => down,
 
         /**
          * Push x, y, head and down state to stack
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name push
          * @returns {object} return this for chaining
          */
         push: function() {
@@ -132,14 +160,18 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Returns true if stack empty
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name isStackEmpty
          * @returns {boolean} 
          */
         isStackEmpty: () => !stack.length, 
 
         /**
          * Pops x, y, head and down off stack and moves to x, y
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name pop
          * @returns {object} return this for chaining
          */
         pop: function() {
@@ -157,7 +189,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Put the pen down (enables drawing)
-         * @alias module:pen-turtle
+          * @module pen-turtle
+         * @kind function
+         * @name down
          * @returns {object} return this for chaining
          */
         down: function () {
@@ -167,7 +201,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Put the pen up (disables drawing)
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name up
          * @returns {object} return this for chaining
          */
         up: function () {
@@ -177,7 +213,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Turn the turtle 
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name turn
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -188,7 +226,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Turn the turtle to the left
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name left
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -198,7 +238,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Turn the turtle to the right 
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name right
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -208,7 +250,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Move the turtle forward 
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name forward
          * @param {number} distance to move
          * @returns {object} return this for chaining
          */
@@ -226,7 +270,9 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Move the turtle to the home position 
-         * @alias module:pen-turtle
+         * @module pen-turtle
+         * @kind function
+         * @name home
          * @returns {object} return this for chaining
          */
         home: function () {
@@ -239,3 +285,5 @@ module.exports.create = function (spec = {}) {
         }
     };
 }
+
+module.exports.create = create

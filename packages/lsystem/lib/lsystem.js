@@ -7,7 +7,15 @@ const penTurtleFactory = require("@mitchallen/pen-turtle");
  * @module lsystem
  */
 
-module.exports.create = function (spec = {}) {
+/**
+ * Create and return new lsystem generator
+ * @module lsystem
+ * @kind function
+ * @name create
+ * @param options {object} options 
+ * @return {object} 
+ */
+let create = function (spec = {}) {
 
     let {
         turtle = penTurtleFactory.create(),
@@ -19,6 +27,7 @@ module.exports.create = function (spec = {}) {
         axiom = "",
     } = spec;
 
+
     return Object.seal({
         turtle,
         distance,
@@ -29,9 +38,12 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Add rule
-         * @alias module:lsystem
+         * @module lsystem
+         * @kind function
+         * @name addRule
          * @param name {string} the name of the rule
          * @param r {string} the rule
+         * @return {object} return this for chaining
          */
         addRule: function (name, r) {
             rule[name] = r;
@@ -76,13 +88,9 @@ module.exports.create = function (spec = {}) {
                         this.turtle.turn(this.angle * iTurn);
                         break;
                     case '[':
-                        // throw new Error("brackets not supported yet");
-                        // pushTurtle(this.turtle);
                         this.turtle.push();
                         break;
                     case ']':
-                        // throw new Error("brackets not supported yet");
-                        // this.turtle.copyTurtle(popTurtle());
                         this.turtle.pop();
                         break;
                     default:
@@ -99,7 +107,10 @@ module.exports.create = function (spec = {}) {
 
         /**
          * Run and build the lsystem
-         * @alias module:lsystem
+         * @module lsystem
+         * @kind function
+         * @name run
+         * @return {object} return this for chaining
          */
         run: function () {
             this.lsys(this.depth, this.axiom);
@@ -108,3 +119,5 @@ module.exports.create = function (spec = {}) {
     });
 
 }
+
+module.exports.create = create

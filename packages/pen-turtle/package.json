@@ -29,7 +29,7 @@
   },
   "scripts": {
     "//": "npm run doc -ws --if-present",
-    "doc": "npx jsdoc2md lib/*.js >> PEN-TURTLE-DOC.md",
+    "doc": "npx jsdoc2md lib/*.js > PEN-TURTLE-DOC.md",
     "test": "npx mocha __tests__/*.test.js"
   },
   "bugs": {
