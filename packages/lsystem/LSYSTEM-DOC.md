@@ -5,52 +5,38 @@ A module for generating lsystems
 
 
 * [lsystem](#module_lsystem)
-    * [addRule(name, r)](#exp_module_lsystem--addRule) ⏏
-    * [run()](#exp_module_lsystem--run) ⏏
+    * [~create(options)](#module_lsystem..create) ⇒ <code>object</code>
+    * [~addRule(name, r)](#module_lsystem..addRule) ⇒ <code>object</code>
+    * [~run()](#module_lsystem..run) ⇒ <code>object</code>
 
-<a name="exp_module_lsystem--addRule"></a>
+<a name="module_lsystem..create"></a>
 
-### addRule(name, r) ⏏
+### lsystem~create(options) ⇒ <code>object</code>
+Create and return new lsystem generator
+
+**Kind**: inner method of [<code>lsystem</code>](#module_lsystem)  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| options | <code>object</code> | options |
+
+<a name="module_lsystem..addRule"></a>
+
+### lsystem~addRule(name, r) ⇒ <code>object</code>
 Add rule
 
-**Kind**: Exported function  
+**Kind**: inner method of [<code>lsystem</code>](#module_lsystem)  
+**Returns**: <code>object</code> - return this for chaining  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | name | <code>string</code> | the name of the rule |
 | r | <code>string</code> | the rule |
 
-<a name="exp_module_lsystem--run"></a>
+<a name="module_lsystem..run"></a>
 
-### run() ⏏
+### lsystem~run() ⇒ <code>object</code>
 Run and build the lsystem
 
-**Kind**: Exported function  
-<a name="module_lsystem"></a>
-
-## lsystem
-A module for generating lsystems
-
-
-* [lsystem](#module_lsystem)
-    * [addRule(name, r)](#exp_module_lsystem--addRule) ⏏
-    * [run()](#exp_module_lsystem--run) ⏏
-
-<a name="exp_module_lsystem--addRule"></a>
-
-### addRule(name, r) ⏏
-Add rule
-
-**Kind**: Exported function  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| name | <code>string</code> | the name of the rule |
-| r | <code>string</code> | the rule |
-
-<a name="exp_module_lsystem--run"></a>
-
-### run() ⏏
-Run and build the lsystem
-
-**Kind**: Exported function  
+**Kind**: inner method of [<code>lsystem</code>](#module_lsystem)  
+**Returns**: <code>object</code> - return this for chaining  
