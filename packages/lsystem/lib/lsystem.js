@@ -11,12 +11,19 @@ const penTurtleFactory = require("@mitchallen/pen-turtle");
  * Create and return new lsystem generator
  * @memberof factory
  * @param options {object} options 
+ * @param options.turtle {object} pen-turtle to use for drawing 
+ * @param options.distance {number} distance 
+ * @param options.depth {number} depth
+ * @param options.depthRatio {number} depthRatio
+ * @param options.angle {number} angle
+ * @param options.rule {array} rule
+ * @param options.axiom {string} distance
  * @return {object} 
  * @example
  * const factory = require('@mitchallen/lsystem');
  * let lsys = factory.create();
  */
-let create = function (spec = {}) {
+let create = function (options = {}) {
 
     let {
         turtle = penTurtleFactory.create(),
@@ -26,22 +33,24 @@ let create = function (spec = {}) {
         angle = 0,
         rule = [],
         axiom = "",
-    } = spec;
+    } = options;
 
     /**
      * Lsystem generator
      * @namespace lsystem
      */
-    return Object.seal({
+    let lsystem = {
         /**
          * pen-turtle to use for drawing
          * @memberof lsystem
+         * @instance
          */
         turtle,
 
         /**
          * distance
          * @memberof lsystem
+         * @instance
          * @type {number}
          */
         distance,
@@ -49,6 +58,7 @@ let create = function (spec = {}) {
         /**
          * depth
          * @memberof lsystem
+         * @instance
          * @type {number}
          */
         depth,
@@ -56,6 +66,7 @@ let create = function (spec = {}) {
         /**
          * depth ratio
          * @memberof lsystem
+         * @instance
          * @type {number}
          */
         depthRatio,
@@ -63,6 +74,7 @@ let create = function (spec = {}) {
         /**
          * angle
          * @memberof lsystem
+         * @instance
          * @type {number}
          */
         angle,
@@ -70,6 +82,7 @@ let create = function (spec = {}) {
         /**
          * axiom
          * @memberof lsystem
+         * @instance
          * @type {string}
          */
         axiom,
@@ -77,6 +90,7 @@ let create = function (spec = {}) {
         /**
          * Add rule
          * @memberof lsystem
+         * @instance
          * @param name {string} the name of the rule
          * @param r {string} the rule
          * @return {object} return this for chaining
@@ -144,13 +158,16 @@ let create = function (spec = {}) {
         /**
          * Run and build the lsystem
          * @memberof lsystem
+         * @instance
          * @return {object} return this for chaining
          */
         run: function () {
             this.lsys(this.depth, this.axiom);
             return this;
         }
-    });
+    };
+
+    return Object.seal(lsystem)
 
 }
 
