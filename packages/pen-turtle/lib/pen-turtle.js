@@ -9,9 +9,25 @@
  * Create and return new pen-turtle 
  * @memberof factory
  * @param options {object} options 
+ * @param options.x {number} initial x-coordinate of turtle
+ * @param options.y {number} initial y-coordinate of turtle
+ * @param options.heading {number} initial heading of turtle
+ * @param options.color {number} hex color value of line drawn
+ * @param options.fill {number} hex fill color value
+ * @param options.width {number} width of line drawn
+ * @param options.precision {number} floating point precision of numbers stored in path
+ * @param options.homeX {number} home x-coordinate for turtle
+ * @param options.homeY {number} home y-coordinate for turtle
+ * @param options.homeHeading {number} home heading for turtle
+ * @param options.down {boolean} initial state of pen being up (false) or down true 
+ * @param options.path {array} initial path
  * @return {object} 
+ * @example
+ * const factory = require('@mitchallen/pen-turtle');
+ * let p1 = factory.create();
+ * let p2 = factory.create();
  */
-let create = function (spec = {}) {
+let create = function (options = {}) {
 
     let {
         x = 0,
@@ -26,7 +42,7 @@ let create = function (spec = {}) {
         homeHeading = heading,
         down = false,
         path = [],
-    } = spec;
+    } = options;
 
     let stack = [];
 
@@ -45,12 +61,12 @@ let create = function (spec = {}) {
      * Turtle graphics-like pen tool
      * @namespace pen-turtle
      */
-
-    return {
+    let penTurtle = {
 
         /**
          * Export
          * @memberof pen-turtle
+         * @instance
          * @returns {object}
          */
         export: function () {
@@ -73,6 +89,7 @@ let create = function (spec = {}) {
         /**
          * Returns the pen color as a hex value
          * @memberof pen-turtle
+         * @instance
          * @returns {number} 
          */
         color: () => color,
@@ -80,6 +97,7 @@ let create = function (spec = {}) {
         /**
          * Returns the fill color as a hex value
          * @memberof pen-turtle
+         * @instance
          * @returns {number} 
          */
         fill: () => fill,
@@ -87,6 +105,7 @@ let create = function (spec = {}) {
         /**
          * Returns the width of the pen
          * @memberof pen-turtle
+         * @instance
          * @returns {number} 
          */
         width: () => width,
@@ -94,6 +113,7 @@ let create = function (spec = {}) {
         /**
          * Returns the drawing path as an array of commands
          * @memberof pen-turtle
+         * @instance
          * @returns {array} 
          */
         path: () => path,
@@ -101,6 +121,7 @@ let create = function (spec = {}) {
         /**
          * Returns the x-coordinate of the pen
          * @memberof pen-turtle
+         * @instance
          * @returns {number} 
          */
         x: () => x,
@@ -108,6 +129,7 @@ let create = function (spec = {}) {
         /**
          * Returns the y-coordinate of the pen
          * @memberof pen-turtle
+         * @instance
          * @returns {number} 
          */
         y: () => y,
@@ -115,6 +137,7 @@ let create = function (spec = {}) {
         /**
          * Returns the heading of the pen-turtle
          * @memberof pen-turtle
+         * @instance
          * @returns {number} 
          */
         heading: () => heading,
@@ -122,6 +145,7 @@ let create = function (spec = {}) {
         /**
          * Returns true if the pen is down
          * @memberof pen-turtle
+         * @instance
          * @returns {boolean} 
          */
         isDown: () => down,
@@ -129,6 +153,7 @@ let create = function (spec = {}) {
         /**
          * Push x, y, head and down state to stack
          * @memberof pen-turtle
+         * @instance
          * @returns {object} return this for chaining
          */
         push: function() {
@@ -144,6 +169,7 @@ let create = function (spec = {}) {
         /**
          * Returns true if stack empty
          * @memberof pen-turtle
+         * @instance
          * @returns {boolean} 
          */
         isStackEmpty: () => !stack.length, 
@@ -151,6 +177,7 @@ let create = function (spec = {}) {
         /**
          * Pops x, y, head and down off stack and moves to x, y
          * @memberof pen-turtle
+         * @instance
          * @returns {object} return this for chaining
          */
         pop: function() {
@@ -169,6 +196,7 @@ let create = function (spec = {}) {
         /**
          * Put the pen down (enables drawing)
          * @memberof pen-turtle
+         * @instance
          * @returns {object} return this for chaining
          */
         down: function () {
@@ -179,6 +207,7 @@ let create = function (spec = {}) {
         /**
          * Put the pen up (disables drawing)
          * @memberof pen-turtle
+         * @instance
          * @returns {object} return this for chaining
          */
         up: function () {
@@ -189,6 +218,7 @@ let create = function (spec = {}) {
         /**
          * Turn the turtle 
          * @memberof pen-turtle
+         * @instance
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -200,6 +230,7 @@ let create = function (spec = {}) {
         /**
          * Turn the turtle to the left
          * @memberof pen-turtle
+         * @instance
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -210,6 +241,7 @@ let create = function (spec = {}) {
         /**
          * Turn the turtle to the right 
          * @memberof pen-turtle
+         * @instance
          * @param {number} degrees to turn
          * @returns {object} return this for chaining
          */
@@ -220,6 +252,7 @@ let create = function (spec = {}) {
         /**
          * Move the turtle forward 
          * @memberof pen-turtle
+         * @instance
          * @param {number} distance to move
          * @returns {object} return this for chaining
          */
@@ -229,8 +262,10 @@ let create = function (spec = {}) {
                 // Insert starting point
                 path.push({ op: "M", x, y });
             }
-            x += +(n * Math.sin(Math.PI / 180 * (heading + 180))).toFixed(precision);
-            y += +(n * Math.cos(Math.PI / 180 * (heading + 180))).toFixed(precision);
+            x += n * Math.sin(Math.PI / 180 * (heading + 180));
+            y += n * Math.cos(Math.PI / 180 * (heading + 180));
+            x = +x.toFixed(precision)
+            y = +y.toFixed(precision)
             path.push({ op, x, y });
             return this;
         },
@@ -238,6 +273,7 @@ let create = function (spec = {}) {
         /**
          * Move the turtle to the home position 
          * @memberof pen-turtle
+         * @instance
          * @returns {object} return this for chaining
          */
         home: function () {
@@ -249,6 +285,8 @@ let create = function (spec = {}) {
             return this;
         }
     };
+
+    return Object.seal(penTurtle)
 }
 
 module.exports.create = create

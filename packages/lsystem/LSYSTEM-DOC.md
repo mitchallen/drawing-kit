@@ -25,6 +25,13 @@ Create and return new lsystem generator
 | Param | Type | Description |
 | --- | --- | --- |
 | options | <code>object</code> | options |
+| options.turtle | <code>object</code> | pen-turtle to use for drawing |
+| options.distance | <code>number</code> | distance |
+| options.depth | <code>number</code> | depth |
+| options.depthRatio | <code>number</code> | depthRatio |
+| options.angle | <code>number</code> | angle |
+| options.rule | <code>array</code> | rule |
+| options.axiom | <code>string</code> | distance |
 
 **Example**  
 ```js
@@ -39,57 +46,57 @@ Lsystem generator
 **Kind**: global namespace  
 
 * [lsystem](#lsystem) : <code>object</code>
-    * [.turtle](#lsystem.turtle)
-    * [.distance](#lsystem.distance) : <code>number</code>
-    * [.depth](#lsystem.depth) : <code>number</code>
-    * [.depthRatio](#lsystem.depthRatio) : <code>number</code>
-    * [.angle](#lsystem.angle) : <code>number</code>
-    * [.axiom](#lsystem.axiom) : <code>string</code>
-    * [.addRule(name, r)](#lsystem.addRule) ⇒ <code>object</code>
-    * [.run()](#lsystem.run) ⇒ <code>object</code>
+    * [.turtle](#lsystem+turtle)
+    * [.distance](#lsystem+distance) : <code>number</code>
+    * [.depth](#lsystem+depth) : <code>number</code>
+    * [.depthRatio](#lsystem+depthRatio) : <code>number</code>
+    * [.angle](#lsystem+angle) : <code>number</code>
+    * [.axiom](#lsystem+axiom) : <code>string</code>
+    * [.addRule(name, r)](#lsystem+addRule) ⇒ <code>object</code>
+    * [.run()](#lsystem+run) ⇒ <code>object</code>
 
-<a name="lsystem.turtle"></a>
+<a name="lsystem+turtle"></a>
 
 ### lsystem.turtle
 pen-turtle to use for drawing
 
-**Kind**: static property of [<code>lsystem</code>](#lsystem)  
-<a name="lsystem.distance"></a>
+**Kind**: instance property of [<code>lsystem</code>](#lsystem)  
+<a name="lsystem+distance"></a>
 
 ### lsystem.distance : <code>number</code>
 distance
 
-**Kind**: static property of [<code>lsystem</code>](#lsystem)  
-<a name="lsystem.depth"></a>
+**Kind**: instance property of [<code>lsystem</code>](#lsystem)  
+<a name="lsystem+depth"></a>
 
 ### lsystem.depth : <code>number</code>
 depth
 
-**Kind**: static property of [<code>lsystem</code>](#lsystem)  
-<a name="lsystem.depthRatio"></a>
+**Kind**: instance property of [<code>lsystem</code>](#lsystem)  
+<a name="lsystem+depthRatio"></a>
 
 ### lsystem.depthRatio : <code>number</code>
 depth ratio
 
-**Kind**: static property of [<code>lsystem</code>](#lsystem)  
-<a name="lsystem.angle"></a>
+**Kind**: instance property of [<code>lsystem</code>](#lsystem)  
+<a name="lsystem+angle"></a>
 
 ### lsystem.angle : <code>number</code>
 angle
 
-**Kind**: static property of [<code>lsystem</code>](#lsystem)  
-<a name="lsystem.axiom"></a>
+**Kind**: instance property of [<code>lsystem</code>](#lsystem)  
+<a name="lsystem+axiom"></a>
 
 ### lsystem.axiom : <code>string</code>
 axiom
 
-**Kind**: static property of [<code>lsystem</code>](#lsystem)  
-<a name="lsystem.addRule"></a>
+**Kind**: instance property of [<code>lsystem</code>](#lsystem)  
+<a name="lsystem+addRule"></a>
 
 ### lsystem.addRule(name, r) ⇒ <code>object</code>
 Add rule
 
-**Kind**: static method of [<code>lsystem</code>](#lsystem)  
+**Kind**: instance method of [<code>lsystem</code>](#lsystem)  
 **Returns**: <code>object</code> - return this for chaining  
 
 | Param | Type | Description |
@@ -97,10 +104,10 @@ Add rule
 | name | <code>string</code> | the name of the rule |
 | r | <code>string</code> | the rule |
 
-<a name="lsystem.run"></a>
+<a name="lsystem+run"></a>
 
 ### lsystem.run() ⇒ <code>object</code>
 Run and build the lsystem
 
-**Kind**: static method of [<code>lsystem</code>](#lsystem)  
+**Kind**: instance method of [<code>lsystem</code>](#lsystem)  
 **Returns**: <code>object</code> - return this for chaining  
