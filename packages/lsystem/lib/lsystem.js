@@ -17,11 +17,45 @@ const penTurtleFactory = require("@mitchallen/pen-turtle");
  * @param options.depthRatio {number} depthRatio
  * @param options.angle {number} angle
  * @param options.rule {array} rule
- * @param options.axiom {string} distance
+ * @param options.axiom {string} initial rule to start 
  * @return {object} 
- * @example
+ * @example <caption>Init and set later</caption>
  * const factory = require('@mitchallen/lsystem');
  * let lsys = factory.create();
+ * // setup turtle
+ * let turtle = penTurtleFactory.create({
+ *     color: 0x000000,
+ *     width: 1,
+ * });
+ * // setup lsystem
+ * lsys.turtle = turtle;
+ * lsys.distance = 4;
+ * lsys.depth = 4;
+ * lsys.angle = 60;
+ * lsys.addRule("F", "F-F++F-F");
+ * lsys.axiom = "F++F++F";
+ * lsys.run();
+ * @example <caption>Init with values</caption>
+ * let width = 1024,
+ * height = 1024;
+ * let writer = svgFactory.create({});
+ * // setup turtle
+ * let turtle = penTurtleFactory.create({
+ *     color: 0x000000,
+ *     width: 1,
+ * });
+ * // init via factory:
+ * let lsys = factory.create({
+ *      turtle,
+ *      distance: 4,
+ *      depth: 4,
+ *      angle: 60,
+ *      rule: {
+ *          "F": "F-F++F-F"
+ *      },
+ *      axiom: "F++F++F",
+ * });
+ * lsys.run();
  */
 let create = function (options = {}) {
 
