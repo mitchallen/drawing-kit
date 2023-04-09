@@ -98,7 +98,6 @@ describe('lsystem', function () {
                 color: 0x000000,
                 width: 1,
             });
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.distance = 4;
@@ -120,6 +119,49 @@ describe('lsystem', function () {
                         }
                     });
             let file = 'kock-island'
+            let svg = writer.writeSVG({
+                width,
+                height,
+                filename: `__tests__/output/${file}.svg`
+            });
+            assert.ok(svg);
+            done();
+        });
+        it('should create koch.island factory init', function (done) {
+            let width = 1024,
+                height = 1024;
+            let writer = svgFactory.create({});
+            // setup turtle
+            let turtle = penTurtleFactory.create({
+                color: 0x000000,
+                width: 1,
+            });
+            // init via factory:
+            let lsys = factory.create({
+                turtle,
+                distance: 4,
+                depth: 4,
+                angle: 60,
+                rule: {
+                    "F": "F-F++F-F"
+                },
+                axiom: "F++F++F",
+            });
+            assert.ok(lsys, 'lsys should not be null');
+            lsys.run();
+            // write to svg
+            writer
+                .addPen(lsys.turtle,
+                    {
+                        color: 0x000000,
+                        fill: 0x00FF00,
+                        width: 1,
+                        transform: {
+                            scale: { x: 2.0, y: 2.0 },
+                            translate: { x: 140, y: 400 },
+                        }
+                    });
+            let file = 'kock-island-2'
             let svg = writer.writeSVG({
                 width,
                 height,

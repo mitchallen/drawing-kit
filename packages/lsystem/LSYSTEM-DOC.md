@@ -31,12 +31,48 @@ Create and return new lsystem generator
 | options.depthRatio | <code>number</code> | depthRatio |
 | options.angle | <code>number</code> | angle |
 | options.rule | <code>array</code> | rule |
-| options.axiom | <code>string</code> | distance |
+| options.axiom | <code>string</code> | initial rule to start |
 
-**Example**  
+**Example** *(Init and set later)*  
 ```js
 const factory = require('@mitchallen/lsystem');
 let lsys = factory.create();
+// setup turtle
+let turtle = penTurtleFactory.create({
+    color: 0x000000,
+    width: 1,
+});
+// setup lsystem
+lsys.turtle = turtle;
+lsys.distance = 4;
+lsys.depth = 4;
+lsys.angle = 60;
+lsys.addRule("F", "F-F++F-F");
+lsys.axiom = "F++F++F";
+lsys.run();
+```
+**Example** *(Init with values)*  
+```js
+let width = 1024,
+height = 1024;
+let writer = svgFactory.create({});
+// setup turtle
+let turtle = penTurtleFactory.create({
+    color: 0x000000,
+    width: 1,
+});
+// init via factory:
+let lsys = factory.create({
+     turtle,
+     distance: 4,
+     depth: 4,
+     angle: 60,
+     rule: {
+         "F": "F-F++F-F"
+     },
+     axiom: "F++F++F",
+});
+lsys.run();
 ```
 <a name="lsystem"></a>
 
