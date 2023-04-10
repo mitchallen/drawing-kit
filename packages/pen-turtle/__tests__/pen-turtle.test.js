@@ -631,5 +631,206 @@ describe('pen-turtle', function () {
       // console.log("SVG: \n", svg);
       done();
     });
+    it('writeSVG should write svg with square', done => {
+      let width = 1024,
+        height = 1024,
+        cx = width / 2,
+        cy = height / 2,
+        writer = svgFactory.create({});
+
+      assert.ok(writer);
+
+      let pen1 = factory.create({
+        x: cx * 1.5,
+        y: cy * 1.5,
+        color: 0xFF0000,    // red pen
+        width: 4,           // pen width 
+        alpha: 0.8          // pen alpha value
+      });
+
+      let sides = 4
+      let a1 = 360 / sides
+      let d1 = width / 4;
+
+      pen1
+        .down();
+      for (let i = 0; i < sides; i++) {
+        pen1
+          .forward(d1)
+          .turn(a1)
+      }
+
+      writer
+        .addPen(pen1,
+          {
+            color: 0xFF0000,
+            fill: 0x888888,
+            width: 10,
+            transform: {
+              translate: { x: 0, y: 0 },
+              scale: { x: 0.5, y: 0.5 }
+            }
+          }
+        )
+      let svg = writer.writeSVG({
+        width,
+        height,
+        filename: "__tests__/output/square.svg"
+      });
+      done();
+    });
+    it('writeSVG should write svg with pentago', done => {
+      let width = 1024,
+        height = 1024,
+        cx = width / 2,
+        cy = height / 2,
+        writer = svgFactory.create({});
+
+      assert.ok(writer);
+
+      let pen1 = factory.create({
+        x: cx * 1.5,
+        y: cy * 1.5,
+        color: 0xFF0000,    // red pen
+        width: 4,           // pen width 
+        alpha: 0.8          // pen alpha value
+      });
+
+      let sides = 5
+      let a1 = 360 / sides
+      let d1 = width / 4;
+
+      pen1
+        .down();
+      for (let i = 0; i < sides; i++) {
+        pen1
+          .forward(d1)
+          .turn(a1)
+      }
+
+      writer
+        .addPen(pen1,
+          {
+            color: 0xFF0000,
+            fill: 0x888888,
+            width: 10,
+            transform: {
+              translate: { x: 0, y: 0 },
+              scale: { x: 0.5, y: 0.5 }
+            }
+          }
+        )
+      let svg = writer.writeSVG({
+        width,
+        height,
+        filename: "__tests__/output/pentagon.svg"
+      });
+      done();
+    });
+    it('writeSVG should write svg with hexagon', done => {
+      let width = 1024,
+        height = 1024,
+        cx = width / 2,
+        cy = height / 2,
+        writer = svgFactory.create({});
+
+      assert.ok(writer);
+
+      let pen1 = factory.create({
+        x: cx * 1.5,
+        y: cy * 1.5,
+        color: 0xFF0000,    // red pen
+        width: 4,           // pen width 
+        alpha: 0.8          // pen alpha value
+      });
+
+      let sides = 6
+      let a1 = 360 / sides
+      let d1 = width / 4;
+
+      pen1
+        .down();
+      for (let i = 0; i < sides; i++) {
+        pen1
+          .forward(d1)
+          .turn(a1)
+      }
+
+      writer
+        .addPen(pen1,
+          {
+            color: 0xFF0000,
+            fill: 0x888888,
+            width: 10,
+            transform: {
+              translate: { x: 0, y: 0 },
+              scale: { x: 0.75, y: 0.75 }
+            }
+          }
+        )
+      let svg = writer.writeSVG({
+        width,
+        height,
+        filename: "__tests__/output/hexagon.svg"
+      });
+      done();
+    });
+    it('writeSVG should write svg with brownian motion', done => {
+      let width = 1024,
+        height = 1024,
+        cx = width / 2,
+        cy = height / 2,
+        writer = svgFactory.create({});
+
+      assert.ok(writer);
+
+      let constrain = function( tx, ty ) {
+        let margin = 10.0
+        return( tx >= margin && ty >= margin && tx <= (width - margin) && ty <= (height - margin))
+      }
+
+      let pen1 = factory.create({
+        x: cx * 1.5,
+        y: cy * 1.5,
+        color: 0xFF0000,    // red pen
+        width: 4,           // pen width 
+        alpha: 0.8,          // pen alpha value
+        constrain,
+      });
+
+      let limit = 1000
+      let dmin = width / 10.0
+      let dmax = width / 20.0
+
+      pen1
+        .down();
+      for (let i = 0; i < limit; i++) {
+        let d1 = Math.random() * (dmax - dmin) + dmin
+        let a1 = Math.random() * 360
+        console.log( d1, a1 )
+        pen1
+          .forward(d1)
+          .turn(a1)
+      }
+
+      writer
+        .addPen(pen1,
+          {
+            color: 0xFF0000,
+            fill: 0xFFFFFF,
+            width: 2,
+            // transform: {
+            //   scale: { x: 0.75, y: 0.75 },
+            //   translate: { x: cx / 2.0, y: cy / 2.0 },
+            // }
+          }
+        )
+      let svg = writer.writeSVG({
+        width,
+        height,
+        filename: "__tests__/output/brownian.svg"
+      });
+      done();
+    });
   });
 });
