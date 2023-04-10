@@ -42,6 +42,7 @@ let create = function (options = {}) {
         homeHeading = heading,
         down = false,
         path = [],
+        constrain = function(tx, ty) { return true},
     } = options;
 
     let stack = [];
@@ -262,11 +263,18 @@ let create = function (options = {}) {
                 // Insert starting point
                 path.push({ op: "M", x, y });
             }
-            x += n * Math.sin(Math.PI / 180 * (heading + 180));
-            y += n * Math.cos(Math.PI / 180 * (heading + 180));
-            x = +x.toFixed(precision)
-            y = +y.toFixed(precision)
-            path.push({ op, x, y });
+            // x += n * Math.sin(Math.PI / 180 * (heading + 180));
+            // y += n * Math.cos(Math.PI / 180 * (heading + 180));
+            let targetX = x + n * Math.sin(Math.PI / 180 * (heading + 180));
+            let targetY = y + n * Math.cos(Math.PI / 180 * (heading + 180));
+            let drawOK = constrain(targetX, targetY)
+            if( drawOK ) {
+                x = targetX
+                y = targetY
+                x = +x.toFixed(precision)
+                y = +y.toFixed(precision)
+                path.push({ op, x, y });
+            }
             return this;
         },
 
