@@ -21,11 +21,30 @@
  * @param options.homeHeading {number} home heading for turtle
  * @param options.down {boolean} initial state of pen being up (false) or down true 
  * @param options.path {array} initial path
+ * @param options.constrain {function} given x, y, returns true if okay to set new x, y
  * @return {object} 
- * @example
+ * @example <caption>init with defaults</caption>
  * const factory = require('@mitchallen/pen-turtle');
  * let p1 = factory.create();
  * let p2 = factory.create();
+ * @example <caption>init with values</caption>
+ * let width = 1024,
+ *     height = 1024,
+ *     cx = width / 2,
+ *     cy = height / 2,
+ * let constrain = function( tx, ty ) {
+ *      // only draw if within margin
+ *      let margin = 10.0
+ *      return( tx >= margin && ty >= margin && tx <= (width - margin) && ty <= (height - margin))
+ * }
+ * let pen1 = factory.create({
+ *      x: cx * 1.5,
+ *      y: cy * 1.5,
+ *      color: 0xFF0000,    // red pen
+ *      width: 4,           // pen width 
+ *      alpha: 0.8,         // pen alpha value
+ *      constrain,  // assign constrain function
+ * });
  */
 let create = function (options = {}) {
 
@@ -42,7 +61,7 @@ let create = function (options = {}) {
         homeHeading = heading,
         down = false,
         path = [],
-        constrain = function(tx, ty) { return true},
+        constrain = (tx, ty) => true,
     } = options;
 
     let stack = [];
@@ -52,7 +71,6 @@ let create = function (options = {}) {
         if (n < 0) {
             n += 360;
         }
-        // console.log(`normalized: ${n}`)
         return n;
     };
 
@@ -263,8 +281,6 @@ let create = function (options = {}) {
                 // Insert starting point
                 path.push({ op: "M", x, y });
             }
-            // x += n * Math.sin(Math.PI / 180 * (heading + 180));
-            // y += n * Math.cos(Math.PI / 180 * (heading + 180));
             let targetX = x + n * Math.sin(Math.PI / 180 * (heading + 180));
             let targetY = y + n * Math.cos(Math.PI / 180 * (heading + 180));
             let drawOK = constrain(targetX, targetY)

@@ -37,12 +37,33 @@ Create and return new pen-turtle
 | options.homeHeading | <code>number</code> | home heading for turtle |
 | options.down | <code>boolean</code> | initial state of pen being up (false) or down true |
 | options.path | <code>array</code> | initial path |
+| options.constrain | <code>function</code> | given x, y, returns true if okay to set new x, y |
 
-**Example**  
+**Example** *(init with defaults)*  
 ```js
 const factory = require('@mitchallen/pen-turtle');
 let p1 = factory.create();
 let p2 = factory.create();
+```
+**Example** *(init with values)*  
+```js
+let width = 1024,
+    height = 1024,
+    cx = width / 2,
+    cy = height / 2,
+let constrain = function( tx, ty ) {
+     // only draw if within margin
+     let margin = 10.0
+     return( tx >= margin && ty >= margin && tx <= (width - margin) && ty <= (height - margin))
+}
+let pen1 = factory.create({
+     x: cx * 1.5,
+     y: cy * 1.5,
+     color: 0xFF0000,    // red pen
+     width: 4,           // pen width 
+     alpha: 0.8,         // pen alpha value
+     constrain,  // assign constrain function
+});
 ```
 <a name="pen-turtle"></a>
 
