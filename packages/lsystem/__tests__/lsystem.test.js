@@ -94,10 +94,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // setup lsystem
             lsys.turtle = turtle;
             lsys.distance = 4;
@@ -132,10 +129,7 @@ describe('lsystem', function () {
                 height = 1024;
             let writer = svgFactory.create({});
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // init via factory:
             let lsys = factory.create({
                 turtle,
@@ -220,10 +214,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -262,10 +253,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -282,7 +270,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0xFF0000,
-                        fill: 0x000000,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -305,10 +292,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -326,7 +310,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0xFF0000,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -349,10 +332,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -370,7 +350,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0xFF0000,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -393,10 +372,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -414,7 +390,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0xFF0000,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -437,10 +412,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -458,7 +430,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0x013220,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -481,10 +452,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -502,7 +470,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0x013220,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -525,10 +492,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -546,7 +510,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0x013220,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
@@ -569,10 +532,7 @@ describe('lsystem', function () {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
-            let turtle = penTurtleFactory.create({
-                color: 0x000000,
-                width: 1,
-            });
+            let turtle = penTurtleFactory.create({});
             // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
@@ -596,7 +556,6 @@ describe('lsystem', function () {
                 .addPen(lsys.turtle,
                     {
                         color: 0x013220,
-                        fill: 0xFFFFFF,
                         width: 1,
                         transform: {
                             scale: { x: 2.5, y: 2.5 },
