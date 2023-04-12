@@ -214,7 +214,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.distance = 5;
@@ -253,7 +252,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.distance = 7;
@@ -292,7 +290,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
@@ -332,7 +329,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
@@ -372,7 +368,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
@@ -412,7 +407,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
@@ -452,7 +446,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
@@ -492,7 +485,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
@@ -532,7 +524,6 @@ describe('lsystem', function () {
             assert.ok(lsys, 'lsys should not be null');
             // setup turtle
             let turtle = penTurtleFactory.create({});
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.turtle.up();   // start with penup
