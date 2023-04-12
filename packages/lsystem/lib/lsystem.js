@@ -185,7 +185,6 @@ let create = function (options = {}) {
                         }
                         break;
                 }
-
             }
         },
 
