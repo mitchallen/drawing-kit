@@ -476,7 +476,7 @@ describe('pen-turtle', function () {
           y: -10,
           heading: 60,
           color: 0x000000,
-          fill: 0xFFFFFF,
+          fill: undefined,
           width: 1,
           precision: 2,
           homeX: 0,
@@ -775,6 +775,53 @@ describe('pen-turtle', function () {
       });
       done();
     });
+    it('writeSVG should write svg with hexagon no fill', done => {
+      let width = 1024,
+        height = 1024,
+        cx = width / 2,
+        cy = height / 2,
+        writer = svgFactory.create({});
+
+      assert.ok(writer);
+
+      let pen1 = factory.create({
+        x: cx * 1.5,
+        y: cy * 1.5,
+        color: 0xFF0000,    // red pen
+        width: 4,           // pen width 
+        alpha: 0.8          // pen alpha value
+      });
+
+      let sides = 6
+      let a1 = 360 / sides
+      let d1 = width / 4;
+
+      pen1
+        .down();
+      for (let i = 0; i < sides; i++) {
+        pen1
+          .forward(d1)
+          .turn(a1)
+      }
+
+      writer
+        .addPen(pen1,
+          {
+            color: 0x808080, // gray
+            width: 10,
+            transform: {
+              translate: { x: 0, y: 0 },
+              scale: { x: 0.75, y: 0.75 }
+            }
+          }
+        )
+      let svg = writer.writeSVG({
+        width,
+        height,
+        filename: "__tests__/output/hexagon-no-fill.svg"
+      });
+      done();
+    });
     it('writeSVG should write svg with brownian motion', done => {
       let width = 1024,
         height = 1024,
@@ -793,6 +840,7 @@ describe('pen-turtle', function () {
         x: cx * 1.5,
         y: cy * 1.5,
         color: 0xFF0000,    // red pen
+        // fill: undefined,
         width: 4,           // pen width 
         alpha: 0.8,          // pen alpha value
         constrain,
@@ -817,12 +865,8 @@ describe('pen-turtle', function () {
         .addPen(pen1,
           {
             color: 0xFF0000,
-            fill: 0xFFFFFF,
+            // fill: undefined,
             width: 2,
-            // transform: {
-            //   scale: { x: 0.75, y: 0.75 },
-            //   translate: { x: cx / 2.0, y: cy / 2.0 },
-            // }
           }
         )
       let svg = writer.writeSVG({
