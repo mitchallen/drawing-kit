@@ -41,7 +41,7 @@ jobs:
         if [ ${{ github.base_ref }} = development ]; then
           npx lerna version --conventional-commits --conventional-prerelease --preid beta --yes
         else
-          npx lerna version --conventional-commits --yes --changelog-preset conventionalcommits
+          npx lerna version --conventional-commits --yes 
         fi
 
         npx lerna publish --no-private from-git --yes 
