@@ -98,5 +98,8 @@ kochIsland()
 
 * [LSYSTEM-DOC.md](https://github.com/mitchallen/drawing-kit/blob/main/packages/lsystem/LSYSTEM-DOC.md)
 
+## Buy me a coffee!
 
+If you like this package and find it useful, please show your appreciation and buy me a coffee!
 
+<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="mitchallen" data-color="#BD5FFF" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
