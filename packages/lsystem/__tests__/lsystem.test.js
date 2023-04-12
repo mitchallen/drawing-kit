@@ -175,7 +175,6 @@ describe('lsystem', function () {
                 color: 0x000000,
                 width: 1,
             });
-            // turtle.home();
             // setup lsystem
             lsys.turtle = turtle;
             lsys.distance = 12;

@@ -53,7 +53,6 @@ let create = function (options = {}) {
         y = 0,
         heading = 0,
         color = 0x000000,
-        // fill = 0xFFFFFF,
         fill = undefined,
         width = 1,
         precision = 2,
