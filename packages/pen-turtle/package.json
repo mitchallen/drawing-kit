@@ -10,7 +10,7 @@
     "canvas"
   ],
   "author": "Mitch Allen <github@mitchallen.com>",
-  "homepage": "https://github.com/mitchallen/drawing-kit#readme",
+  "homepage": "https://github.com/mitchallen/drawing-kit/tree/main/packages/pen-turtle#readme",
   "publishConfig": {
     "access": "public"
   },
