@@ -115,6 +115,7 @@ let create = function (options = {}) {
 
         /**
          * Returns the fill color as a hex value
+         * Default is undefined
          * @memberof pen-turtle
          * @instance
          * @returns {number} 

@@ -127,7 +127,7 @@ let create = function (options = {}) {
          * @instance
          * @param name {string} the name of the rule
          * @param r {string} the rule
-         * @return {object} return this for chaining
+         * @return {object} return this object for chaining
          */
         addRule: function (name, r) {
             rule[name] = r;
@@ -192,7 +192,7 @@ let create = function (options = {}) {
          * Run and build the lsystem
          * @memberof lsystem
          * @instance
-         * @return {object} return this for chaining
+         * @return {object} return this object for chaining
          */
         run: function () {
             this.lsys(this.depth, this.axiom);
