@@ -36,13 +36,20 @@ $ npm install @mitchallen/svg-tile --save
 
 ## Usage
 
-### Define an input file
+### Step 1. Create a new project
 
-First define an input file and save as **./input/source.svg**:
+* Create a new project
+* Install the package (see instructions above)
 
-The input file should an SVG file that contains:
+### Step 2. Define an input file
+
+Define an input file and save as **./input/source.svg**:
+
+The input file should be an SVG file that contains:
 * a **style** section
 * a **defs** section which defines all the tiles with ids
+
+For example:
 
 ```svg
 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
@@ -104,7 +111,7 @@ The input file should an SVG file that contains:
 </svg>
 ```
 
-### Define a generator file
+### Step 3. Define a generator file
 
 Then define a generator file, passing in the names of the tiles to the `tiles` property.
 
@@ -137,7 +144,7 @@ generate({
   })
   ```
 
-  ### Run the file and generate a tiled SVG
+  ### Step 4. Run the file and generate a tiled SVG
 
   Run the file and then open the output file (./output/...)
 
