@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/svg-tile@0.2.0...@mitchallen/svg-tile@0.3.0) (2023-04-21)
+
+
+### Features
+
+* updated example and added to usage ([470537d](https://github.com/mitchallen/drawing-kit/commit/470537d8a62dec1453bd7673578dfa8b6502e1af))
+
+
+
+
+
 # [0.2.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/svg-tile@0.1.0...@mitchallen/svg-tile@0.2.0) (2023-04-21)
 
 
