@@ -34,6 +34,13 @@ $ npm init
 $ npm install @mitchallen/svg-tile --save
 ```
 
+* * *
+
+<img src="https://raw.githubusercontent.com/mitchallen/drawing-kit/main/examples/svg-tile/tile-101/output/square-tiles.svg" />
+
+
+* * *
+
 ## Usage
 
 ### Step 1. Create a new project
