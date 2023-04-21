@@ -40,7 +40,7 @@ $ npm install @mitchallen/svg-tile --save
 
 ### Legend
 
-<img src="https://raw.githubusercontent.com/mitchallen/drawing-kit/main/examples/svg-tile/tile-101/output/legend-01.svg" />
+<img src="https://raw.githubusercontent.com/mitchallen/drawing-kit/main/packages/svg-tile/__tests__/output/legend-01.svg" />
 
 * * *
 
