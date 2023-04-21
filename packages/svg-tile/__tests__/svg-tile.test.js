@@ -6,6 +6,7 @@ const factory = require('..');
 const {
   getSquareXY,
   generate,
+  generateLegend,
 } = require("@mitchallen/svg-tile");
 
 describe('svg-tile', function () {
@@ -19,7 +20,7 @@ describe('svg-tile', function () {
       done();
     });
 
-    it('generate should square grid svg', function (done) {
+    it('should generate square grid svg', function (done) {
       // generate square grid
       generate({
         sourceFile: './__tests__/input/source.svg',
@@ -37,6 +38,32 @@ describe('svg-tile', function () {
         ],
         boardTransform: `translate(25,25) scale(0.25, 0.25)`,
         backgroundColor: 'black',
+      })
+      done();
+    });
+    it('should generate a legend svg', function (done) {
+      // generate legend
+      let margin = 25;
+      let padding = 30
+      let tileSize = 200
+      let columns = 2
+      let rows = 2
+      let width = margin * 2 + tileSize * columns + padding * (columns - 1)
+      let height = margin * 2 + tileSize * rows + padding * (rows - 1)
+      generateLegend({
+        sourceFile: './__tests__/input/source.svg',
+        targetFile: './__tests__/output/legend-01.svg',
+        toolTips: true,
+        width,
+        height,
+        padding,
+        tileSize,
+        columns,
+        rows,
+        getXY: getSquareXY,
+        tiles: ['slice1A', 'slice1B','slice2A', 'slice2B'],
+        boardTransform: `translate(${margin},${margin}) scale(1.0, 1.0)`,
+        backgroundColor: 'gray',
       })
       done();
     });
