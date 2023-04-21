@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/svg-tile@0.7.0...@mitchallen/svg-tile@0.8.0) (2023-04-21)
+
+
+### Features
+
+* added generateLegend function ([6c12a2a](https://github.com/mitchallen/drawing-kit/commit/6c12a2ad0bed4a5bb580fe38a1d868e1379d6c71))
+
+
+
+
+
 # [0.7.0](https://github.com/mitchallen/drawing-kit/compare/@mitchallen/svg-tile@0.6.0...@mitchallen/svg-tile@0.7.0) (2023-04-21)
 
 
