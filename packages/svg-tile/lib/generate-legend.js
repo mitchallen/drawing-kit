@@ -1,34 +1,27 @@
-/** 
- * Author: Mitch Allen
- */
 
 var fs = require('fs'),
-    util = require('util'),
-    Chance = require('chance');
-cheerio = require('cheerio');
-
-var chance = new Chance();
+    util = require('util');
 
 let { getSquareXY } = require('./get-square-xy.js')
-let { generateLegend } = require('./generate-legend.js')
 
-function generate(options = {}) {
+let generateLegend = function(options = {}) {
 
     let {
-        title = undefined,
+        title = 'legend',
         desc = `This file was code-generated.`,
         width = 1024,
         height = 1024,
         tileSize = 200,
         columns = 4,
         rows = 3,
+        padding = 20,
         getXY = getSquareXY,
         tiles = [],
         rotations = () => 0,
         boardId = `board`,
         boardTransform = `translate(0,0) scale(1.0, 1.0)`,
         sourceFile = './source.svg',
-        targetFile = './target.svg',
+        targetFile = './legend.svg',
         backgroundColor = 'white',
         generateIds = true,
         precision = 2,
@@ -52,12 +45,16 @@ function generate(options = {}) {
 
             let board = `<g id="${boardId}" transform="${boardTransform}" >\n`
             let radius = tileSize / 2
+            let tileIndex = 0;
             for (let column = 0; column < columns; column++) {
-                let tileIndex = column % 2
                 for (let row = 0; row < rows; row++) {
                     let [tx, ty] = getXY({ row, column, ...options})
-                    if (tileIndex >= tiles.length) tileIndex = 0;
-                    let href = chance.pickone(tiles[tileIndex++])
+                    tx += (column * padding)
+                    ty += (row * padding)
+                    if (tileIndex >= tiles.length) {
+                        break;
+                    };
+                    let href = tiles[tileIndex++]
                     let rotation = rotations()
                     let tileId = `C${column}R${row}`
                     let idAttr = generateIds ? `id="${tileId}"` : ""
@@ -99,7 +96,5 @@ function generate(options = {}) {
 }
 
 module.exports = {
-    generate,
     generateLegend,
-    getSquareXY,
-}
+} 

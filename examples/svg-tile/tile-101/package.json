@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@mitchallen/svg-tile": "^0.3.1",
+    "@mitchallen/svg-tile": "^0.7.0",
     "boolbase": "^1.0.0",
     "chance": "^1.1.11",
     "cheerio": "^1.0.0-rc.12",
@@ -22,9 +22,10 @@
     "parse5-htmlparser2-tree-adapter": "^7.0.0"
   },
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": ["svg"],
+  "author": "Mitch Allen (https://mitchallen.com)",
+  "license": "MIT"
 }

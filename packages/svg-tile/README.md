@@ -38,6 +38,9 @@ $ npm install @mitchallen/svg-tile --save
 
 <img src="https://raw.githubusercontent.com/mitchallen/drawing-kit/main/examples/svg-tile/tile-101/output/square-tiles.svg" />
 
+### Legend
+
+<img src="https://raw.githubusercontent.com/mitchallen/drawing-kit/main/examples/svg-tile/tile-101/output/legend-01.svg" />
 
 * * *
 
@@ -120,7 +123,7 @@ For example:
 
 ### Step 3. Define a generator file
 
-Then define a generator file, passing in the names of the tiles to the `tiles` property.
+Define a generator file (index.js), passing in the names of the tiles to the `tiles` property.
 
 The generator will alternate between the two sets of tiles.
 
@@ -149,16 +152,47 @@ generate({
     boardTransform: `translate(25,25) scale(0.25, 0.25)`,
     backgroundColor: 'black',
   })
-  ```
+```
 
-  ### Step 4. Run the file and generate a tiled SVG
+### Step 4. Run the file and generate a tiled SVG
 
-  Run the file and then open the output file (./output/...)
+Run the file and then open the output file (./output/...)
 
-  ```sh
-  node index.js
+```sh
+node index.js
 
-  open ./output/*.svg
-  ```
+open ./output/*.svg
+```
+
+### Step 5. Use the generateLegend function to generate a tile legend SVG file:
+
+```js
+  // generate legend
+  let margin = 25;
+  let padding = 30
+  let tileSize = 200
+  let columns = 2
+  let rows = 2
+  let width = margin * 2 + tileSize * columns + padding * (columns - 1)
+  let height = margin * 2 + tileSize * rows + padding * (rows - 1)
+  generateLegend({
+    sourceFile: './input/source.svg',
+    targetFile: './output/legend-01.svg',
+    toolTips: true,
+    width,
+    height,
+    padding,
+    tileSize,
+    columns,
+    rows,
+    getXY: getSquareXY,
+    tiles: ['tile1A', 'tile1B','tile2A', 'tile2B'],
+    boardTransform: `translate(${margin},${margin}) scale(1.0, 1.0)`,
+    backgroundColor: 'gray',
+  })
+
+```
+
+
 
   
