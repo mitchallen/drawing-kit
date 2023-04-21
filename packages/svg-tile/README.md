@@ -36,9 +36,15 @@ $ npm install @mitchallen/svg-tile --save
 
 ## Usage
 
+### Define an input file
+
 First define an input file and save as **./input/source.svg**:
 
-```js
+The input file should an SVG file that contains:
+* a **style** section
+* a **defs** section which defines all the tiles with ids
+
+```svg
 <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
     <style>
         rect.tileBack1 {
@@ -98,7 +104,11 @@ First define an input file and save as **./input/source.svg**:
 </svg>
 ```
 
-Then define a generator file:
+### Define a generator file
+
+Then define a generator file, passing in the names of the tiles to the `tiles` property.
+
+The generator will alternate between the two sets of tiles.
 
 ```js
 let factory = require("@mitchallen/svg-tile")
@@ -127,5 +137,14 @@ generate({
   })
   ```
 
+  ### Run the file and generate a tiled SVG
+
   Run the file and then open the output file (./output/...)
+
+  ```sh
+  node index.js
+
+  open ./output/*.svg
+  ```
+
   
