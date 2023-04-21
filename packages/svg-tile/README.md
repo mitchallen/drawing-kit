@@ -33,3 +33,98 @@ SVG Tile Pattern Generator
 $ npm init
 $ npm install @mitchallen/svg-tile --save
 ```
+
+## Usage
+
+First define an input file and save as **./input/source.svg**:
+
+```js
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+    <style>
+        rect.tileBack1 {
+            stroke: none;
+            fill: black;
+        }
+
+        rect.tileBack2 {
+            stroke: none;
+            fill: white;
+        }
+
+        rect.background {
+            stroke: none;
+            fill: white;
+        }
+
+        path.pie1 {
+            stroke: none;
+            stroke-width: 1;
+            fill: white;
+            stroke-linecap: butt;
+        }
+
+        path.pie2 {
+            stroke: none;
+            stroke-width: 1;
+            fill: black;
+            stroke-linecap: butt;
+        }
+    </style>
+    <defs>
+        <g id="base1">
+            <rect width="200" height="200" class="tileBack1" />
+        </g>
+        <g id="base2">
+            <rect width="200" height="200" class="tileBack2" />
+        </g>
+
+        <g id="tile1A">
+            <use href="#base1" />
+            <path d="M200,100 A 100,100 0,0,0 100,200 L 200,200 Z" class="pie1" />
+            <path d="M0,100 A 100,100 0,0,0 100,0 L 0,0 Z" class="pie1" />
+        </g>
+        <g id="tile2A">
+            <use href="#base2" />
+            <path d="M200,100 A 100,100 0,0,0 100,200 L 200,200 Z" class="pie2" />
+            <path d="M0,100 A 100,100 0,0,0 100,0 L 0,0 Z" class="pie2" />
+        </g>
+        <g id="tile1B">
+            <use href="#tile2A" transform="rotate(90,100,100)" />
+        </g>
+        <g id="tile2B">
+            <use href="#tile1A" transform="rotate(90,100,100)" />
+        </g>
+    </defs>
+</svg>
+```
+
+Then define a generator file:
+
+```js
+let factory = require("@mitchallen/svg-tile")
+
+let {
+  generate,
+  getSquareXY,
+} = factory;
+
+generate({
+    sourceFile: './input/source.svg',
+    targetFile: './output/square-tiles.svg',
+    toolTips: true,
+    width: 550,
+    height: 550,
+    tileSize: 200,
+    columns: 10,
+    rows: 10,
+    getXY: getSquareXY,
+    tiles: [
+      ['tile1A', 'tile1B'],
+      ['tile2A', 'tile2B'],
+    ],
+    boardTransform: `translate(25,25) scale(0.25, 0.25)`,
+    backgroundColor: 'black',
+  })
+  ```
+
+  Run the file and then pen the output file (./output/...)
