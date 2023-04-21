@@ -1,0 +1,111 @@
+
+<svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="1024" height="1024">
+<style>
+        rect.tileBack1 { stroke: none; fill: black; }
+        rect.tileBack2 { stroke: none; fill: white; }
+        rect.background { stroke: none; fill: white; }
+        path.guide { stroke: lightgray; stroke-width: 1; }
+        circle.guide { stroke: lightgray; fill: darkgray; stroke-width: 1; }
+        path.arc1 { stroke: black; stroke-width: 50; fill: none; stroke-linecap: butt; }
+        path.arc1round { stroke: black; stroke-width: 50; fill: none; stroke-linecap: round; }
+        path.arc2 { stroke: black; stroke-width: 50; fill: none; stroke-linecap: butt; }
+        path.arc3 { stroke: green; stroke-width: 50; fill: none; stroke-linecap: butt; }
+        path.arc4 { stroke: blue; stroke-width: 50; fill: none; stroke-linecap: butt; }
+        path.pie1 { stroke: none; stroke-width: 1; fill: white; stroke-linecap: butt; }
+        path.pie2 { stroke: none; stroke-width: 1; fill: black; stroke-linecap: butt; }
+        polygon.hex1 { stroke: white; fill: lightblue; stroke-width: 20; }
+        polygon.hex1b { stroke: white; fill: darkblue; stroke-width: 20; }
+        polygon.hex2 { stroke: white; fill: lightpink; stroke-width: 1; }
+        polygon.hex2b { stroke: white; fill: red; stroke-width: 1; }
+</style>
+<defs>
+        <g id="base1">
+                <rect width="200" height="200" class="tileBack1" />
+                <!-- <circle cx="0" cy="100" r="25" class="guide" />
+                <circle cx="100" cy="0" r="25" class="guide" />
+                <circle cx="100" cy="200" r="25" class="guide" />
+                <circle cx="200" cy="100" r="25" class="guide" /> -->
+        </g>
+        <g id="base2">
+                <rect width="200" height="200" class="tileBack2" />
+                <!-- <circle cx="0" cy="100" r="25" class="guide" />
+                <circle cx="100" cy="0" r="25" class="guide" />
+                <circle cx="100" cy="200" r="25" class="guide" />
+                <circle cx="200" cy="100" r="25" class="guide" /> -->
+        </g>
+        <g id="center1">
+            <use href="#base1" />
+            <circle cx="100" cy="100" r="25" class="guide" />
+        </g>
+        <g id="hex1">
+            <polygon class="hex1" 
+                transform="translate(0,0) scale(0.5,0.5) rotate(0,100,100)"
+                points="300,150 225,280 75,280 0,150 75,20 225,20"
+            ></polygon>
+        </g>
+        <g id="hex1b">
+            <polygon class="hex1b" 
+                transform="translate(0,0) scale(0.5,0.5) rotate(0,100,100)"
+                points="300,150 225,280 75,280 0,150 75,20 225,20"
+            ></polygon>
+        </g>
+        <g id="hex2">
+            <polygon class="hex2" 
+                transform="translate(0,0) scale(0.5,0.5) rotate(0,100,100)"
+                points="300,150 225,280 75,280 0,150 75,20 225,20"
+            ></polygon>
+        </g>
+        <g id="hex2b">
+            <polygon class="hex2b" 
+                transform="translate(0,0) scale(0.5,0.5) rotate(0,100,100)"
+                points="300,150 225,280 75,280 0,150 75,20 225,20"
+            ></polygon>
+        </g>
+
+        <g id="tile1">
+            <use href="#base1" />
+            <path d="M200,100 A 100,100 0,0,0 100,200" class="arc1" />
+        </g>
+        <g id="slice1A">
+            <use href="#base1" />
+            <path d="M200,100 A 100,100 0,0,0 100,200 L 200,200 Z" class="pie1" />
+            <path d="M0,100 A 100,100 0,0,0 100,0 L 0,0 Z" class="pie1" />
+        </g>
+        <g id="slice2A">
+            <use href="#base2" />
+            <path d="M200,100 A 100,100 0,0,0 100,200 L 200,200 Z" class="pie2" />
+            <path d="M0,100 A 100,100 0,0,0 100,0 L 0,0 Z" class="pie2" />
+        </g>
+        <g id="slice1B">
+            <use href="#slice2A" transform="rotate(90,100,100)" />
+        </g>
+        <g id="slice2B">
+            <use href="#slice1A" transform="rotate(90,100,100)" />
+        </g>
+        <g id="tile2">
+            <use href="#base1" />
+            <path d="M200,100 A 100,100 0,0,0 100,200" class="arc2" />
+            <path d="M0,100 A 100,100 0,0,0 100,0" class="arc2" />
+        </g>
+        <g id="tile3">
+            <use href="#base1" />
+            <path d="M100,0 A 100,100 0,0,0 200,100" class="arc3" />
+            <path d="M100,200 A 100,100 0,0,0 0,100" class="arc3" />
+        </g>
+        <g id="tile4">
+            <use href="#base1" />
+            <path d="M200,100 A 100,100 0,0,0 100,200" class="arc4" />
+            <path d="M0,100 A 100,100 0,0,0 100,0" class="arc4" />
+            <path d="M100,0 A 100,100 0,0,0 200,100" class="arc4" />
+            <path d="M100,200 A 100,100 0,0,0 0,100" class="arc4" />
+        </g>
+        <g id="tile5">
+            <use href="#base1" />
+            <path d="M0,100 200,100" class="arc1" />
+        </g>
+        <g id="tile6">
+            <use href="#base1" />
+            <path d="M100,0 100,200" class="arc1" />
+        </g>
+</defs>
+</svg>
