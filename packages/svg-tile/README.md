@@ -33,4 +33,3 @@ SVG Tile Pattern Generator
 $ npm init
 $ npm install @mitchallen/svg-tile --save
 ```
-
