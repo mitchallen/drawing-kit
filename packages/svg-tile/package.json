@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/svg-tile",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "SVG tile pattern generator",
   "keywords": [
     "svg",
