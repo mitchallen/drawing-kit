@@ -61,9 +61,90 @@ describe('svg-tile', function () {
         columns,
         rows,
         getXY: getSquareXY,
-        tiles: ['slice1A', 'slice1B','slice2A', 'slice2B'],
+        tiles: ['slice1A', 'slice2A', 'slice2B', 'slice1B'],
         boardTransform: `translate(${margin},${margin}) scale(1.0, 1.0)`,
         backgroundColor: 'gray',
+      })
+      done();
+    });
+    it('should generate square grid svg even even', function (done) {
+      // generate square grid
+      generate({
+        sourceFile: './__tests__/input/source.svg',
+        targetFile: './__tests__/output/even-even-grid.svg',
+        toolTips: true,
+        tileSize: 200,
+        columns: 20,
+        rows: 10,
+        margin: 50,
+        getXY: getSquareXY,
+        tiles: [
+          ['slice1A', 'slice1B'],
+          ['slice2A', 'slice2B'],
+        ],
+        // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
+        backgroundColor: 'black',
+      })
+      done();
+    });
+    it('should generate square grid svg odd even', function (done) {
+      // generate square grid
+      generate({
+        sourceFile: './__tests__/input/source.svg',
+        targetFile: './__tests__/output/odd-even-grid.svg',
+        toolTips: true,
+        tileSize: 200,
+        columns: 9,
+        rows: 10,
+        margin: 50,
+        getXY: getSquareXY,
+        tiles: [
+          ['slice1A', 'slice1B'],
+          ['slice2A', 'slice2B'],
+        ],
+        // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
+        backgroundColor: 'black',
+      })
+      done();
+    });
+    it('should generate square grid svg odd odd', function (done) {
+      // generate square grid
+      generate({
+        sourceFile: './__tests__/input/source.svg',
+        targetFile: './__tests__/output/odd-odd-grid.svg',
+        toolTips: true,
+        tileSize: 200,
+        columns: 9,
+        rows: 9,
+        margin: 50,
+        getXY: getSquareXY,
+        tiles: [
+          ['slice1A', 'slice1B'],
+          ['slice2A', 'slice2B'],
+        ],
+        // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
+        backgroundColor: 'black',
+      })
+      done();
+    });
+    it('should generate square wide padded grid svg', function (done) {
+      // generate square grid
+      generate({
+        sourceFile: './__tests__/input/source.svg',
+        targetFile: './__tests__/output/wide-padded-tile-grid.svg',
+        toolTips: true,
+        tileSize: 200,
+        columns: 20,
+        rows: 10,
+        margin: 50,
+        padding: 50,
+        getXY: getSquareXY,
+        tiles: [
+          ['slice1A', 'slice1B'],
+          ['slice2A', 'slice2B'],
+        ],
+        // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
+        backgroundColor: 'red',
       })
       done();
     });

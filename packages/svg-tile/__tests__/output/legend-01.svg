@@ -3,7 +3,7 @@
 <desc>This file was code-generated.</desc>
 
 <style>
-        rect.tileBack1 { stroke: none; fill: black; }
+        rect.tileBack1 { stroke: none; fill: blacl; }
         rect.tileBack2 { stroke: none; fill: white; }
         rect.background { stroke: none; fill: white; }
         path.guide { stroke: lightgray; stroke-width: 1; }
@@ -103,13 +103,13 @@
 	<use id="C0R0" href="#slice1A" transform="translate(0.00,0.00) rotate(0,100,100)" >
 		<title>C0R0</title>
 	</use>
-	<use id="C0R1" href="#slice1B" transform="translate(0.00,230.00) rotate(0,100,100)" >
+	<use id="C0R1" href="#slice2A" transform="translate(0.00,230.00) rotate(0,100,100)" >
 		<title>C0R1</title>
 	</use>
-	<use id="C1R0" href="#slice2A" transform="translate(230.00,0.00) rotate(0,100,100)" >
+	<use id="C1R0" href="#slice2B" transform="translate(230.00,0.00) rotate(0,100,100)" >
 		<title>C1R0</title>
 	</use>
-	<use id="C1R1" href="#slice2B" transform="translate(230.00,230.00) rotate(0,100,100)" >
+	<use id="C1R1" href="#slice1B" transform="translate(230.00,230.00) rotate(0,100,100)" >
 		<title>C1R1</title>
 	</use>
 </g>

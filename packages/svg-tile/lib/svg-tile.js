@@ -12,21 +12,34 @@ var chance = new Chance();
 let { getSquareXY } = require('./get-square-xy.js')
 let { generateLegend } = require('./generate-legend.js')
 
+function getTileSetIndexAlternate(options = {}) {
+    let {
+        column,
+        row,
+    } = options;
+    return (row + column) % 2
+}
+
 function generate(options = {}) {
 
     let {
         title = undefined,
         desc = `This file was code-generated.`,
-        width = 1024,
-        height = 1024,
+        width = undefined,
+        height = undefined,
+        scale = 1.0,
+        margin = 0,
+        padding = 0,
         tileSize = 200,
         columns = 4,
         rows = 3,
         getXY = getSquareXY,
+        getTileSetIndex = getTileSetIndexAlternate,
         tiles = [],
         rotations = () => 0,
         boardId = `board`,
-        boardTransform = `translate(0,0) scale(1.0, 1.0)`,
+        // boardTransform = `translate(0,0) scale(1.0, 1.0)`,
+        boardTransform = undefined,
         sourceFile = './source.svg',
         targetFile = './target.svg',
         backgroundColor = 'white',
@@ -39,6 +52,19 @@ function generate(options = {}) {
         console.log('Must provide at least one tile id')
         return
     }
+
+    if( width == undefined ) {
+        width = margin * 2 + tileSize * columns + padding * (columns - 1)
+    }
+
+    if( height == undefined ) {
+        height = margin * 2 + tileSize * rows + padding * (rows - 1)
+    }
+
+    if( boardTransform == undefined ) {
+        boardTransform = `translate(${margin},${margin}) scale(${scale},${scale})`
+    }
+
 
     let $;
 
@@ -53,11 +79,10 @@ function generate(options = {}) {
             let board = `<g id="${boardId}" transform="${boardTransform}" >\n`
             let radius = tileSize / 2
             for (let column = 0; column < columns; column++) {
-                let tileIndex = column % 2
                 for (let row = 0; row < rows; row++) {
                     let [tx, ty] = getXY({ row, column, ...options})
-                    if (tileIndex >= tiles.length) tileIndex = 0;
-                    let href = chance.pickone(tiles[tileIndex++])
+                    let tileSetIndex = getTileSetIndex({ row, column, ...options})
+                    let href = chance.pickone(tiles[tileSetIndex])
                     let rotation = rotations()
                     let tileId = `C${column}R${row}`
                     let idAttr = generateIds ? `id="${tileId}"` : ""
@@ -67,8 +92,7 @@ function generate(options = {}) {
                         board += `\t<use ${useAttrs} >\n\t\t<title>${tileId}</title>\n\t</use>\n`
                     } else {
                         board += `\t<use ${useAttrs} />\n`
-                    }
-                    
+                    } 
                 }
             }
             board += `</g>\n`

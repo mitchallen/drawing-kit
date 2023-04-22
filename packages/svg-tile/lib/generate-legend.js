@@ -49,8 +49,6 @@ let generateLegend = function(options = {}) {
             for (let column = 0; column < columns; column++) {
                 for (let row = 0; row < rows; row++) {
                     let [tx, ty] = getXY({ row, column, ...options})
-                    tx += (column * padding)
-                    ty += (row * padding)
                     if (tileIndex >= tiles.length) {
                         break;
                     };

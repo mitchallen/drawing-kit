@@ -4,10 +4,11 @@ let getSquareXY = function(options = {}) {
         row,
         column,
         tileSize,
+        padding = 0,
     } = options
 
-    let x = column * tileSize
-    let y = row * tileSize
+    let x = column * (tileSize + padding)
+    let y = row * (tileSize + padding)
 
     return [x, y]
 }
