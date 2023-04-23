@@ -3,7 +3,6 @@
  */
 
 var fs = require('fs'),
-    util = require('util'),
     Chance = require('chance');
 cheerio = require('cheerio');
 
@@ -46,6 +45,7 @@ function generate(options = {}) {
         generateIds = true,
         precision = 2,
         toolTips = false,
+        xmlns = 'http://www.w3.org/2000/svg',
     } = options;
 
     if (tiles.length == 0) {
@@ -99,11 +99,7 @@ function generate(options = {}) {
 
             // generate the svg markup
 
-            let fd = util.format(
-                '<svg viewBox="0 0 %d %d" xmlns="http://www.w3.org/2000/svg" width="%d" height="%d">\n',
-                width, height,
-                width, height
-            );
+            let fd = `<svg viewBox="0 0 ${width} ${height}" xmlns="${xmlns}" width="${width}" height="${height}">\n'`
             fd += title ? `<title>${title}</title>\n` : ""
             fd += desc ? `<desc>${desc}</desc>\n` : ""
             fd += svgBody
