@@ -99,28 +99,28 @@
 </defs>
 <rect id="background" fill="black" width="1900" height="2100" />
 <g id="board" transform="translate(50,50) scale(1,1)" >
-	<use id="C0R0" href="#slice1B" transform="translate(0.00,0.00) rotate(0,100,100)" >
+	<use id="C0R0" href="#slice1A" transform="translate(0.00,0.00) rotate(0,100,100)" >
 		<title>C0R0</title>
 	</use>
 	<use id="C0R1" href="#slice2B" transform="translate(0.00,200.00) rotate(0,100,100)" >
 		<title>C0R1</title>
 	</use>
-	<use id="C0R2" href="#slice1A" transform="translate(0.00,400.00) rotate(0,100,100)" >
+	<use id="C0R2" href="#slice1B" transform="translate(0.00,400.00) rotate(0,100,100)" >
 		<title>C0R2</title>
 	</use>
 	<use id="C0R3" href="#slice2A" transform="translate(0.00,600.00) rotate(0,100,100)" >
 		<title>C0R3</title>
 	</use>
-	<use id="C0R4" href="#slice1B" transform="translate(0.00,800.00) rotate(0,100,100)" >
+	<use id="C0R4" href="#slice1A" transform="translate(0.00,800.00) rotate(0,100,100)" >
 		<title>C0R4</title>
 	</use>
 	<use id="C0R5" href="#slice2A" transform="translate(0.00,1000.00) rotate(0,100,100)" >
 		<title>C0R5</title>
 	</use>
-	<use id="C0R6" href="#slice1B" transform="translate(0.00,1200.00) rotate(0,100,100)" >
+	<use id="C0R6" href="#slice1A" transform="translate(0.00,1200.00) rotate(0,100,100)" >
 		<title>C0R6</title>
 	</use>
-	<use id="C0R7" href="#slice2A" transform="translate(0.00,1400.00) rotate(0,100,100)" >
+	<use id="C0R7" href="#slice2B" transform="translate(0.00,1400.00) rotate(0,100,100)" >
 		<title>C0R7</title>
 	</use>
 	<use id="C0R8" href="#slice1A" transform="translate(0.00,1600.00) rotate(0,100,100)" >
@@ -141,22 +141,22 @@
 	<use id="C1R3" href="#slice1B" transform="translate(200.00,600.00) rotate(0,100,100)" >
 		<title>C1R3</title>
 	</use>
-	<use id="C1R4" href="#slice2B" transform="translate(200.00,800.00) rotate(0,100,100)" >
+	<use id="C1R4" href="#slice2A" transform="translate(200.00,800.00) rotate(0,100,100)" >
 		<title>C1R4</title>
 	</use>
-	<use id="C1R5" href="#slice1A" transform="translate(200.00,1000.00) rotate(0,100,100)" >
+	<use id="C1R5" href="#slice1B" transform="translate(200.00,1000.00) rotate(0,100,100)" >
 		<title>C1R5</title>
 	</use>
-	<use id="C1R6" href="#slice2B" transform="translate(200.00,1200.00) rotate(0,100,100)" >
+	<use id="C1R6" href="#slice2A" transform="translate(200.00,1200.00) rotate(0,100,100)" >
 		<title>C1R6</title>
 	</use>
-	<use id="C1R7" href="#slice1B" transform="translate(200.00,1400.00) rotate(0,100,100)" >
+	<use id="C1R7" href="#slice1A" transform="translate(200.00,1400.00) rotate(0,100,100)" >
 		<title>C1R7</title>
 	</use>
-	<use id="C1R8" href="#slice2A" transform="translate(200.00,1600.00) rotate(0,100,100)" >
+	<use id="C1R8" href="#slice2B" transform="translate(200.00,1600.00) rotate(0,100,100)" >
 		<title>C1R8</title>
 	</use>
-	<use id="C1R9" href="#slice1A" transform="translate(200.00,1800.00) rotate(0,100,100)" >
+	<use id="C1R9" href="#slice1B" transform="translate(200.00,1800.00) rotate(0,100,100)" >
 		<title>C1R9</title>
 	</use>
 	<use id="C2R0" href="#slice1A" transform="translate(400.00,0.00) rotate(0,100,100)" >
@@ -165,7 +165,7 @@
 	<use id="C2R1" href="#slice2B" transform="translate(400.00,200.00) rotate(0,100,100)" >
 		<title>C2R1</title>
 	</use>
-	<use id="C2R2" href="#slice1B" transform="translate(400.00,400.00) rotate(0,100,100)" >
+	<use id="C2R2" href="#slice1A" transform="translate(400.00,400.00) rotate(0,100,100)" >
 		<title>C2R2</title>
 	</use>
 	<use id="C2R3" href="#slice2A" transform="translate(400.00,600.00) rotate(0,100,100)" >
@@ -177,13 +177,13 @@
 	<use id="C2R5" href="#slice2B" transform="translate(400.00,1000.00) rotate(0,100,100)" >
 		<title>C2R5</title>
 	</use>
-	<use id="C2R6" href="#slice1B" transform="translate(400.00,1200.00) rotate(0,100,100)" >
+	<use id="C2R6" href="#slice1A" transform="translate(400.00,1200.00) rotate(0,100,100)" >
 		<title>C2R6</title>
 	</use>
-	<use id="C2R7" href="#slice2B" transform="translate(400.00,1400.00) rotate(0,100,100)" >
+	<use id="C2R7" href="#slice2A" transform="translate(400.00,1400.00) rotate(0,100,100)" >
 		<title>C2R7</title>
 	</use>
-	<use id="C2R8" href="#slice1B" transform="translate(400.00,1600.00) rotate(0,100,100)" >
+	<use id="C2R8" href="#slice1A" transform="translate(400.00,1600.00) rotate(0,100,100)" >
 		<title>C2R8</title>
 	</use>
 	<use id="C2R9" href="#slice2A" transform="translate(400.00,1800.00) rotate(0,100,100)" >
@@ -198,10 +198,10 @@
 	<use id="C3R2" href="#slice2B" transform="translate(600.00,400.00) rotate(0,100,100)" >
 		<title>C3R2</title>
 	</use>
-	<use id="C3R3" href="#slice1B" transform="translate(600.00,600.00) rotate(0,100,100)" >
+	<use id="C3R3" href="#slice1A" transform="translate(600.00,600.00) rotate(0,100,100)" >
 		<title>C3R3</title>
 	</use>
-	<use id="C3R4" href="#slice2B" transform="translate(600.00,800.00) rotate(0,100,100)" >
+	<use id="C3R4" href="#slice2A" transform="translate(600.00,800.00) rotate(0,100,100)" >
 		<title>C3R4</title>
 	</use>
 	<use id="C3R5" href="#slice1B" transform="translate(600.00,1000.00) rotate(0,100,100)" >
@@ -213,22 +213,22 @@
 	<use id="C3R7" href="#slice1A" transform="translate(600.00,1400.00) rotate(0,100,100)" >
 		<title>C3R7</title>
 	</use>
-	<use id="C3R8" href="#slice2B" transform="translate(600.00,1600.00) rotate(0,100,100)" >
+	<use id="C3R8" href="#slice2A" transform="translate(600.00,1600.00) rotate(0,100,100)" >
 		<title>C3R8</title>
 	</use>
-	<use id="C3R9" href="#slice1A" transform="translate(600.00,1800.00) rotate(0,100,100)" >
+	<use id="C3R9" href="#slice1B" transform="translate(600.00,1800.00) rotate(0,100,100)" >
 		<title>C3R9</title>
 	</use>
-	<use id="C4R0" href="#slice1B" transform="translate(800.00,0.00) rotate(0,100,100)" >
+	<use id="C4R0" href="#slice1A" transform="translate(800.00,0.00) rotate(0,100,100)" >
 		<title>C4R0</title>
 	</use>
 	<use id="C4R1" href="#slice2B" transform="translate(800.00,200.00) rotate(0,100,100)" >
 		<title>C4R1</title>
 	</use>
-	<use id="C4R2" href="#slice1A" transform="translate(800.00,400.00) rotate(0,100,100)" >
+	<use id="C4R2" href="#slice1B" transform="translate(800.00,400.00) rotate(0,100,100)" >
 		<title>C4R2</title>
 	</use>
-	<use id="C4R3" href="#slice2A" transform="translate(800.00,600.00) rotate(0,100,100)" >
+	<use id="C4R3" href="#slice2B" transform="translate(800.00,600.00) rotate(0,100,100)" >
 		<title>C4R3</title>
 	</use>
 	<use id="C4R4" href="#slice1B" transform="translate(800.00,800.00) rotate(0,100,100)" >
@@ -237,37 +237,37 @@
 	<use id="C4R5" href="#slice2B" transform="translate(800.00,1000.00) rotate(0,100,100)" >
 		<title>C4R5</title>
 	</use>
-	<use id="C4R6" href="#slice1A" transform="translate(800.00,1200.00) rotate(0,100,100)" >
+	<use id="C4R6" href="#slice1B" transform="translate(800.00,1200.00) rotate(0,100,100)" >
 		<title>C4R6</title>
 	</use>
 	<use id="C4R7" href="#slice2B" transform="translate(800.00,1400.00) rotate(0,100,100)" >
 		<title>C4R7</title>
 	</use>
-	<use id="C4R8" href="#slice1A" transform="translate(800.00,1600.00) rotate(0,100,100)" >
+	<use id="C4R8" href="#slice1B" transform="translate(800.00,1600.00) rotate(0,100,100)" >
 		<title>C4R8</title>
 	</use>
 	<use id="C4R9" href="#slice2B" transform="translate(800.00,1800.00) rotate(0,100,100)" >
 		<title>C4R9</title>
 	</use>
-	<use id="C5R0" href="#slice2B" transform="translate(1000.00,0.00) rotate(0,100,100)" >
+	<use id="C5R0" href="#slice2A" transform="translate(1000.00,0.00) rotate(0,100,100)" >
 		<title>C5R0</title>
 	</use>
-	<use id="C5R1" href="#slice1B" transform="translate(1000.00,200.00) rotate(0,100,100)" >
+	<use id="C5R1" href="#slice1A" transform="translate(1000.00,200.00) rotate(0,100,100)" >
 		<title>C5R1</title>
 	</use>
 	<use id="C5R2" href="#slice2B" transform="translate(1000.00,400.00) rotate(0,100,100)" >
 		<title>C5R2</title>
 	</use>
-	<use id="C5R3" href="#slice1B" transform="translate(1000.00,600.00) rotate(0,100,100)" >
+	<use id="C5R3" href="#slice1A" transform="translate(1000.00,600.00) rotate(0,100,100)" >
 		<title>C5R3</title>
 	</use>
-	<use id="C5R4" href="#slice2A" transform="translate(1000.00,800.00) rotate(0,100,100)" >
+	<use id="C5R4" href="#slice2B" transform="translate(1000.00,800.00) rotate(0,100,100)" >
 		<title>C5R4</title>
 	</use>
 	<use id="C5R5" href="#slice1A" transform="translate(1000.00,1000.00) rotate(0,100,100)" >
 		<title>C5R5</title>
 	</use>
-	<use id="C5R6" href="#slice2A" transform="translate(1000.00,1200.00) rotate(0,100,100)" >
+	<use id="C5R6" href="#slice2B" transform="translate(1000.00,1200.00) rotate(0,100,100)" >
 		<title>C5R6</title>
 	</use>
 	<use id="C5R7" href="#slice1B" transform="translate(1000.00,1400.00) rotate(0,100,100)" >
@@ -279,25 +279,25 @@
 	<use id="C5R9" href="#slice1B" transform="translate(1000.00,1800.00) rotate(0,100,100)" >
 		<title>C5R9</title>
 	</use>
-	<use id="C6R0" href="#slice1A" transform="translate(1200.00,0.00) rotate(0,100,100)" >
+	<use id="C6R0" href="#slice1B" transform="translate(1200.00,0.00) rotate(0,100,100)" >
 		<title>C6R0</title>
 	</use>
-	<use id="C6R1" href="#slice2B" transform="translate(1200.00,200.00) rotate(0,100,100)" >
+	<use id="C6R1" href="#slice2A" transform="translate(1200.00,200.00) rotate(0,100,100)" >
 		<title>C6R1</title>
 	</use>
 	<use id="C6R2" href="#slice1A" transform="translate(1200.00,400.00) rotate(0,100,100)" >
 		<title>C6R2</title>
 	</use>
-	<use id="C6R3" href="#slice2B" transform="translate(1200.00,600.00) rotate(0,100,100)" >
+	<use id="C6R3" href="#slice2A" transform="translate(1200.00,600.00) rotate(0,100,100)" >
 		<title>C6R3</title>
 	</use>
-	<use id="C6R4" href="#slice1A" transform="translate(1200.00,800.00) rotate(0,100,100)" >
+	<use id="C6R4" href="#slice1B" transform="translate(1200.00,800.00) rotate(0,100,100)" >
 		<title>C6R4</title>
 	</use>
 	<use id="C6R5" href="#slice2B" transform="translate(1200.00,1000.00) rotate(0,100,100)" >
 		<title>C6R5</title>
 	</use>
-	<use id="C6R6" href="#slice1B" transform="translate(1200.00,1200.00) rotate(0,100,100)" >
+	<use id="C6R6" href="#slice1A" transform="translate(1200.00,1200.00) rotate(0,100,100)" >
 		<title>C6R6</title>
 	</use>
 	<use id="C6R7" href="#slice2A" transform="translate(1200.00,1400.00) rotate(0,100,100)" >
@@ -312,28 +312,28 @@
 	<use id="C7R0" href="#slice2A" transform="translate(1400.00,0.00) rotate(0,100,100)" >
 		<title>C7R0</title>
 	</use>
-	<use id="C7R1" href="#slice1A" transform="translate(1400.00,200.00) rotate(0,100,100)" >
+	<use id="C7R1" href="#slice1B" transform="translate(1400.00,200.00) rotate(0,100,100)" >
 		<title>C7R1</title>
 	</use>
 	<use id="C7R2" href="#slice2A" transform="translate(1400.00,400.00) rotate(0,100,100)" >
 		<title>C7R2</title>
 	</use>
-	<use id="C7R3" href="#slice1B" transform="translate(1400.00,600.00) rotate(0,100,100)" >
+	<use id="C7R3" href="#slice1A" transform="translate(1400.00,600.00) rotate(0,100,100)" >
 		<title>C7R3</title>
 	</use>
 	<use id="C7R4" href="#slice2B" transform="translate(1400.00,800.00) rotate(0,100,100)" >
 		<title>C7R4</title>
 	</use>
-	<use id="C7R5" href="#slice1B" transform="translate(1400.00,1000.00) rotate(0,100,100)" >
+	<use id="C7R5" href="#slice1A" transform="translate(1400.00,1000.00) rotate(0,100,100)" >
 		<title>C7R5</title>
 	</use>
-	<use id="C7R6" href="#slice2A" transform="translate(1400.00,1200.00) rotate(0,100,100)" >
+	<use id="C7R6" href="#slice2B" transform="translate(1400.00,1200.00) rotate(0,100,100)" >
 		<title>C7R6</title>
 	</use>
-	<use id="C7R7" href="#slice1A" transform="translate(1400.00,1400.00) rotate(0,100,100)" >
+	<use id="C7R7" href="#slice1B" transform="translate(1400.00,1400.00) rotate(0,100,100)" >
 		<title>C7R7</title>
 	</use>
-	<use id="C7R8" href="#slice2B" transform="translate(1400.00,1600.00) rotate(0,100,100)" >
+	<use id="C7R8" href="#slice2A" transform="translate(1400.00,1600.00) rotate(0,100,100)" >
 		<title>C7R8</title>
 	</use>
 	<use id="C7R9" href="#slice1A" transform="translate(1400.00,1800.00) rotate(0,100,100)" >
@@ -342,31 +342,31 @@
 	<use id="C8R0" href="#slice1A" transform="translate(1600.00,0.00) rotate(0,100,100)" >
 		<title>C8R0</title>
 	</use>
-	<use id="C8R1" href="#slice2B" transform="translate(1600.00,200.00) rotate(0,100,100)" >
+	<use id="C8R1" href="#slice2A" transform="translate(1600.00,200.00) rotate(0,100,100)" >
 		<title>C8R1</title>
 	</use>
-	<use id="C8R2" href="#slice1A" transform="translate(1600.00,400.00) rotate(0,100,100)" >
+	<use id="C8R2" href="#slice1B" transform="translate(1600.00,400.00) rotate(0,100,100)" >
 		<title>C8R2</title>
 	</use>
-	<use id="C8R3" href="#slice2B" transform="translate(1600.00,600.00) rotate(0,100,100)" >
+	<use id="C8R3" href="#slice2A" transform="translate(1600.00,600.00) rotate(0,100,100)" >
 		<title>C8R3</title>
 	</use>
-	<use id="C8R4" href="#slice1A" transform="translate(1600.00,800.00) rotate(0,100,100)" >
+	<use id="C8R4" href="#slice1B" transform="translate(1600.00,800.00) rotate(0,100,100)" >
 		<title>C8R4</title>
 	</use>
-	<use id="C8R5" href="#slice2A" transform="translate(1600.00,1000.00) rotate(0,100,100)" >
+	<use id="C8R5" href="#slice2B" transform="translate(1600.00,1000.00) rotate(0,100,100)" >
 		<title>C8R5</title>
 	</use>
-	<use id="C8R6" href="#slice1A" transform="translate(1600.00,1200.00) rotate(0,100,100)" >
+	<use id="C8R6" href="#slice1B" transform="translate(1600.00,1200.00) rotate(0,100,100)" >
 		<title>C8R6</title>
 	</use>
-	<use id="C8R7" href="#slice2A" transform="translate(1600.00,1400.00) rotate(0,100,100)" >
+	<use id="C8R7" href="#slice2B" transform="translate(1600.00,1400.00) rotate(0,100,100)" >
 		<title>C8R7</title>
 	</use>
 	<use id="C8R8" href="#slice1B" transform="translate(1600.00,1600.00) rotate(0,100,100)" >
 		<title>C8R8</title>
 	</use>
-	<use id="C8R9" href="#slice2B" transform="translate(1600.00,1800.00) rotate(0,100,100)" >
+	<use id="C8R9" href="#slice2A" transform="translate(1600.00,1800.00) rotate(0,100,100)" >
 		<title>C8R9</title>
 	</use>
 </g>

@@ -53,15 +53,15 @@ function generate(options = {}) {
         return
     }
 
-    if( width == undefined ) {
+    if (width == undefined) {
         width = margin * 2 + tileSize * columns + padding * (columns - 1)
     }
 
-    if( height == undefined ) {
+    if (height == undefined) {
         height = margin * 2 + tileSize * rows + padding * (rows - 1)
     }
 
-    if( boardTransform == undefined ) {
+    if (boardTransform == undefined) {
         boardTransform = `translate(${margin},${margin}) scale(${scale},${scale})`
     }
 
@@ -70,51 +70,50 @@ function generate(options = {}) {
 
     fs.readFile(sourceFile, "utf8", (err, data) => {
         $ = cheerio.load(data, { xmlMode: true })
-        const svgSet = $("svg")
-        svgSet.each(function () {
-            let svgBody = $(this).html()
 
-            // generate the tile board
+        let svgBody = $("svg").first().html()
 
-            let board = `<g id="${boardId}" transform="${boardTransform}" >\n`
-            let radius = tileSize / 2
-            for (let column = 0; column < columns; column++) {
-                for (let row = 0; row < rows; row++) {
-                    let [tx, ty] = getXY({ row, column, ...options})
-                    let tileSetIndex = getTileSetIndex({ row, column, ...options})
-                    let href = chance.pickone(tiles[tileSetIndex])
-                    let rotation = rotations()
-                    let tileId = `C${column}R${row}`
-                    let idAttr = generateIds ? `id="${tileId}"` : ""
-                    let transformAttr = `transform="translate(${tx.toFixed(precision)},${ty.toFixed(precision)})`
-                    let useAttrs = `${generateIds ? idAttr : ""} href="#${href}" ${transformAttr} rotate(${rotation},${radius},${radius})"`
-                    if( toolTips ) {
-                        board += `\t<use ${useAttrs} >\n\t\t<title>${tileId}</title>\n\t</use>\n`
-                    } else {
-                        board += `\t<use ${useAttrs} />\n`
-                    } 
+        // generate the tile board
+
+        let board = `<g id="${boardId}" transform="${boardTransform}" >\n`
+        let radius = tileSize / 2
+        for (let column = 0; column < columns; column++) {
+            for (let row = 0; row < rows; row++) {
+                let [tx, ty] = getXY({ row, column, ...options })
+                let tileSetIndex = getTileSetIndex({ row, column, ...options })
+                let href = chance.pickone(tiles[tileSetIndex])
+                let rotation = rotations()
+                let tileId = `C${column}R${row}`
+                let idAttr = generateIds ? `id="${tileId}"` : ""
+                let transformAttr = `transform="translate(${tx.toFixed(precision)},${ty.toFixed(precision)})`
+                let useAttrs = `${generateIds ? idAttr : ""} href="#${href}" ${transformAttr} rotate(${rotation},${radius},${radius})"`
+                if (toolTips) {
+                    board += `\t<use ${useAttrs} >\n\t\t<title>${tileId}</title>\n\t</use>\n`
+                } else {
+                    board += `\t<use ${useAttrs} />\n`
                 }
             }
-            board += `</g>\n`
+        }
+        board += `</g>\n`
 
-            // generate the svg markup
+        // generate the svg markup
 
-            let fd = `<svg viewBox="0 0 ${width} ${height}" xmlns="${xmlns}" width="${width}" height="${height}">\n'`
-            fd += title ? `<title>${title}</title>\n` : ""
-            fd += desc ? `<desc>${desc}</desc>\n` : ""
-            fd += svgBody
-            fd += `<rect id="background" fill="${backgroundColor}" width="${width}" height="${height}" />\n`
-            fd += board
-            fd += '</svg>';
+        let fd = `<svg viewBox="0 0 ${width} ${height}" xmlns="${xmlns}" width="${width}" height="${height}">\n'`
+        fd += title ? `<title>${title}</title>\n` : ""
+        fd += desc ? `<desc>${desc}</desc>\n` : ""
+        fd += svgBody
+        fd += `<rect id="background" fill="${backgroundColor}" width="${width}" height="${height}" />\n`
+        fd += board
+        fd += '</svg>';
 
-            // write the file
+        // write the file
 
-            var filename = targetFile;
-            var stream = fs.createWriteStream(filename);
-            stream.write(fd);
-            stream.end();
-            console.log(`Generated file: ${filename}`)
-        })
+        var filename = targetFile;
+        var stream = fs.createWriteStream(filename);
+        stream.write(fd);
+        stream.end();
+        console.log(`Generated file: ${filename}`)
+        // })
     })
 }
 
