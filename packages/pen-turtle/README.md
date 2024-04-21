@@ -21,8 +21,6 @@ Turtle pen drawing tool
   </a>
 
   <br />
-
-  <a href='https://ko-fi.com/A0A0KEIOY' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
   
 </p>
 
@@ -120,8 +118,3 @@ console.log(`\n\nOpen ${filename} in your favorite drawing program or browser.\n
 
 * [PEN-TURTLE-DOC.md](https://github.com/mitchallen/drawing-kit/blob/main/packages/pen-turtle/PEN-TURTLE-DOC.md)
 
-## Buy me a coffee!
-
-If you like this package and find it useful, please show your appreciation and buy me a coffee!
-
-<a href='https://ko-fi.com/A0A0KEIOY' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
