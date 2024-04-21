@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lerna": "^6.0.1"
+    "lerna": "^8.1.2"
   },
   "workspaces": [
     "packages/*"
