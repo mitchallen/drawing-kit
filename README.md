@@ -31,3 +31,18 @@ Ran remove-invalid-use-workspaces from lerna
 
  Lerna   Successfully repaired your configuration. This workspace is up to date!
 ```
+
+## Lerna again ...
+
+Now Lerna is having a fit about using node 16
+
+* Updated CI to 18 ...
+
+## Lerna even again
+
+I also had to remove this because it now causes CI failures:
+
+```sh
+npx lerna bootstrap
+```
+
