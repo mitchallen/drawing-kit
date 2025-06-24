@@ -8,6 +8,7 @@ help:
 	@echo "  clean       Remove all node_modules and package-lock.json files recursively"
 	@echo "  test        Run tests for all packages via npm workspaces"
 	@echo "  publish     Publish all public packages to npm via npm workspaces"
+	@echo "  whoami      Show the current npm user (test npm authentication)"
 
 .DEFAULT_GOAL := help
 
@@ -30,4 +31,8 @@ test:
 publish:
 	npm publish --workspaces
 
-.PHONY: help install clean test publish
+# Show current npm user
+whoami:
+	npm whoami
+
+.PHONY: help install clean test publish whoami
