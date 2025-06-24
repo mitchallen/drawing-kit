@@ -11,7 +11,17 @@ Packages in this monorepo:
 
 * * *
 
-## Updates
+## Monorepo Management
+
+Lerna has been replaced by **npm workspaces** for managing this monorepo. All package management and bootstrapping should now be done using npm commands. See the npm documentation for more details on workspaces: https://docs.npmjs.com/cli/v8/using-npm/workspaces
+
+* * *
+
+## Archived Notes
+
+The following notes are kept for historical reference only:
+
+### Updates
 
 * Due to changes in Lerna, I had to run these commands:
 
@@ -32,13 +42,13 @@ Ran remove-invalid-use-workspaces from lerna
  Lerna   Successfully repaired your configuration. This workspace is up to date!
 ```
 
-## Lerna again ...
+### Lerna again ...
 
 Now Lerna is having a fit about using node 16
 
 * Updated CI to 18 ...
 
-## Lerna even again
+### Lerna even again
 
 I also had to remove this because it now causes CI failures:
 
