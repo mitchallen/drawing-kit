@@ -9,7 +9,6 @@ help:
 	@echo "  test        Run tests for all packages via npm workspaces"
 	@echo "  build       Build all packages via npm workspaces (if build scripts exist)"
 	@echo "  publish     Publish all public packages to npm via npm workspaces"
-	@echo "  workspaces  List all npm workspaces in the monorepo"
 
 .DEFAULT_GOAL := help
 
@@ -36,8 +35,4 @@ build:
 publish:
 	npm publish --workspaces
 
-# List all workspaces
-workspaces:
-	npm query .workspace[]
-
-.PHONY: help install clean test build publish workspaces
+.PHONY: help install clean test build publish
