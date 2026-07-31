@@ -38,6 +38,6 @@
     "@mitchallen/pen-turtle": "^0.33.1"
   },
   "devDependencies": {
-    "mocha": "^10.1.0"
+    "mocha": "^11.7.6"
   }
 }
