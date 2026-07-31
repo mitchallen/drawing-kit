@@ -2,3 +2,8 @@ node_modules/
 lerna-debug.log
 npm-debug.log
 .DS_Store
+# Generated test output. The suites rewrite these on every run (several are
+# randomized), so tracking them produces churn. placeholder.txt is kept so the
+# directory still exists in a fresh clone for the tests to write into.
+**/__tests__/output/*
+!**/__tests__/output/placeholder.txt
