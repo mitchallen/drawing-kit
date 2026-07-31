@@ -3,33 +3,45 @@
 SVG Tile Pattern Generator
 --
 <p>
-  <a href="https://npmjs.org/package/@mitchallen/svg-tile">
+  <a href="https://github.com/mitchallen/drawing-kit/actions/workflows/check.yaml">
     <img src="https://img.shields.io/github/actions/workflow/status/mitchallen/drawing-kit/check.yaml" alt="Build">
   </a>
 
-  <a href="https://npmjs.org/package/@mitchallen/svg-tile">
-    <img src="http://img.shields.io/npm/dt/@mitchallen/svg-tile.svg?style=flat-square" alt="Downloads">
+  <a href="https://github.com/mitchallen/drawing-kit/pkgs/npm/svg-tile">
+    <img src="https://img.shields.io/badge/GitHub%20Packages-0.12.1-blue" alt="Version">
   </a>
 
-  <a href="https://npmjs.org/package/@mitchallen/svg-tile">
-    <img src="http://img.shields.io/npm/v/@mitchallen/svg-tile.svg?style=flat-square" alt="Version">
-  </a>
-  
-  <a href="https://npmjs.org/package/@mitchallen/svg-tile">
-    <img src="https://img.shields.io/github/license/mitchallen/drawing-kit.svg">
+  <a href="https://github.com/mitchallen/drawing-kit/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/mitchallen/drawing-kit.svg" alt="License">
   </a>
 
   <br />
-  
+
 </p>
 
 * * *
 
 ## Installation
 
+As of __0.12.1__ this package is published to __GitHub Packages__, not the public npm
+registry. Version __0.12.0__ and earlier remain on npmjs.org and are no longer
+updated there.
+
+Add an `.npmrc` next to your `package.json`:
+
+    @mitchallen:registry=https://npm.pkg.github.com
+
+GitHub Packages requires authentication even for public packages, so you also need a
+personal access token with the `read:packages` scope. Keep it in an environment
+variable rather than committing it:
+
+    //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+
+Then:
+
 ```sh
 $ npm init
-$ npm install @mitchallen/svg-tile --save
+$ npm install @mitchallen/svg-tile
 ```
 
 * * *
