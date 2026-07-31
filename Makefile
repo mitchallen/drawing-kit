@@ -7,8 +7,8 @@ help:
 	@echo "  install     Install all dependencies for all packages via npm workspaces"
 	@echo "  clean       Remove all node_modules and package-lock.json files recursively"
 	@echo "  test        Run tests for all packages via npm workspaces"
-	@echo "  publish     Publish all public packages to npm via npm workspaces"
-	@echo "  whoami      Show the current npm user (test npm authentication)"
+	@echo "  publish     Publish all public packages to GitHub Packages via npm workspaces"
+	@echo "  whoami      Show the current npm user (test registry authentication)"
 
 .DEFAULT_GOAL := help
 
@@ -27,7 +27,8 @@ clean:
 test:
 	npm test --workspaces
 
-# Publish all public packages to npm (requires authentication)
+# Publish all public packages. Target comes from each package.json publishConfig.registry
+# (GitHub Packages); the root and non-library packages are marked private and skipped.
 publish:
 	npm publish --workspaces
 
