@@ -1,43 +1,73 @@
-name: Publish to GitHub
+name: Publish to GitHub Packages
+
 on:
-  pull_request:
-    types: [closed]
-    branches:
-      - development
-      # - main
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  publish:
-    if: github.event.pull_request.merged == true
+  test:
+    name: Test (Node ${{ matrix.node }})
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      # pen-turtle's tests require @mitchallen/pen-svg, which resolves from
+      # GitHub Packages along with its own @mitchallen dependency chain.
+      packages: read
+    strategy:
+      fail-fast: false
+      matrix:
+        # Floor is 20: the toolchain pulls brace-expansion@5 (node "20 || >=22")
+        # and serialize-javascript@7 (node >=20).
+        node: ["20", "22", "24"]
     steps:
-    - name: "Checkout"
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
+      - uses: actions/checkout@v7
 
-    - name: "Use NodeJS 16"
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@mitchallen"
 
-    - name: "Setup npm" 
-      run: | 
-        npm set @${{ github.actor }}:registry=https://npm.pkg.github.com/${{ github.actor }}
-        npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
+      - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: "Version and publish" 
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        git config user.name "${{ github.actor }}"
-        git config user.email "${{ github.actor}}@users.noreply.github.com"
+      - run: npm test --workspaces
 
-        if [ ${{ github.base_ref }} = development ]; then
-          npx lerna version --conventional-commits --conventional-prerelease --preid beta --yes
-        else
-          npx lerna version --conventional-commits --yes
-        fi
+  publish:
+    name: Publish workspace packages
+    needs: [test]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v7
 
-        npx lerna publish --no-private from-git --yes 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@mitchallen"
+
+      - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: npm test --workspaces
+
+      # Each package's publishConfig.registry points at GitHub Packages, and
+      # --workspaces skips the private root and the private examples. Versions
+      # come from the manifests; this workflow deliberately does not bump them,
+      # unlike the lerna flow it replaces, which auto-versioned on every merge.
+      - name: Publish
+        run: npm publish --workspaces
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
