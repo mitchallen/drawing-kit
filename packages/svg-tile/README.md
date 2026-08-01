@@ -8,7 +8,7 @@ SVG Tile Pattern Generator
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/pkgs/npm/svg-tile">
-    <img src="https://img.shields.io/badge/GitHub%20Packages-0.12.1-blue" alt="Version">
+    <img src="https://img.shields.io/badge/GitHub%20Packages-0.12.2-blue" alt="Version">
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/blob/main/LICENSE">

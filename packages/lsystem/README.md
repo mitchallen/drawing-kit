@@ -8,7 +8,7 @@ L-System Generator
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/pkgs/npm/lsystem">
-    <img src="https://img.shields.io/badge/GitHub%20Packages-0.25.9-blue" alt="Version">
+    <img src="https://img.shields.io/badge/GitHub%20Packages-0.25.10-blue" alt="Version">
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/blob/main/LICENSE">

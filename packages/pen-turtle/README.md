@@ -8,7 +8,7 @@ Turtle pen drawing tool
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/pkgs/npm/pen-turtle">
-    <img src="https://img.shields.io/badge/GitHub%20Packages-0.33.1-blue" alt="Version">
+    <img src="https://img.shields.io/badge/GitHub%20Packages-0.33.2-blue" alt="Version">
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/blob/main/LICENSE">
