@@ -45,7 +45,7 @@ Then:
 
 ```sh
 $ npm init
-$ npm install @mitchallen/pen-turtle
+$ npm install @mitchallen/pen-turtle @mitchallen/pen-svg-v2
 ```
 
 * * *
@@ -54,7 +54,7 @@ $ npm install @mitchallen/pen-turtle
 
 ```js
 const factory = require('@mitchallen/pen-turtle');
-const svgFactory = require("@mitchallen/pen-svg")
+const svgFactory = require("@mitchallen/pen-svg-v2")
 
 let width = 1024,
     height = 1024,
