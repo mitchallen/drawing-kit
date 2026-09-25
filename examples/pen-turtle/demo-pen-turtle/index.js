@@ -1,5 +1,5 @@
 const factory = require('@mitchallen/pen-turtle');
-const svgFactory = require("@mitchallen/pen-svg")
+const svgFactory = require("@mitchallen/pen-svg-v2")
 
 let width = 1024,
     height = 1024,

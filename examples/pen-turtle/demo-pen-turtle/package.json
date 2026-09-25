@@ -12,7 +12,7 @@
   "author": "Mitch Allen",
   "license": "MIT",
   "dependencies": {
-    "@mitchallen/pen-svg": "^0.2.7",
-    "@mitchallen/pen-turtle": "^0.8.0"
+    "@mitchallen/pen-turtle": "^0.33.4",
+    "@mitchallen/pen-svg-v2": "^0.3.2"
   }
 }
