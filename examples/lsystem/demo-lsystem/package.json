@@ -12,8 +12,8 @@
   "author": "Mitch Allen",
   "license": "MIT",
   "dependencies": {
-    "@mitchallen/lsystem": "^0.9.0",
-    "@mitchallen/pen-svg": "^0.2.7",
-    "@mitchallen/pen-turtle": "^0.8.0"
+    "@mitchallen/lsystem": "^0.25.12",
+    "@mitchallen/pen-turtle": "^0.33.4",
+    "@mitchallen/pen-svg-v2": "^0.3.2"
   }
 }

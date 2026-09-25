@@ -1,6 +1,6 @@
 const factory = require('@mitchallen/lsystem');
 const penTurtleFactory = require('@mitchallen/pen-turtle');
-const svgFactory = require("@mitchallen/pen-svg")
+const svgFactory = require("@mitchallen/pen-svg-v2")
 
 function kochIsland() {
     let width = 1024,
