@@ -1,0 +1,31 @@
+{
+  "name": "@mitchallen/pen-v2",
+  "version": "0.3.1",
+  "description": "pen object that returns drawing path information (internal package of drawing-kit; not published)",
+  "main": "index-factory.js",
+  "files": [
+    "index-factory.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "coverage": "c8 --check-coverage --100 --all --include='index-factory.js' --exclude='test/**' --reporter=text node --test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchallen/drawing-kit.git",
+    "directory": "packages/pen"
+  },
+  "homepage": "https://github.com/mitchallen/pen#readme",
+  "bugs": {
+    "url": "https://github.com/mitchallen/pen/issues"
+  },
+  "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "c8": "^12.0.0"
+  }
+}

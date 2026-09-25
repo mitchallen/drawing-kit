@@ -1,0 +1,41 @@
+{
+  "name": "@mitchallen/fuse-svg-path-v2",
+  "version": "0.2.2",
+  "description": "Fuse MoveTo LineTo paths, such as those used in SVG files (internal package of drawing-kit; not published)",
+  "main": "index-factory.js",
+  "files": [
+    "index-factory.js"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "mocha --recursive --timeout 20000",
+    "coverage": "c8 --check-coverage --100 --all --include='index-factory.js' --exclude='test/**' --reporter=text mocha --recursive --timeout 20000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mitchallen/drawing-kit.git",
+    "directory": "packages/fuse-svg-path"
+  },
+  "homepage": "https://github.com/mitchallen/fuse-svg-path#readme",
+  "bugs": {
+    "url": "https://github.com/mitchallen/fuse-svg-path/issues"
+  },
+  "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
+  "license": "ISC",
+  "devDependencies": {
+    "c8": "^12.0.0",
+    "mocha": "^12.0.2",
+    "should": "^13.2.3"
+  },
+  "overrides": {
+    "mocha": {
+      "serialize-javascript": "^7.0.5",
+      "js-yaml": "^4.3.2",
+      "diff": "^8.0.3"
+    },
+    "brace-expansion": "^5.0.9"
+  },
+  "private": true
+}

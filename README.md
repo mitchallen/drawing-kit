@@ -3,11 +3,27 @@ drawing-kit
 digital drawing packages 
 --
 
-Packages in this monorepo:
+Published packages (GitHub Packages):
 
 * [@mitchallen/pen-turtle](https://github.com/mitchallen/drawing-kit/tree/main/packages/pen-turtle#readme)
 * [@mitchallen/lsystem](https://github.com/mitchallen/drawing-kit/tree/main/packages/lsystem#readme)
 * [@mitchallen/svg-tile](https://github.com/mitchallen/drawing-kit/tree/main/packages/svg-tile#readme)
+
+Internal packages (private, not published). Each continues an older standalone
+package, which stays on GitHub Packages frozen at the version shown for existing
+users; the `-v2` suffix keeps the names from being confused:
+
+| Internal package | Continues | Frozen at |
+| --- | --- | --- |
+| [@mitchallen/pen-v2](https://github.com/mitchallen/drawing-kit/tree/main/packages/pen#readme) | `@mitchallen/pen` | 0.3.1 |
+| [@mitchallen/pen-svg-v2](https://github.com/mitchallen/drawing-kit/tree/main/packages/pen-svg#readme) | `@mitchallen/pen-svg` | 0.3.1 |
+| [@mitchallen/demand-v2](https://github.com/mitchallen/drawing-kit/tree/main/packages/demand#readme) | `@mitchallen/demand` | 0.2.2 |
+| [@mitchallen/fuse-svg-path-v2](https://github.com/mitchallen/drawing-kit/tree/main/packages/fuse-svg-path#readme) | `@mitchallen/fuse-svg-path` | 0.2.2 |
+
+`pen-turtle` and `lsystem` use `pen-svg-v2` in their tests to write SVG output.
+Their READMEs and the `examples/` apps still show the published
+`@mitchallen/pen-svg`, since that is what someone outside this repo can install.
+`npm publish --workspaces` skips the private packages.
 
 * * *
 
