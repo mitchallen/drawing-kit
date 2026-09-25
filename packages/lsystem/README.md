@@ -45,7 +45,7 @@ Then:
 
 ```sh
 $ npm init
-$ npm install @mitchallen/lsystem
+$ npm install @mitchallen/lsystem @mitchallen/pen-turtle @mitchallen/pen-svg-v2
 ```
 
 * * *
@@ -59,7 +59,7 @@ $ npm install @mitchallen/lsystem
 ```js
 const factory = require('@mitchallen/lsystem');
 const penTurtleFactory = require('@mitchallen/pen-turtle');
-const svgFactory = require("@mitchallen/pen-svg")
+const svgFactory = require("@mitchallen/pen-svg-v2")
 
 function kochIsland() {
     let width = 1024,

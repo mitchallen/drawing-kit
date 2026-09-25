@@ -1,7 +1,7 @@
 {
   "name": "@mitchallen/pen-v2",
-  "version": "0.3.1",
-  "description": "pen object that returns drawing path information (internal package of drawing-kit; not published)",
+  "version": "0.3.2",
+  "description": "pen object that returns drawing path information",
   "main": "index-factory.js",
   "files": [
     "index-factory.js"
@@ -24,8 +24,10 @@
   },
   "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
     "c8": "^12.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }

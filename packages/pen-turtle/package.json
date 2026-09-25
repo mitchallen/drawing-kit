@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/pen-turtle",
-  "version": "0.33.3",
+  "version": "0.33.4",
   "description": "Turtle based vector path generator",
   "keywords": [
     "turtle",

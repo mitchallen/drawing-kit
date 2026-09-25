@@ -1,7 +1,7 @@
 {
   "name": "@mitchallen/pen-svg-v2",
-  "version": "0.3.1",
-  "description": "pen to svg file (internal package of drawing-kit; not published)",
+  "version": "0.3.2",
+  "description": "pen to svg file",
   "main": "index-factory.js",
   "files": [
     "index-factory.js"
@@ -46,5 +46,7 @@
     },
     "brace-expansion": "^5.0.9"
   },
-  "private": true
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
 }

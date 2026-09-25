@@ -4,8 +4,49 @@
 A module to throw errors if conditions aren't met.
 ----------------------------------------------------
 
-> Internal package of [drawing-kit](https://github.com/mitchallen/drawing-kit). It is not published.
-> It continues the code of `@mitchallen/demand`, which stays on GitHub Packages frozen at 0.2.2 for existing users.
+<p>
+  <a href="https://github.com/mitchallen/drawing-kit/actions/workflows/check.yaml">
+    <img src="https://img.shields.io/github/actions/workflow/status/mitchallen/drawing-kit/check.yaml" alt="Build">
+  </a>
+
+  <a href="https://github.com/mitchallen/drawing-kit/actions/workflows/check.yaml?query=branch%3Amain">
+    <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage: 100%">
+  </a>
+
+  <a href="https://github.com/users/mitchallen/packages/npm/package/demand-v2">
+    <img src="https://img.shields.io/github/package-json/v/mitchallen/drawing-kit?filename=packages%2Fdemand%2Fpackage.json&label=GitHub%20Packages" alt="Version">
+  </a>
+
+  <a href="https://github.com/mitchallen/drawing-kit/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/mitchallen/drawing-kit.svg" alt="License">
+  </a>
+
+</p>
+
+> `@mitchallen/demand-v2` continues `@mitchallen/demand`, which stays on GitHub Packages frozen at 0.2.2. It is developed in the [drawing-kit](https://github.com/mitchallen/drawing-kit) monorepo.
+
+* * *
+
+## Installation
+
+This package is published to __GitHub Packages__, not the public npm registry.
+
+Add an `.npmrc` next to your `package.json`:
+
+    @mitchallen:registry=https://npm.pkg.github.com
+
+GitHub Packages requires authentication even for public packages, so you also need a
+personal access token with the `read:packages` scope. Keep it in an environment
+variable rather than committing it:
+
+    //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+
+Then:
+
+```sh
+$ npm init
+$ npm install @mitchallen/demand-v2
+```
 
 * * *
 
