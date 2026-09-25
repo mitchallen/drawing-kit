@@ -7,8 +7,12 @@ L-System Generator
     <img src="https://img.shields.io/github/actions/workflow/status/mitchallen/drawing-kit/check.yaml" alt="Build">
   </a>
 
+  <a href="https://github.com/mitchallen/drawing-kit/actions/workflows/check.yaml?query=branch%3Amain">
+    <img src="https://img.shields.io/badge/coverage-100%25-brightgreen" alt="Coverage: 100%">
+  </a>
+
   <a href="https://github.com/mitchallen/drawing-kit/pkgs/npm/lsystem">
-    <img src="https://img.shields.io/badge/GitHub%20Packages-0.25.10-blue" alt="Version">
+    <img src="https://img.shields.io/github/package-json/v/mitchallen/drawing-kit?filename=packages%2Flsystem%2Fpackage.json&label=GitHub%20Packages" alt="Version">
   </a>
 
   <a href="https://github.com/mitchallen/drawing-kit/blob/main/LICENSE">

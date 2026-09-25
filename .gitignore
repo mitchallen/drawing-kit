@@ -7,3 +7,4 @@ npm-debug.log
 # directory still exists in a fresh clone for the tests to write into.
 **/__tests__/output/*
 !**/__tests__/output/placeholder.txt
+coverage/

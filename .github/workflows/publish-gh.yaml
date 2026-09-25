@@ -31,14 +31,17 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
           cache: npm
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@mitchallen"
+
+      # Authenticate to GitHub Packages without setup-node's registry-url/scope
+      # inputs, which write a scope mapping that breaks npm ci.
+      - run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
 
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: npm test --workspaces
+      # Runs every package's tests and fails unless each is at 100% coverage.
+      - run: npm run coverage --workspaces
 
   publish:
     name: Publish workspace packages
@@ -54,14 +57,17 @@ jobs:
         with:
           node-version: "24"
           cache: npm
-          registry-url: "https://npm.pkg.github.com"
-          scope: "@mitchallen"
+
+      # Authenticate to GitHub Packages without setup-node's registry-url/scope
+      # inputs, which write a scope mapping that breaks npm ci.
+      - run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
 
       - run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: npm test --workspaces
+      # Runs every package's tests and fails unless each is at 100% coverage.
+      - run: npm run coverage --workspaces
 
       # Each package's publishConfig.registry points at GitHub Packages, and
       # --workspaces skips the private root and the private examples. Versions

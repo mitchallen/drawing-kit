@@ -562,4 +562,15 @@ describe('lsystem', function () {
             done();
         });
     });
+    context('run with a negative depth', function () {
+        it('should not expand the axiom', function (done) {
+            let lsys = factory.create();
+            lsys.axiom = "F";
+            lsys.depth = -1;
+            let before = lsys.turtle.path().length;
+            assert.equal(lsys.run(), lsys);
+            assert.equal(lsys.turtle.path().length, before, 'nothing should be drawn');
+            done();
+        });
+    });
 });
