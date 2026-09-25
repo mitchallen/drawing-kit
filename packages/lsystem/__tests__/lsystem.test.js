@@ -2,7 +2,7 @@
 
 const factory = require('..');
 const penTurtleFactory = require('@mitchallen/pen-turtle');
-const svgFactory = require("@mitchallen/pen-svg");
+const svgFactory = require("@mitchallen/pen-svg-v2");
 const assert = require('assert').strict;
 
 describe('lsystem', function () {

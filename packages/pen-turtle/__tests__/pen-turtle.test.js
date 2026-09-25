@@ -3,7 +3,7 @@
 var assert = require('assert');
 
 const factory = require('..');
-const svgFactory = require("@mitchallen/pen-svg");
+const svgFactory = require("@mitchallen/pen-svg-v2");
 
 describe('pen-turtle', function () {
   context('smoke test', function () {
