@@ -1,34 +1,43 @@
-name: Checks 
+name: Checks
 run-name: Checks by ${{ github.actor }}
 
 on:
   pull_request:
-    types: [opened, synchronize] 
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  # pen-turtle's tests require @mitchallen/pen-svg, which resolves from
+  # GitHub Packages along with its own @mitchallen dependency chain.
+  packages: read
 
 jobs:
-  checks: 
+  checks:
+    name: Test (Node ${{ matrix.node }})
     runs-on: ubuntu-latest
-
+    strategy:
+      fail-fast: false
+      matrix:
+        # Floor is 20: the toolchain pulls brace-expansion@5 (node "20 || >=22")
+        # and serialize-javascript@7 (node >=20).
+        node: ["20", "22", "24"]
     steps:
-    - name: "Checkout" 
-      uses: actions/checkout@v4 
-      with:
-        fetch-depth: 0 
+      - uses: actions/checkout@v7
 
-    - name: "Use NodeJS 16" 
-      uses: actions/setup-node@v4 
-      with: 
-        node-version: '18'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
 
-    - name: "Setup npm" 
-      run: | 
-        npm set @${{ github.actor }}:registry=https://npm.pkg.github.com/${{ github.actor }}
-        npm set "//npm.pkg.github.com/:_authToken=${{ secrets.GITHUB_TOKEN }}"
+      # The committed .npmrc already maps @mitchallen to GitHub Packages; this
+      # only adds the token, which npm expands from the env at install time.
+      # (setup-node's registry-url/scope inputs would rewrite that mapping.)
+      - name: Authenticate to GitHub Packages
+        run: echo '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' >> ~/.npmrc
 
-    - name: Install dependencies
-      run: | 
-        npm install 
+      - run: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Run tests
-      run: | 
-        npx lerna run test
+      - run: npm test --workspaces
