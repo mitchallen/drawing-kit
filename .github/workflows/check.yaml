@@ -40,4 +40,5 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - run: npm test --workspaces
+      # Runs every package's tests and fails unless each is at 100% coverage.
+      - run: npm run coverage --workspaces

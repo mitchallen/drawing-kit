@@ -7,6 +7,7 @@ help:
 	@echo "  install     Install all dependencies for all packages via npm workspaces"
 	@echo "  clean       Remove all node_modules and package-lock.json files recursively"
 	@echo "  test        Run tests for all packages via npm workspaces"
+	@echo "  coverage    Run every package's tests; fails unless coverage is 100%"
 	@echo "  whoami      Show the current npm user (test registry authentication)"
 
 .DEFAULT_GOAL := help
@@ -26,8 +27,13 @@ clean:
 test:
 	npm test --workspaces
 
+# Coverage is internal: each package must stay at 100% statements, branches,
+# functions and lines, or this target fails.
+coverage:
+	npm run coverage --workspaces
+
 # Show current npm user
 whoami:
 	npm whoami
 
-.PHONY: help install clean test whoami
+.PHONY: help install clean test coverage whoami

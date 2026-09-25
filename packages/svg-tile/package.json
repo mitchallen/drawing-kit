@@ -30,7 +30,8 @@
   "scripts": {
     "//": "npm run doc -ws --if-present",
     "doc": "npx jsdoc2md lib/*.js > LSYSTEM-DOC.md",
-    "test": "npx mocha __tests__/*.test.js"
+    "test": "npx mocha __tests__/*.test.js",
+    "coverage": "c8 --check-coverage --100 --all --include='lib/**' --exclude='__tests__/**' --reporter=text mocha '__tests__/*.test.js'"
   },
   "bugs": {
     "url": "https://github.com/mitchallen/drawing-kit/issues"
