@@ -1,5 +1,6 @@
 'use strict';
 
+const { describe, it, beforeEach, afterEach } = require('node:test');
 // Covers the default options and the branches the smoke tests don't reach.
 // generate() and generateLegend() write their file asynchronously and signal
 // completion only through console.log, so each test waits for that message.
@@ -49,7 +50,7 @@ describe('svg-tile coverage', function () {
     fs.rmSync(tmp, { recursive: true, force: true });
   });
 
-  context('generate', function () {
+  describe('generate', function () {
 
     it('should refuse to run without tiles', async function () {
       let msg = await runAndWait(() => generate());
@@ -102,7 +103,7 @@ describe('svg-tile coverage', function () {
     });
   });
 
-  context('generateLegend', function () {
+  describe('generateLegend', function () {
 
     it('should refuse to run without tiles', async function () {
       let msg = await runAndWait(() => generateLegend());

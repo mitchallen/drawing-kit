@@ -1,93 +1,85 @@
 'use strict';
 
+const { describe, it } = require('node:test');
 const factory = require('..');
 const penTurtleFactory = require('@mitchallen/pen-turtle');
 const svgFactory = require("@mitchallen/pen-svg-v2");
 const assert = require('assert').strict;
 
 describe('lsystem', function () {
-    context('smoke test', function () {
-        it('should return object', function (done) {
+    describe('smoke test', function () {
+        it('should return object', function() {
             let lsys = factory.create();
             assert.ok(lsys, 'lsys should not be null');
-            done();
         });
-        context('turtle property', function () {
-            it('should have turtle property', function (done) {
+        describe('turtle property', function () {
+            it('should have turtle property', function() {
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.ok(lsys.turtle, 'lsys.turtle should not be null');
-                done();
             });
         });
-        context('distance property', function () {
-            it('should have distance property', function (done) {
+        describe('distance property', function () {
+            it('should have distance property', function() {
                 let TEST_DEFAULT_DISTANCE = 1;
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.ok(lsys.distance, 'lsys.distance should not be null');
                 assert.equal(lsys.distance, TEST_DEFAULT_DISTANCE, 'lsys.distance default not expected')
-                done();
             });
         });
-        context('depth property', function () {
-            it('should have depth property', function (done) {
+        describe('depth property', function () {
+            it('should have depth property', function() {
                 let TEST_DEFAULT_DEPTH = 1;
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.ok(lsys.depth, 'lsys.depth should not be null');
                 assert.equal(lsys.depth, TEST_DEFAULT_DEPTH, 'lsys.depth default not expected')
-                done();
             });
         });
-        context('depthRatio property', function () {
-            it('should have depthRatio property', function (done) {
+        describe('depthRatio property', function () {
+            it('should have depthRatio property', function() {
                 let TEST_DEFAULT_DEPTH_RATIO = 1.0;
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.ok(lsys.depthRatio, 'lsys.depthRatio should not be null');
                 assert.equal(lsys.depthRatio, TEST_DEFAULT_DEPTH_RATIO, 'lsys.depthRatio default not expected')
-                done();
             });
         });
-        context('angle property', function () {
-            it('should have angle property', function (done) {
+        describe('angle property', function () {
+            it('should have angle property', function() {
                 let TEST_DEFAULT_ANGLE = 0;
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.equal(lsys.angle, TEST_DEFAULT_ANGLE, 'lsys.angle default not expected')
-                done();
             });
         });
-        context('axiom property', function () {
-            it('should have axiom property', function (done) {
+        describe('axiom property', function () {
+            it('should have axiom property', function() {
                 let TEST_DEFAULT_AXIOM = "";
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.equal(lsys.axiom, TEST_DEFAULT_AXIOM, 'lsys.axiom default not expected')
-                done();
             });
         });
-        context('addRule method', function () {
-            it('should have addRule method', function (done) {
+        describe('addRule method', function () {
+            it('should have addRule method', function() {
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.ok(lsys.addRule, 'lsys.addRule method should not be null');
-                done();
             });
         });
-        context('run method', function () {
-            it('should have run method', function (done) {
+        describe('run method', function () {
+            it('should have run method', function() {
                 let lsys = factory.create();
                 assert.ok(lsys, 'lsys should not be null');
                 assert.ok(lsys.run, 'lsys.run method should not be null');
-                done();
             });
         });
     });
 
-    context('write to svg', function () {
-        it('should create koch.island', function (done) {
+    describe('write to svg', function () {
+        it('should create koch.island', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -122,9 +114,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create koch.island factory init', function (done) {
+        it('should create koch.island factory init', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -162,9 +153,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create sierpinski.gasket', function (done) {
+        it('should create sierpinski.gasket', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -204,9 +194,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create penrose.snowflake', function (done) {
+        it('should create penrose.snowflake', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -242,9 +231,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create dragon.curve', function (done) {
+        it('should create dragon.curve', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -280,9 +268,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create two.ys', function (done) {
+        it('should create two.ys', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -319,9 +306,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create big.h', function (done) {
+        it('should create big.h', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -358,9 +344,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create bent.big.h', function (done) {
+        it('should create bent.big.h', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -397,9 +382,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create twig', function (done) {
+        it('should create twig', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -436,9 +420,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create tree.1', function (done) {
+        it('should create tree.1', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -475,9 +458,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create bush.1', function (done) {
+        it('should create bush.1', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -514,9 +496,8 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
-        it('should create penrose.tile', function (done) {
+        it('should create penrose.tile', function() {
             let width = 1024,
                 height = 1024;
             let writer = svgFactory.create({});
@@ -559,18 +540,16 @@ describe('lsystem', function () {
                 filename: `__tests__/output/${file}.svg`
             });
             assert.ok(svg);
-            done();
         });
     });
-    context('run with a negative depth', function () {
-        it('should not expand the axiom', function (done) {
+    describe('run with a negative depth', function () {
+        it('should not expand the axiom', function() {
             let lsys = factory.create();
             lsys.axiom = "F";
             lsys.depth = -1;
             let before = lsys.turtle.path().length;
             assert.equal(lsys.run(), lsys);
             assert.equal(lsys.turtle.path().length, before, 'nothing should be drawn');
-            done();
         });
     });
 });

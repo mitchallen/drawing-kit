@@ -1,5 +1,6 @@
 'use strict';
 
+const { describe, it } = require('node:test');
 var assert = require('assert');
 
 const factory = require('..');
@@ -10,17 +11,15 @@ const {
 } = require("@mitchallen/svg-tile");
 
 describe('svg-tile', function () {
-  context('smoke test', function () {
-    it('should return generate', function (done) {
+  describe('smoke test', function () {
+    it('should return generate', function() {
       assert.ok(generate, 'gemerate should not be null');
-      done();
     });
-    it('should return getSquareXY', function (done) {
+    it('should return getSquareXY', function() {
       assert.ok(getSquareXY, 'getSquare should not be null');
-      done();
     });
 
-    it('should generate square grid svg', function (done) {
+    it('should generate square grid svg', function() {
       // generate square grid
       generate({
         sourceFile: './__tests__/input/source.svg',
@@ -39,9 +38,8 @@ describe('svg-tile', function () {
         boardTransform: `translate(25,25) scale(0.25, 0.25)`,
         backgroundColor: 'black',
       })
-      done();
     });
-    it('should generate a legend svg', function (done) {
+    it('should generate a legend svg', function() {
       // generate legend
       let margin = 25;
       let padding = 30
@@ -65,9 +63,8 @@ describe('svg-tile', function () {
         boardTransform: `translate(${margin},${margin}) scale(1.0, 1.0)`,
         backgroundColor: 'gray',
       })
-      done();
     });
-    it('should generate square grid svg even even', function (done) {
+    it('should generate square grid svg even even', function() {
       // generate square grid
       generate({
         sourceFile: './__tests__/input/source.svg',
@@ -85,9 +82,8 @@ describe('svg-tile', function () {
         // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
         backgroundColor: 'black',
       })
-      done();
     });
-    it('should generate square grid svg odd even', function (done) {
+    it('should generate square grid svg odd even', function() {
       // generate square grid
       generate({
         sourceFile: './__tests__/input/source.svg',
@@ -105,9 +101,8 @@ describe('svg-tile', function () {
         // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
         backgroundColor: 'black',
       })
-      done();
     });
-    it('should generate square grid svg odd odd', function (done) {
+    it('should generate square grid svg odd odd', function() {
       // generate square grid
       generate({
         sourceFile: './__tests__/input/source.svg',
@@ -125,9 +120,8 @@ describe('svg-tile', function () {
         // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
         backgroundColor: 'black',
       })
-      done();
     });
-    it('should generate square wide padded grid svg', function (done) {
+    it('should generate square wide padded grid svg', function() {
       // generate square grid
       generate({
         sourceFile: './__tests__/input/source.svg',
@@ -146,7 +140,6 @@ describe('svg-tile', function () {
         // boardTransform: `translate(25,25) scale(0.25, 0.25)`,
         backgroundColor: 'red',
       })
-      done();
     });
   })
 })
