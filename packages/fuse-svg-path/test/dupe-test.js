@@ -6,38 +6,35 @@
 
 "use strict";
 
-var should = require('should'),
+const { describe, it, before, after, beforeEach, afterEach } = require('node:test');
+var assert = require('node:assert/strict'),
     modulePath = "../index-factory";
 
 describe('removeDupes method', function() {
 
     var _factory = null;
 
-    before(function(done) {
+    before(function() {
         // Call before all tests
         delete require.cache[require.resolve(modulePath)];
         _factory = require(modulePath);
-        done();
     });
 
-    after(function(done) {
+    after(function() {
         // Call after all tests
-        done();
     });
 
-    beforeEach(function(done) {
+    beforeEach(function() {
         // Call before each test
-        done();
     });
 
-    afterEach(function(done) {
+    afterEach(function() {
         // Call after eeach test
-        done();
     });
 
-    it('should remove dupes', function(done) {
+    it('should remove dupes', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -61,15 +58,14 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
     
-    it('should remove multiple dupes in a series', function(done) {
+    it('should remove multiple dupes in a series', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -92,15 +88,14 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
     
 
-    it('should only remove dupes in current path segment', function(done) {
+    it('should only remove dupes in current path segment', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -120,14 +115,13 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
-    it('should not remove dupe if segment length would be one', function(done) {
+    it('should not remove dupe if segment length would be one', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -146,14 +140,13 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
-    it('should not remove dupe if segment length would be one', function(done) {
+    it('should not remove dupe if segment length would be one', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -172,14 +165,13 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
-    it('should not remove dupe if segment length would be one', function(done) {
+    it('should not remove dupe if segment length would be one', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -198,14 +190,13 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
-    it('should not change single point segments', function(done) {
+    it('should not change single point segments', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -219,14 +210,13 @@ describe('removeDupes method', function() {
         ];
         var fused = obj.fuse(options);
         var result = obj.removeDupes( { path: fused } );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
-    it('should not change single point segments even if they match', function(done) {
+    it('should not change single point segments even if they match', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -240,9 +230,8 @@ describe('removeDupes method', function() {
         ];
         // Note that if fuse was called first, it would combine them.
         var result = obj.removeDupes( options );
-        should.exist(result);
-        result.should.eql(expected);
-        done();
+        assert.ok(result != null);
+        assert.deepStrictEqual(result, expected);
     });
 
 });
