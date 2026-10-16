@@ -3,6 +3,7 @@ var fs = require('fs'),
     util = require('util');
 
 let { getSquareXY } = require('./get-square-xy.js')
+let { svgBody } = require('./svg-body.js')
 
 let generateLegend = function (options = {}) {
 
@@ -33,12 +34,8 @@ let generateLegend = function (options = {}) {
         return
     }
 
-    let $;
-
     fs.readFile(sourceFile, "utf8", (err, data) => {
-        $ = cheerio.load(data, { xmlMode: true })
-
-        let svgBody = $("svg").first().html()
+        let body = svgBody(data)
 
         // generate the tile board
 
@@ -76,7 +73,7 @@ let generateLegend = function (options = {}) {
         );
         fd += title ? `<title>${title}</title>\n` : ""
         fd += desc ? `<desc>${desc}</desc>\n` : ""
-        fd += svgBody
+        fd += body
         fd += `<rect id="background" fill="${backgroundColor}" width="${width}" height="${height}" />\n`
         fd += board
         fd += '</svg>';

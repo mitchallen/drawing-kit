@@ -43,6 +43,10 @@ jobs:
       # Runs every package's tests and fails unless each is at 100% coverage.
       - run: npm run coverage --workspaces
 
+      # Runs after coverage so it proves the "files" allowlists keep generated
+      # test output out of the tarballs.
+      - run: make pack-check
+
   publish:
     name: Publish workspace packages
     needs: [test]
@@ -68,6 +72,10 @@ jobs:
 
       # Runs every package's tests and fails unless each is at 100% coverage.
       - run: npm run coverage --workspaces
+
+      # Runs after coverage so it proves the "files" allowlists keep generated
+      # test output out of the tarballs.
+      - run: make pack-check
 
       # Each package's publishConfig.registry points at GitHub Packages, and
       # --workspaces skips the private root and the private examples. Versions

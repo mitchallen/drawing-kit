@@ -1,6 +1,6 @@
 {
   "name": "@mitchallen/svg-tile",
-  "version": "0.12.4",
+  "version": "0.12.5",
   "description": "SVG tile pattern generator",
   "keywords": [
     "svg",
@@ -37,7 +37,6 @@
     "url": "https://github.com/mitchallen/drawing-kit/issues"
   },
   "dependencies": {
-    "chance": "^1.1.11",
-    "cheerio": "^1.0.0-rc.12"
+    "chance": "^1.1.11"
   }
 }

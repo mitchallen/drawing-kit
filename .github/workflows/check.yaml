@@ -42,3 +42,7 @@ jobs:
 
       # Runs every package's tests and fails unless each is at 100% coverage.
       - run: npm run coverage --workspaces
+
+      # Runs after coverage so it proves the "files" allowlists keep generated
+      # test output out of the tarballs.
+      - run: make pack-check
