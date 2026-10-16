@@ -8,6 +8,7 @@ help:
 	@echo "  clean       Remove all node_modules and package-lock.json files recursively"
 	@echo "  test        Run tests for all packages via npm workspaces"
 	@echo "  coverage    Run every package's tests; fails unless coverage is 100%"
+	@echo "  pack-check  Fail if a package's tarball ships unexpected files or misses one it needs"
 	@echo "  whoami      Show the current npm user (test registry authentication)"
 
 .DEFAULT_GOAL := help
@@ -32,8 +33,14 @@ test:
 coverage:
 	npm run coverage --workspaces
 
+# Dry-run npm pack for every package and fail if a tarball leaks files outside
+# its "files" allowlist (tests, generated output) or misses a file its code
+# requires. See scripts/check-pack.js.
+pack-check:
+	node scripts/check-pack.js
+
 # Show current npm user
 whoami:
 	npm whoami
 
-.PHONY: help install clean test coverage whoami
+.PHONY: help install clean test coverage pack-check whoami

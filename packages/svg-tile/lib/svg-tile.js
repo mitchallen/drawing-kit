@@ -4,12 +4,12 @@
 
 var fs = require('fs'),
     Chance = require('chance');
-cheerio = require('cheerio');
 
 var chance = new Chance();
 
 let { getSquareXY } = require('./get-square-xy.js')
 let { generateLegend } = require('./generate-legend.js')
+let { svgBody } = require('./svg-body.js')
 
 function getTileSetIndexAlternate(options = {}) {
     let {
@@ -66,12 +66,8 @@ function generate(options = {}) {
     }
 
 
-    let $;
-
     fs.readFile(sourceFile, "utf8", (err, data) => {
-        $ = cheerio.load(data, { xmlMode: true })
-
-        let svgBody = $("svg").first().html()
+        let body = svgBody(data)
 
         // generate the tile board
 
@@ -101,7 +97,7 @@ function generate(options = {}) {
         let fd = `<svg viewBox="0 0 ${width} ${height}" xmlns="${xmlns}" width="${width}" height="${height}">\n'`
         fd += title ? `<title>${title}</title>\n` : ""
         fd += desc ? `<desc>${desc}</desc>\n` : ""
-        fd += svgBody
+        fd += body
         fd += `<rect id="background" fill="${backgroundColor}" width="${width}" height="${height}" />\n`
         fd += board
         fd += '</svg>';
