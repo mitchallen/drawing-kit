@@ -19,9 +19,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Floor is 20: the toolchain pulls brace-expansion@5 (node "20 || >=22")
-        # and serialize-javascript@7 (node >=20).
-        node: ["20", "22", "24"]
+        # Floor is 22: coverage uses node:test's --test-coverage-* thresholds,
+        # which need Node 22.8+. (Node 20 reached end of life in April 2026.)
+        node: ["22", "24"]
     steps:
       - uses: actions/checkout@v7
 

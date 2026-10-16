@@ -10,8 +10,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "test": "mocha --recursive --timeout 20000",
-    "coverage": "c8 --check-coverage --100 --all --include='index.js' --exclude='test/**' --reporter=text mocha --recursive --timeout 20000"
+    "test": "node --test 'test/**/*.js'",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-include='index.js' --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 'test/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -24,19 +24,6 @@
   },
   "author": "Mitch Allen <npm@mitchallen.com> (http://mitchallen.com)",
   "license": "ISC",
-  "devDependencies": {
-    "c8": "^12.0.0",
-    "mocha": "^12.0.2",
-    "should": "^13.2.3"
-  },
-  "overrides": {
-    "mocha": {
-      "serialize-javascript": "^7.0.5",
-      "js-yaml": "^4.3.2",
-      "diff": "^8.0.3"
-    },
-    "brace-expansion": "^5.0.9"
-  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }

@@ -6,38 +6,35 @@
 
 "use strict";
 
-var should = require('should'),
+const { describe, it, before, after, beforeEach, afterEach } = require('node:test');
+var assert = require('node:assert/strict'),
     modulePath = "../index-factory";
 
 describe('fuse method error', function() {
 
     var _factory = null;
 
-    before(function(done) {
+    before(function() {
         // Call before all tests
         delete require.cache[require.resolve(modulePath)];
         _factory = require(modulePath);
-        done();
     });
 
-    after(function(done) {
+    after(function() {
         // Call after all tests
-        done();
     });
 
-    beforeEach(function(done) {
+    beforeEach(function() {
         // Call before each test
-        done();
     });
 
-    afterEach(function(done) {
+    afterEach(function() {
         // Call after eeach test
-        done();
     });
 
-    it('with maxSafety set to 1 for complex path should return null', function(done) {
+    it('with maxSafety set to 1 for complex path should return null', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             maxValve: 1,
@@ -59,13 +56,12 @@ describe('fuse method error', function() {
             ]
         };
         var result = obj.fuse(options);
-        should.not.exist(result);
-        done();
+        assert.ok(result == null);
     });
 
-    it('with bad op should return null', function(done) {
+    it('with bad op should return null', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -73,13 +69,12 @@ describe('fuse method error', function() {
             ]
         };
         var result = obj.fuse(options);
-        should.not.exist(result);
-        done();
+        assert.ok(result == null);
     });
 
-    it('with no op should return null', function(done) {
+    it('with no op should return null', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -87,13 +82,12 @@ describe('fuse method error', function() {
             ]
         };
         var result = obj.fuse(options);
-        should.not.exist(result);
-        done();
+        assert.ok(result == null);
     });
 
-    it('with no x property should return null', function(done) {
+    it('with no x property should return null', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -101,13 +95,12 @@ describe('fuse method error', function() {
             ]
         };
         var result = obj.fuse(options);
-        should.not.exist(result);
-        done();
+        assert.ok(result == null);
     });
 
-    it('with no y property should return null', function(done) {
+    it('with no y property should return null', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -115,13 +108,12 @@ describe('fuse method error', function() {
             ]
         };
         var result = obj.fuse(options);
-        should.not.exist(result);
-        done();
+        assert.ok(result == null);
     });
 
-    it('path must start with a move (op = M) record', function(done) {
+    it('path must start with a move (op = M) record', function() {
         var obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
         let options = {
             verbose: false,
             path: [
@@ -132,7 +124,6 @@ describe('fuse method error', function() {
             ]
         };
         var result = obj.fuse(options);
-        should.not.exist(result);
-        done();
+        assert.ok(result == null);
     });
 });

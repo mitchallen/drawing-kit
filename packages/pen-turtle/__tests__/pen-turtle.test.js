@@ -1,58 +1,53 @@
 'use strict';
 
+const { describe, it } = require('node:test');
 var assert = require('assert');
 
 const factory = require('..');
 const svgFactory = require("@mitchallen/pen-svg-v2");
 
 describe('pen-turtle', function () {
-  context('smoke test', function () {
-    it('should return object', function (done) {
+  describe('smoke test', function () {
+    it('should return object', function() {
       let pen = factory.create();
       assert.ok(pen, 'pen should not be null');
-      done();
     });
-    it('should have color method', function (done) {
+    it('should have color method', function() {
       let TEST_DEFAULT_COLOR = 0x000000,
         pen = factory.create(),
         color = pen.color();
       assert.equal(color, TEST_DEFAULT_COLOR, 'default getColor method return not what expected');
-      done();
     });
-    it('getColor method should return color', function (done) {
+    it('getColor method should return color', function() {
       let TEST_COLOR = 0xFF0000,
         pen = factory.create({
           color: TEST_COLOR,
         });
       let color = pen.color();
       assert.equal(color, TEST_COLOR, 'color method did not returne expected');
-      done();
     });
-    it('should have path method', function (done) {
+    it('should have path method', function() {
       let TEST_DEFAULT_PATH = [],
         pen = factory.create(),
         path = pen.path();
       assert.deepEqual(path, TEST_DEFAULT_PATH, 'default path method return not what expected');
-      done();
     });
-    context('x method', function () {
-      it('should have x method', function (done) {
+    describe('x method', function () {
+      it('should have x method', function() {
         let TEST_DEFAULT_X = 0,
           pen = factory.create(),
           x = pen.x();
         assert.equal(x, TEST_DEFAULT_X, 'default x method return not what expected');
-        done();
       });
-      it('should return create parameter', function (done) {
+      it('should return create parameter', function() {
         let TEST_X = 25,
           pen = factory.create({
             x: TEST_X,
           }),
           x = pen.x();
         assert.equal(x, TEST_X, 'x method should return create parameter');
-        done();
       });
-      it('should change after move', function (done) {
+      it('should change after move', function() {
         let TEST_X = 25,
           pen = factory.create();
         pen
@@ -60,27 +55,24 @@ describe('pen-turtle', function () {
           .forward(TEST_X);
         let x = pen.x();
         assert.equal(x, TEST_X, 'x method not what expected');
-        done();
       });
     });
-    context('y method', function () {
-      it('should have y method', function (done) {
+    describe('y method', function () {
+      it('should have y method', function() {
         let TEST_DEFAULT_Y = 0,
           pen = factory.create(),
           y = pen.y();
         assert.equal(y, TEST_DEFAULT_Y, 'default y method return not what expected');
-        done();
       });
-      it('should return create parameter', function (done) {
+      it('should return create parameter', function() {
         let TEST_Y = 25,
           pen = factory.create({
             y: TEST_Y,
           }),
           y = pen.y();
         assert.equal(y, TEST_Y, 'y method should return create parameter');
-        done();
       });
-      it('should change after move', function (done) {
+      it('should change after move', function() {
         let TEST_Y = 25,
           pen = factory.create();
         pen
@@ -88,18 +80,16 @@ describe('pen-turtle', function () {
         let y = pen.y(),
           expected = 0 - TEST_Y;
         assert.equal(y, expected, 'y method not what expeted');
-        done();
       });
     });
-    context('heading method', function () {
-      it('should have heading method', function (done) {
+    describe('heading method', function () {
+      it('should have heading method', function() {
         let TEST_DEFAULT_HEADING = 0,
           pen = factory.create(),
           heading = pen.heading();
         assert.equal(heading, TEST_DEFAULT_HEADING, 'default heading method return not what expected');
-        done();
       });
-      it('create should normalize heading', function (done) {
+      it('create should normalize heading', function() {
         let list = [
           { input: 0, expected: 0 },
           { input: 1, expected: 1 },
@@ -116,9 +106,8 @@ describe('pen-turtle', function () {
           let heading = pen.heading();
           assert.equal(heading, el.expected, 'default heading method return not what expected');
         }
-        done();
       });
-      it('turn should normalize heading', function (done) {
+      it('turn should normalize heading', function() {
         let list = [
           { input: 0, expected: 0 },
           { input: 1, expected: 1 },
@@ -134,34 +123,30 @@ describe('pen-turtle', function () {
           let heading = pen.heading();
           assert.equal(heading, el.expected, 'default heading method return not what expected');
         }
-        done();
       });
     });
 
-    context('stack', function () {
-      context('push', function () {
-        it('should have push method', function (done) {
+    describe('stack', function () {
+      describe('push', function () {
+        it('should have push method', function() {
           let pen = factory.create();
           assert.ok(pen.push, 'push method not found');
           pen.push();
-          done();
         });
       });
-      context('pop', function () {
-        it('should have pop method', function (done) {
+      describe('pop', function () {
+        it('should have pop method', function() {
           let pen = factory.create();
           assert.ok(pen.pop, 'pop method not found');
           pen.push();
           pen.pop()
-          done();
         });
-        it('should do nothing if no push first', function (done) {
+        it('should do nothing if no push first', function() {
           let pen = factory.create();
           assert.ok(pen.pop, 'pop method not found');
           pen.pop()
-          done();
         });
-        it('should restore position if not moved', function (done) {
+        it('should restore position if not moved', function() {
           let TEST_X = 30,
               TEST_Y = 45,
               TEST_HEADING = 60,
@@ -180,9 +165,8 @@ describe('pen-turtle', function () {
           assert.equal(pen.y(), TEST_Y, 'y not what expected after pop');
           assert.equal(pen.heading(), TEST_HEADING, 'heading not what expected after pop');
           assert.equal(pen.isDown(), TEST_DOWN, 'isDown not what expected after pop');
-          done();
         });
-        it('should restore position if moved', function (done) {
+        it('should restore position if moved', function() {
           let TEST_X = 30,
               TEST_Y = 45,
               TEST_HEADING = 60,
@@ -203,48 +187,43 @@ describe('pen-turtle', function () {
           assert.equal(pen.y(), TEST_Y, 'y not what expected after pop');
           assert.equal(pen.heading(), TEST_HEADING, 'heading not what expected after pop');
           assert.equal(pen.isDown(), TEST_DOWN, 'isDown not what expected after pop');
-          done();
         });
       })
-      context('isStackEmtpty', function () {
-        it('should have isStackEmtpty method', function (done) {
+      describe('isStackEmtpty', function () {
+        it('should have isStackEmtpty method', function() {
           let TEST_DEFAULT = true;
           let pen = factory.create();
           assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
           assert.equal(pen.isStackEmpty(), TEST_DEFAULT,'default isStackEmpty not what expected' );
-          done();
         });
-        it('should be false after push', function (done) {
+        it('should be false after push', function() {
           let TEST_EXPECTED = false;
           let pen = factory.create();
           assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
           pen.push();
           assert.equal(pen.isStackEmpty(), TEST_EXPECTED,'isStackEmpty should be false after push' );
-          done();
         });
-        it('should be true after push pop balance', function (done) {
+        it('should be true after push pop balance', function() {
           let TEST_EXPECTED = true;
           let pen = factory.create();
           assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
           pen.push();
           pen.pop();
           assert.equal(pen.isStackEmpty(), TEST_EXPECTED,'isStackEmpty should be true after push pop' );
-          done();
         });
-        it('should be true after unbalanced pop', function (done) {
+        it('should be true after unbalanced pop', function() {
           let TEST_EXPECTED = true;
           let pen = factory.create();
           assert.ok(pen.isStackEmpty, 'isStackEmtpy method not found');
           pen.pop();
           assert.equal(pen.isStackEmpty(), TEST_EXPECTED,'isStackEmpty should be true after push pop' );
-          done();
         });
       });
 
     });
 
-    context('home method', function () {
-      it('should have home method', function (done) {
+    describe('home method', function () {
+      it('should have home method', function() {
         let TEST_DEFAULT_X = 0,
           TEST_DEFAULT_Y = 0,
           TEST_DEFAULT_HEADING = 0,
@@ -256,9 +235,8 @@ describe('pen-turtle', function () {
         assert.equal(x, TEST_DEFAULT_X, 'home method should reset x');
         assert.equal(y, TEST_DEFAULT_Y, 'home method should reset y');
         assert.equal(heading, TEST_DEFAULT_HEADING, 'home method should reset heading');
-        done();
       });
-      it('should reset to create parameters', function (done) {
+      it('should reset to create parameters', function() {
         let TEST_X = 20,
           TEST_Y = 25,
           TEST_HEADING = 30,
@@ -274,9 +252,8 @@ describe('pen-turtle', function () {
         assert.equal(x, TEST_X, 'home method should reset x to create parameter');
         assert.equal(y, TEST_Y, 'home method should reset y to create parameter');
         assert.equal(heading, TEST_HEADING, 'home method should reset heading to create parameter');
-        done();
       });
-      it('should reset heading after moving', function (done) {
+      it('should reset heading after moving', function() {
         let TEST_DEFAULT_X = 0,
           TEST_DEFAULT_Y = 0,
           TEST_DEFAULT_HEADING = 0,
@@ -292,9 +269,8 @@ describe('pen-turtle', function () {
         assert.equal(x, TEST_DEFAULT_X, 'home method should reset x');
         assert.equal(y, TEST_DEFAULT_Y, 'home method should reset y');
         assert.equal(heading, TEST_DEFAULT_HEADING, 'home method should reset heading');
-        done();
       });
-      it('should reset heading to create parameter after moving', function (done) {
+      it('should reset heading to create parameter after moving', function() {
         let TEST_X = 20,
           TEST_Y = 25,
           TEST_HEADING = 30,
@@ -314,20 +290,18 @@ describe('pen-turtle', function () {
         assert.equal(x, TEST_X, 'home method should reset x to create parameter');
         assert.equal(y, TEST_Y, 'home method should reset y to create parameter');
         assert.equal(heading, TEST_HEADING, 'home method should reset heading to create parameter');
-        done();
       });
     });
-    context('turn method', function () {
-      it('should have turn method', function (done) {
+    describe('turn method', function () {
+      it('should have turn method', function() {
         let TEST_ANGLE = 30,
           pen = factory.create();
         pen.turn(TEST_ANGLE)
         let heading = pen.heading(),
           expected = TEST_ANGLE;
         assert.equal(heading, expected, 'turn heading not what expected');
-        done();
       });
-      it('turn method should increment heading', function (done) {
+      it('turn method should increment heading', function() {
         let TEST_ANGLE_1 = 30,
           TEST_ANGLE_2 = 15,
           pen = factory.create();
@@ -337,20 +311,18 @@ describe('pen-turtle', function () {
         let heading = pen.heading(),
           expected = (TEST_ANGLE_1 + TEST_ANGLE_2);
         assert.equal(heading, expected, 'turn heading not what expected');
-        done();
       });
     });
-    context('left method', function () {
-      it('should have left method', function (done) {
+    describe('left method', function () {
+      it('should have left method', function() {
         let TEST_ANGLE = 30,
           pen = factory.create();
         pen.left(TEST_ANGLE)
         let heading = pen.heading(),
           expected = TEST_ANGLE;
         assert.equal(heading, expected, 'left angle not what expected');
-        done();
       });
-      it('left method should decrement angle', function (done) {
+      it('left method should decrement angle', function() {
         let TEST_ANGLE_1 = 30,
           TEST_ANGLE_2 = 15,
           pen = factory.create();
@@ -360,20 +332,18 @@ describe('pen-turtle', function () {
         let heading = pen.heading(),
           expected = TEST_ANGLE_1 + TEST_ANGLE_2;
         assert.equal(heading, expected, 'left angle not what expected');
-        done();
       });
     });
-    context('right method', function () {
-      it('should have right method', function (done) {
+    describe('right method', function () {
+      it('should have right method', function() {
         let TEST_ANGLE = 30,
           pen = factory.create();
         pen.right(TEST_ANGLE)
         let heading = pen.heading(),
           expected = (360 - TEST_ANGLE);
         assert.equal(heading, expected, 'right angle not what expected');
-        done();
       });
-      it('right method should decrement angle', function (done) {
+      it('right method should decrement angle', function() {
         let TEST_ANGLE_1 = 30,
           TEST_ANGLE_2 = 15,
           pen = factory.create();
@@ -383,41 +353,36 @@ describe('pen-turtle', function () {
         let heading = pen.heading(),
           expected = 360 - (TEST_ANGLE_1 + TEST_ANGLE_2);
         assert.equal(heading, expected, 'right angle not what expected');
-        done();
       });
     });
-    it('should have isDown method', function (done) {
+    it('should have isDown method', function() {
       let TEST_DEFAULT_IS_DOWN = false,
         pen = factory.create(),
         flag = pen.isDown();
       assert.equal(flag, TEST_DEFAULT_IS_DOWN, 'default isDown method return not what expected');
-      done();
     });
-    it('should have down method', function (done) {
+    it('should have down method', function() {
       let pen = factory.create();
       pen.down();
       let flag = pen.isDown();
       assert.equal(flag, true, 'down method should cause isDown to be true');
-      done();
     });
-    it('should have up method', function (done) {
+    it('should have up method', function() {
       let pen = factory.create();
       pen.up();
       let flag = pen.isDown();
       assert.equal(flag, false, 'up method should cause isDown to be false');
-      done();
     });
-    context('forward method', function () {
-      it('should have forward method', function (done) {
+    describe('forward method', function () {
+      it('should have forward method', function() {
         let TEST_DISTANCE = 50,
           EXPECTED_PATH = [{ op: 'M', x: 0, y: (0 - TEST_DISTANCE) }],
           pen = factory.create();
         pen.forward(TEST_DISTANCE);
         let path = pen.path();
         assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
-        done();
       });
-      it('forward method should increment distance when pen up', function (done) {
+      it('forward method should increment distance when pen up', function() {
         let TEST_DISTANCE_1 = 50,
           TEST_DISTANCE_2 = 25,
           EXPECTED_PATH = [
@@ -430,9 +395,8 @@ describe('pen-turtle', function () {
           .forward(TEST_DISTANCE_2);
         let path = pen.path();
         assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
-        done();
       });
-      it('forward method should increment distance when pen down', function (done) {
+      it('forward method should increment distance when pen down', function() {
         let TEST_DISTANCE_1 = 50,
           TEST_DISTANCE_2 = 25,
           EXPECTED_PATH = [
@@ -446,11 +410,10 @@ describe('pen-turtle', function () {
           .forward(TEST_DISTANCE_2);
         let path = pen.path();
         assert.deepEqual(path, EXPECTED_PATH, 'path after forward not what expected');
-        done();
       });
     });
-    context('export method', function () {
-      it('should have export method', function (done) {
+    describe('export method', function () {
+      it('should have export method', function() {
         let TEST_SETTINGS = {
           x: 20,
           y: 30,
@@ -468,9 +431,8 @@ describe('pen-turtle', function () {
         let pen = factory.create(TEST_SETTINGS);
         let obj = pen.export();
         assert.deepEqual(obj, TEST_SETTINGS, 'export method return not what expected');
-        done();
       });
-      it('export values should reflect move', function (done) {
+      it('export values should reflect move', function() {
         let TEST_EXPECTED = {
           x: 0,
           y: -10,
@@ -495,10 +457,9 @@ describe('pen-turtle', function () {
           .turn(60);
         let obj = pen.export();
         assert.deepEqual(obj, TEST_EXPECTED, 'export method return not what expected');
-        done();
       });
     });
-    it('writeSVG should write svg for a multiple pens', done => {
+    it('writeSVG should write svg for a multiple pens', () => {
       let width = 1024,
         height = 1024,
         cx = width / 2,
@@ -629,9 +590,8 @@ describe('pen-turtle', function () {
         filename: "__tests__/output/write-test.svg"
       });
       // console.log("SVG: \n", svg);
-      done();
     });
-    it('writeSVG should write svg with square', done => {
+    it('writeSVG should write svg with square', () => {
       let width = 1024,
         height = 1024,
         cx = width / 2,
@@ -677,9 +637,8 @@ describe('pen-turtle', function () {
         height,
         filename: "__tests__/output/square.svg"
       });
-      done();
     });
-    it('writeSVG should write svg with pentago', done => {
+    it('writeSVG should write svg with pentago', () => {
       let width = 1024,
         height = 1024,
         cx = width / 2,
@@ -725,9 +684,8 @@ describe('pen-turtle', function () {
         height,
         filename: "__tests__/output/pentagon.svg"
       });
-      done();
     });
-    it('writeSVG should write svg with hexagon', done => {
+    it('writeSVG should write svg with hexagon', () => {
       let width = 1024,
         height = 1024,
         cx = width / 2,
@@ -773,9 +731,8 @@ describe('pen-turtle', function () {
         height,
         filename: "__tests__/output/hexagon.svg"
       });
-      done();
     });
-    it('writeSVG should write svg with hexagon no fill', done => {
+    it('writeSVG should write svg with hexagon no fill', () => {
       let width = 1024,
         height = 1024,
         cx = width / 2,
@@ -820,9 +777,8 @@ describe('pen-turtle', function () {
         height,
         filename: "__tests__/output/hexagon-no-fill.svg"
       });
-      done();
     });
-    it('writeSVG should write svg with brownian motion', done => {
+    it('writeSVG should write svg with brownian motion', () => {
       let width = 1024,
         height = 1024,
         cx = width / 2,
@@ -874,7 +830,6 @@ describe('pen-turtle', function () {
         height,
         filename: "__tests__/output/brownian.svg"
       });
-      done();
     });
   });
 });

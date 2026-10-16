@@ -6,10 +6,11 @@
 
 "use strict";
 
+const { describe, it, before, after, beforeEach, afterEach } = require('node:test');
 let Chance = require('chance');
 let chance = new Chance();
 
-let should = require('should'),
+let assert = require('node:assert/strict'),
     penFactory = require("@mitchallen/pen-v2"),
     modulePath = "../index-factory";
 
@@ -17,86 +18,74 @@ describe('module factory smoke test', () => {
 
     var _factory = null;
 
-    before(done => {
+    before(() => {
         // Call before all tests
         delete require.cache[require.resolve(modulePath)];
         _factory = require(modulePath);
-        done();
     });
 
-    after(done => {
+    after(() => {
         // Call after all tests
-        done();
     });
 
-    beforeEach(done => {
+    beforeEach(() => {
         // Call before each test
-        done();
     });
 
-    afterEach(done => {
+    afterEach(() => {
         // Call after eeach test
-        done();
     });
 
-    it('module should exist', done => {
-        should.exist(_factory);
-        done();
+    it('module should exist', () => {
+        assert.ok(_factory != null);
     })
 
-    it('create method with no spec should return null', done => {
+    it('create method with no spec should return null', () => {
         let obj = _factory.create();
-        should.not.exist(obj);
-        done();
+        assert.ok(obj == null);
     });
 
-    it('create method with spec should return object', done => {
+    it('create method with spec should return object', () => {
         let obj = _factory.create({});
-        should.exist(obj);
-        done();
+        assert.ok(obj != null);
     });
 
-    it('health method should return ok', done => {
+    it('health method should return ok', () => {
         let obj = _factory.create({});
-        should.exist(obj);
-        obj.health().should.eql("OK");
-        done();
+        assert.ok(obj != null);
+        assert.deepStrictEqual(obj.health(), "OK");
     });
 
-    it('package method should return the package name', done => {
+    it('package method should return the package name', () => {
         let obj = _factory.create({});
-        obj.package().should.eql("@mitchallen/pen-svg");
-        done();
+        assert.deepStrictEqual(obj.package(), "@mitchallen/pen-svg");
     });
 
-    it('getSVG with null options should return null', done => {
+    it('getSVG with null options should return null', () => {
         let obj = _factory.create({});
-        should.not.exist(obj.getSVG(null));
-        done();
+        assert.ok(obj.getSVG(null) == null);
     });
 
-    it('getSVG should skip pens with an empty path', done => {
+    it('getSVG should skip pens with an empty path', () => {
         let obj = _factory.create({});
         obj.addPen(penFactory.create({ color: 0xFF0000 }));
         let svg = obj.getSVG({});
-        svg.should.not.containEql('<path');
-        done();
+        assert.ok(!svg.includes('<path'));
     });
 
-    it('getSVG should ignore unknown transform keys', done => {
+    it('getSVG should ignore unknown transform keys', () => {
         let obj = _factory.create({});
         let pen = penFactory.create({ color: 0x00FF00 });
         pen.up().goto({ x: 1, y: 2 }).down().goto({ x: 3, y: 4 });
         obj.addPen(pen, { transform: { bogus: { x: 1 }, skewY: { angle: 5 } } });
         let svg = obj.getSVG({});
-        svg.should.containEql('transform="skewY(5)"');
-        svg.should.not.containEql('bogus');
-        done();
+        assert.ok(svg.includes('transform="skewY(5)"'));
+        assert.ok(!svg.includes('bogus'));
     });
 
-    it('getSVG should return svg for a pen', done => {
+    it('getSVG should return svg for a pen', () => {
         let obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
 
         let pen = penFactory.create({
             color: 0xFF0000,    // red pen
@@ -119,12 +108,11 @@ describe('module factory smoke test', () => {
 
         let svg = obj.getSVG({});
         // console.log("SVG: \n", svg);
-        done();
     });
 
-    it('getSVG should return svg for a multiple pens', done => {
+    it('getSVG should return svg for a multiple pens', () => {
         let obj = _factory.create({});
-        should.exist(obj);
+        assert.ok(obj != null);
 
         let pen1 = penFactory.create({
             color: 0xFF0000,    // red pen
@@ -155,14 +143,13 @@ describe('module factory smoke test', () => {
 
         let svg = obj.getSVG({});
         // console.log("SVG: \n", svg);
-        done();
     });
 
-    context('module factory smoke test', () => {
+    describe('module factory smoke test', () => {
 
-        it('writeSVG should write svg for a multiple pens', done => {
+        it('writeSVG should write svg for a multiple pens', () => {
             let obj = _factory.create({});
-            should.exist(obj);
+            assert.ok(obj != null);
 
             let pen1 = penFactory.create({
                 color: 0xFF0000,    // red pen
@@ -193,14 +180,13 @@ describe('module factory smoke test', () => {
 
             let svg = obj.writeSVG({ filename: "test/output/write-test.svg" });
             // console.log("SVG: \n", svg);
-            done();
         });
 
         // random
 
-        it('writeSVG should write random svg', done => {
+        it('writeSVG should write random svg', () => {
             let obj = _factory.create({});
-            should.exist(obj);
+            assert.ok(obj != null);
 
             let pen = penFactory.create({
                 color: 0xFF0000,    // red pen
@@ -271,12 +257,11 @@ describe('module factory smoke test', () => {
                 filename: "test/output/random-test.svg"
             });
             // console.log("SVG: \n", svg);
-            done();
         });
 
-        it('writeSVG should respect transform order', done => {
+        it('writeSVG should respect transform order', () => {
             let obj = _factory.create({});
-            should.exist(obj);
+            assert.ok(obj != null);
 
             let pen = penFactory.create({
                 color: 0xFF0000,    // red pen
@@ -485,7 +470,6 @@ describe('module factory smoke test', () => {
                 filename: "test/output/transform-test.svg"
             });
             // console.log("SVG: \n", svg);
-            done();
         });
 
     });
