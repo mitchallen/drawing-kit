@@ -8,3 +8,9 @@ npm-debug.log
 **/__tests__/output/*
 !**/__tests__/output/placeholder.txt
 coverage/
+
+# The examples install the published packages from GitHub Packages and are
+# not workspaces. A committed lockfile freezes an old release (tile-101 kept
+# svg-tile 0.12.4 and its undici alerts after 0.12.5 dropped cheerio), and
+# nothing updates it, so let `npm install` resolve the current versions.
+examples/**/package-lock.json
