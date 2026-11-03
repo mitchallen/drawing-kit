@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@mitchallen/svg-tile": "^0.12.4"
+    "@mitchallen/svg-tile": "^0.12.5"
   },
   "scripts": {
     "start": "node index.js",
