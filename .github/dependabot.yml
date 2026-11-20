@@ -6,6 +6,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 3  # release-age gate; security updates are exempt
     groups:
       dev-dependencies:
         dependency-type: development
@@ -15,6 +17,8 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    cooldown:
+      default-days: 3  # release-age gate; security updates are exempt
     groups:
       actions:
         patterns: ["*"]
